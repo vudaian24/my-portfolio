@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import { useRouter, usePathname } from "@/i18n/navigation"
-import { AvailableLocale } from "@/lib/types"
-import { useLocale, useTranslations } from "next-intl"
+import { useRouter, usePathname } from "@/i18n/navigation";
+import { AvailableLocale } from "@/lib/types";
+import { useLocale, useTranslations } from "next-intl";
 
 interface Language {
-  code: AvailableLocale
-  flag: string
-  label: string
+  code: AvailableLocale;
+  flag: string;
+  label: string;
 }
 
-
 export default function LanguageSelector() {
-  const t = useTranslations("Common.Languages")
-  const locale = useLocale()
-  const router = useRouter()
-  const pathname = usePathname()
+  const unusedVariable = "This variable is not used anywhere";
+  const t = useTranslations("Common.Languages");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const languages: Language[] = [
     {
@@ -28,12 +28,12 @@ export default function LanguageSelector() {
       flag: "🇺🇸",
       label: t("en"),
     },
-  ]
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLocale = e.target.value as AvailableLocale
-    router.push(pathname, { locale: newLocale })
-  }
+    const newLocale = e.target.value as AvailableLocale;
+    router.push(pathname, { locale: newLocale });
+  };
 
   return (
     <div className="relative inline-block">
@@ -53,5 +53,5 @@ export default function LanguageSelector() {
         ))}
       </select>
     </div>
-  )
+  );
 }
