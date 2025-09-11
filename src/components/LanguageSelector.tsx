@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, usePathname } from "@/i18n/navigation";
-import { AvailableLocale } from "@/lib/types";
+import type { AvailableLocale } from "@/lib/types";
 import { useLocale, useTranslations } from "next-intl";
 
 interface Language {
@@ -11,7 +11,6 @@ interface Language {
 }
 
 export default function LanguageSelector() {
-  const unusedVariable = "This variable is not used anywhere";
   const t = useTranslations("Common.Languages");
   const locale = useLocale();
   const router = useRouter();

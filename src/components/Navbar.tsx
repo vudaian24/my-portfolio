@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Linkedin, Menu, X } from "lucide-react"
-import { useTranslations } from "next-intl"
-import LanguageSelector from "./LanguageSelector"
-import { useState } from "react"
+import Link from "next/link";
+import { Linkedin, Menu, X } from "lucide-react";
+import { useTranslations } from "next-intl";
+import LanguageSelector from "./LanguageSelector";
+import { useState } from "react";
 
 const Navbar = () => {
-  const t = useTranslations("HomePage")
-  const [isOpen, setIsOpen] = useState(false)
+  const t = useTranslations("HomePage");
+  const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { href: "#home", label: t("nav.home") },
@@ -16,7 +16,7 @@ const Navbar = () => {
     { href: "#projects", label: t("nav.projects") },
     { href: "#contact", label: t("nav.contact") },
     { href: "#resume", label: t("nav.resume") },
-  ]
+  ];
 
   return (
     <nav className="w-full border-b border-border bg-foreground sticky top-0 z-50">
@@ -88,7 +88,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

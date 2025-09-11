@@ -14,23 +14,23 @@ const plexMono = IBM_Plex_Mono({
 
 interface MetadataParams {
   params: Promise<{
-    locale: string
-  }>
+    locale: string;
+  }>;
 }
 
 export async function generateMetadata({ params }: MetadataParams) {
   const { locale } = await params;
 
-  const t = await getTranslations({ locale, namespace: 'Common.Metadata' })
+  const t = await getTranslations({ locale, namespace: "Common.Metadata" });
 
   return {
-    title: t('title'),
-    description: t('description'),
+    title: t("title"),
+    description: t("description"),
     openGraph: {
-      title: t('title'),
-      description: t('description'),
+      title: t("title"),
+      description: t("description"),
     },
-  }
+  };
 }
 
 interface LayoutProps {

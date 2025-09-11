@@ -10,5 +10,5 @@ export default function Home() {
       <div id="a"></div>
       <Footer />
     </>
-  )
+  );
 }
