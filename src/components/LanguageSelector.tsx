@@ -1,7 +1,7 @@
 "use client"
 
-import { AvailableLocale } from "@/app/[locale]/layout"
 import { useRouter, usePathname } from "@/i18n/navigation"
+import { AvailableLocale } from "@/lib/types"
 import { useLocale, useTranslations } from "next-intl"
 
 interface Language {
