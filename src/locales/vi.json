@@ -1,0 +1,36 @@
+{
+  "Common": {
+    "Metadata": {
+      "title": "Đại An | Hồ sơ cá nhân",
+      "description": "Hồ sơ cá nhân của Đại An"
+    },
+    "Languages": {
+      "vi": "Tiếng Việt",
+      "en": "English"
+    }
+  },
+  "HomePage": {
+    "nav": {
+      "brand": "Đại An",
+      "home": "Trang chủ",
+      "about": "Giới thiệu",
+      "projects": "Dự án",
+      "contact": "Liên hệ",
+      "resume": "Sơ yếu lý lịch"
+    }
+  },
+  "footer": {
+    "brand": "Đại An",
+    "about": "Lập trình viên yêu thích xây dựng sản phẩm sáng tạo, tinh gọn và dễ sử dụng. Luôn học hỏi công nghệ mới để cải thiện trải nghiệm người dùng.",
+    "links": {
+      "title": "Liên kết",
+      "about": "Giới thiệu",
+      "projects": "Dự án",
+      "contact": "Liên hệ",
+      "resume": "Hồ sơ"
+    },
+    "socials": {
+      "title": "Kết nối với tôi"
+    }
+  }
+}

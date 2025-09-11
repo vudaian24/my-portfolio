@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* Light theme */
+:root {
+  /* Base */
+  --background: #ffffff;
+  --foreground: #1b1b1b;
+
+  /* Text */
+  --text-primary: #1b1b1b;
+  --text-secondary: #757575;
+  --text-muted: #9c9c9c;
+
+  /* Border / Divider */
+  --border: #d8d8d8;
+
+  /* Surfaces */
+  --surface: #f8f8f8;
+  --surface-alt: #fff6e9;
+
+  /* Accent colors */
+  --accent-green: #3f8e00;
+  --accent-green-light: #62ba1b;
+  --accent-blue: #000aff;
+  --accent-blue-light: #d0e6ff;
+  --accent-teal: #2ab090;
+  --accent-orange: #ffa217;
+
+  /* State */
+  --success: #62ba1b;
+  --warning: #ffa217;
+  --info: #2ab090;
+  --error: #000aff;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #080808;
+    --foreground: #1b1b1b;
+
+    --text-primary: #ededed;
+    --text-secondary: #9c9c9c;
+    --text-muted: #757575;
+
+    --border: #1b1b1b;
+
+    --surface: #1b1b1b;
+    --surface-alt: #0a0a0a;
+
+    --accent-green: #62ba1b;
+    --accent-green-light: #3f8e00;
+    --accent-blue: #d0e6ff;
+    --accent-blue-light: #000aff;
+    --accent-teal: #2ab090;
+    --accent-orange: #ffa217;
+
+    --success: #62ba1b;
+    --warning: #ffa217;
+    --info: #2ab090;
+    --error: #000aff;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+
+  --color-border: var(--border);
+
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: var(--background);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}

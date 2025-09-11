@@ -1,0 +1,36 @@
+{
+  "Common": {
+    "Metadata": {
+      "title": "Dai An | Portfolio",
+      "description": "Portfolio of Dai An"
+    },
+    "Languages": {
+      "vi": "Tiếng Việt",
+      "en": "English"
+    }
+  },
+  "HomePage": {
+    "nav": {
+      "brand": "Dai An",
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact",
+      "resume": "Resume"
+    }
+  },
+  "footer": {
+    "brand": "Dai An",
+    "about": "Developer passionate about building creative, simple, and user-friendly products. Always learning new technologies to improve user experience.",
+    "links": {
+      "title": "Links",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact",
+      "resume": "Resume"
+    },
+    "socials": {
+      "title": "Connect with me"
+    }
+  }
+}
