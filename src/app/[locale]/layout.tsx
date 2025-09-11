@@ -12,39 +12,39 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
 });
 
-export type AvailableLocale = 'en' | 'vi'
-
 interface MetadataParams {
-  params: {
-    locale: AvailableLocale
-  }
+  params: Promise<{
+    locale: string;
+  }>;
 }
 
 export async function generateMetadata({ params }: MetadataParams) {
-  const { locale } = await params
+  const { locale } = await params;
 
-  const t = await getTranslations({ locale, namespace: 'Common.Metadata' })
+  const t = await getTranslations({ locale, namespace: "Common.Metadata" });
 
   return {
-    title: t('title'),
-    description: t('description'),
+    title: t("title"),
+    description: t("description"),
     openGraph: {
-      title: t('title'),
-      description: t('description'),
+      title: t("title"),
+      description: t("description"),
     },
-  }
+  };
 }
-export default async function LocaleLayout({
-  params,
-  children,
-}: Readonly<{
-  params: { locale: string };
+
+interface LayoutProps {
+  params: Promise<{ locale: string }>;
   children: React.ReactNode;
-}>) {
+}
+
+export default async function LocaleLayout({ params, children }: LayoutProps) {
   const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body

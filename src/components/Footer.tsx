@@ -1,18 +1,34 @@
-"use client"
+"use client";
 
-import { Github, Linkedin } from "lucide-react"
-import { useTranslations } from "next-intl"
-import Link from "next/link"
+import { Github, Linkedin } from "lucide-react";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const Footer = () => {
-  const t = useTranslations("footer")
+  const t = useTranslations("footer");
 
   const links = [
-    { href: "#about", label: t("links.about"), hover: "hover:text-accent-green" },
-    { href: "#projects", label: t("links.projects"), hover: "hover:text-accent-blue" },
-    { href: "#contact", label: t("links.contact"), hover: "hover:text-accent-orange" },
-    { href: "#resume", label: t("links.resume"), hover: "hover:text-accent-teal" }
-  ]
+    {
+      href: "#about",
+      label: t("links.about"),
+      hover: "hover:text-accent-green",
+    },
+    {
+      href: "#projects",
+      label: t("links.projects"),
+      hover: "hover:text-accent-blue",
+    },
+    {
+      href: "#contact",
+      label: t("links.contact"),
+      hover: "hover:text-accent-orange",
+    },
+    {
+      href: "#resume",
+      label: t("links.resume"),
+      hover: "hover:text-accent-teal",
+    },
+  ];
 
   return (
     <footer className="bg-surface border-t border-border mt-16">
@@ -21,9 +37,7 @@ const Footer = () => {
           <h2 className="text-xl font-semibold text-primary mb-4">
             {t("brand")}
           </h2>
-          <p className="text-secondary text-sm leading-relaxed">
-            {t("about")}
-          </p>
+          <p className="text-secondary text-sm leading-relaxed">{t("about")}</p>
         </div>
 
         <div>
@@ -67,7 +81,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
