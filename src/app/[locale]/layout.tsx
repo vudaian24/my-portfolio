@@ -47,6 +47,12 @@ export default async function LocaleLayout({ params, children }: LayoutProps) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="LgXbQ8fD2jVE3_t2QErjCrFi6SxC8NEYaRC-jGwXLgU"
+        />
+      </head>
       <body
         className={cn(`${plexMono.variable} antialiased`)}
         suppressHydrationWarning
