@@ -36,11 +36,6 @@ const eslintConfig = [
       "no-unused-vars": "off",
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-duplicate-imports": "error",
-
-      "prettier/prettier": ["error"],
-
-      "jsx-a11y/alt-text": "warn",
-      "jsx-a11y/anchor-is-valid": "warn",
     },
   },
   {

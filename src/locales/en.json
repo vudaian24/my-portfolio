@@ -7,9 +7,7 @@
     "Languages": {
       "vi": "Tiếng Việt",
       "en": "English"
-    }
-  },
-  "HomePage": {
+    },
     "nav": {
       "brand": "Dai An",
       "home": "Home",
@@ -19,18 +17,49 @@
       "resume": "Resume"
     }
   },
+  "HomePage": {
+    "HeroSection": {
+      "title": "Beautiful Animated Navbar",
+      "description": "A modern navbar with smooth animations, glass morphism effect and perfect responsive design."
+    },
+    "AboutSection": {
+      "title": "About Section",
+      "description": "Scroll down to see the navbar animation when scrolling."
+    },
+    "ProjectsSection": {
+      "title": "Projects Section",
+      "description": "Hover over nav items to see animations.",
+      "project": "Project {number}",
+      "projectDescription": "A short description for project {number}."
+    },
+    "ContactSection": {
+      "title": "Contact Section",
+      "description": "Mobile menu comes with smooth slide animation.",
+      "form": {
+        "name": "Your name",
+        "email": "Your email",
+        "message": "Your message",
+        "button": "Send Message"
+      }
+    },
+    "ResumeSection": {
+      "title": "Resume Section",
+      "description": "Navbar is built purely with Tailwind CSS 4.",
+      "button": "Download Resume"
+    }
+  },
   "footer": {
     "brand": "Dai An",
-    "about": "Developer passionate about building creative, simple, and user-friendly products. Always learning new technologies to improve user experience.",
+    "about": "Full-stack developer passionate about creating beautiful and functional web applications.",
     "links": {
-      "title": "Links",
+      "title": "Quick Links",
       "about": "About",
       "projects": "Projects",
       "contact": "Contact",
       "resume": "Resume"
     },
     "socials": {
-      "title": "Connect with me"
+      "title": "Connect"
     }
   }
 }

@@ -5,6 +5,9 @@ import { cn } from "@/lib/utils";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -58,7 +61,12 @@ export default async function LocaleLayout({ params, children }: LayoutProps) {
         suppressHydrationWarning
       >
         <NextIntlClientProvider locale={locale}>
-          {children}
+          <div className="min-h-screen bg-gradient-to-br from-background via-background to-surface/20">
+            <Navbar />
+            <main className="pt-20">{children}</main>
+            <Footer />
+            <BackToTopButton />
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>
