@@ -7,9 +7,7 @@
     "Languages": {
       "vi": "Tiếng Việt",
       "en": "English"
-    }
-  },
-  "HomePage": {
+    },
     "nav": {
       "brand": "Đại An",
       "home": "Trang chủ",
@@ -19,18 +17,49 @@
       "resume": "Sơ yếu lý lịch"
     }
   },
+  "HomePage": {
+    "HeroSection": {
+      "title": "Navbar hoạt hình tuyệt đẹp",
+      "description": "Một navbar hiện đại với animation mượt mà, hiệu ứng glass morphism và responsive hoàn hảo."
+    },
+    "AboutSection": {
+      "title": "Giới thiệu",
+      "description": "Kéo xuống để xem animation của navbar khi cuộn."
+    },
+    "ProjectsSection": {
+      "title": "Dự án",
+      "description": "Hover vào các mục navbar để xem animation.",
+      "project": "Dự án {number}",
+      "projectDescription": "Mô tả ngắn gọn về dự án {number}."
+    },
+    "ContactSection": {
+      "title": "Liên hệ",
+      "description": "Menu mobile có hiệu ứng slide mượt mà.",
+      "form": {
+        "name": "Tên của bạn",
+        "email": "Email của bạn",
+        "message": "Lời nhắn",
+        "button": "Gửi tin nhắn"
+      }
+    },
+    "ResumeSection": {
+      "title": "Hồ sơ",
+      "description": "Navbar được xây dựng hoàn toàn với Tailwind CSS 4.",
+      "button": "Tải CV"
+    }
+  },
   "footer": {
-    "brand": "Đại An",
-    "about": "Lập trình viên yêu thích xây dựng sản phẩm sáng tạo, tinh gọn và dễ sử dụng. Luôn học hỏi công nghệ mới để cải thiện trải nghiệm người dùng.",
+    "brand": "Dai An",
+    "about": "Lập trình viên full-stack đam mê tạo ra những ứng dụng web đẹp và hữu ích.",
     "links": {
-      "title": "Liên kết",
-      "about": "Giới thiệu",
-      "projects": "Dự án",
-      "contact": "Liên hệ",
-      "resume": "Hồ sơ"
+      "title": "Liên Kết",
+      "about": "Giới Thiệu",
+      "projects": "Dự Án",
+      "contact": "Liên Hệ",
+      "resume": "Hồ Sơ"
     },
     "socials": {
-      "title": "Kết nối với tôi"
+      "title": "Kết Nối"
     }
   }
 }

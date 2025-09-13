@@ -1,14 +1,17 @@
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import AboutSection from "@/components/sections/AboutSection";
+import ContactSection from "@/components/sections/ContactSection";
+import HeroSection from "@/components/sections/HeroSection";
+import ProjectsSection from "@/components/sections/ProjectsSection";
+import ResumeSection from "@/components/sections/ResumeSection";
 
 export default function Home() {
-  // const t = useTranslations('HomePage');
   return (
-    <>
-      <Navbar />
-      <div className="h-500"></div>
-      <div id="a"></div>
-      <Footer />
-    </>
+    <div>
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection />
+      <ContactSection />
+      <ResumeSection />
+    </div>
   );
 }
