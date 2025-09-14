@@ -11,6 +11,7 @@ import {
   FileText,
   Github,
   Linkedin,
+  PhoneCall,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -45,6 +46,11 @@ const Navbar = () => {
       icon: Linkedin,
       label: "LinkedIn",
     },
+    {
+      href: "https://zalo.me/0398270233",
+      icon: PhoneCall,
+      label: "Zalo",
+    },
   ];
 
   return (
@@ -54,28 +60,28 @@ const Navbar = () => {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
           scrolled
             ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5"
-            : "bg-transparent",
+            : "bg-background/80 backdrop-blur-xl",
         )}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link
               href="/"
-              className="group relative flex items-center space-x-2 text-xl font-bold tracking-tight"
+              className="group relative flex items-center space-x-2 text-2xl md:text-3xl font-extrabold tracking-tight"
             >
               <div className="relative">
                 <div
-                  className="absolute inset-0 rounded-lg blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+                  className="absolute inset-0 rounded-lg blur-lg opacity-0 group-hover:opacity-70 transition duration-500"
                   style={{
                     background:
-                      "linear-gradient(to right, var(--accent-green), var(--accent-teal))",
+                      "linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7)",
                   }}
                 />
                 <div
-                  className="relative font-bold"
+                  className="relative transition-transform duration-500 group-hover:scale-110"
                   style={{
                     background:
-                      "linear-gradient(to right, var(--accent-green), var(--accent-teal))",
+                      "linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -85,7 +91,6 @@ const Navbar = () => {
                 </div>
               </div>
             </Link>
-
             <div className="hidden lg:flex items-center space-x-1">
               {navItems.map((item, index) => (
                 <Link
@@ -105,7 +110,7 @@ const Navbar = () => {
                     className="absolute inset-0 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out opacity-10"
                     style={{
                       background:
-                        "linear-gradient(to right, var(--accent-green), var(--accent-teal))",
+                        "linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7)",
                     }}
                   />
                   <div className="absolute inset-0 bg-surface/50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out delay-75" />
@@ -113,7 +118,6 @@ const Navbar = () => {
               ))}
               <LanguageSelector />
             </div>
-
             <div className="flex items-center space-x-4">
               <div className="hidden lg:flex items-center space-x-2">
                 {socialLinks.map((social, index) => (
@@ -131,11 +135,12 @@ const Navbar = () => {
                       size={18}
                       className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
                     />
+                    <span className="sr-only">Icon</span>
                     <div
                       className="absolute inset-0 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 opacity-20"
                       style={{
                         background:
-                          "linear-gradient(to right, var(--accent-orange), var(--accent-teal))",
+                          "linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7)",
                       }}
                     />
                   </Link>

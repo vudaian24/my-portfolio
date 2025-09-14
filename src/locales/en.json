@@ -14,17 +14,31 @@
       "about": "About",
       "projects": "Projects",
       "contact": "Contact",
-      "resume": "Resume"
+      "resume": "CV"
     }
   },
   "HomePage": {
     "HeroSection": {
-      "title": "Beautiful Animated Navbar",
-      "description": "A modern navbar with smooth animations, glass morphism effect and perfect responsive design."
+      "title": "Crafting Digital Experiences",
+      "description": "I design and build modern web applications with a focus on performance, scalability, and delightful user experiences.",
+      "ctaProjects": "View Projects",
+      "ctaContact": "Contact Me",
+      "marqueeText": "✨ Creative Developer • 🚀 Building Experiences • 💻 Full-stack Passion ✨ Creative Developer • 🚀 Building Experiences • 💻 Full-stack Passion"
     },
     "AboutSection": {
-      "title": "About Section",
-      "description": "Scroll down to see the navbar animation when scrolling."
+      "title": "About Me",
+      "description": "Hello! I'm An, a software engineer specializing in web development with React, Next.js, TypeScript, and Tailwind CSS. I'm passionate about building high-quality products and learning new technologies.",
+      "cta": "View my projects",
+      "skillsTitle": "Tech Skills",
+      "skills": {
+        "react": "React",
+        "nextjs": "Next.js",
+        "typescript": "TypeScript",
+        "node": "Node.js",
+        "tailwind": "Tailwind CSS",
+        "framer": "Framer Motion",
+        "git": "Git & GitHub"
+      }
     },
     "ProjectsSection": {
       "title": "Projects Section",
@@ -33,19 +47,30 @@
       "projectDescription": "A short description for project {number}."
     },
     "ContactSection": {
-      "title": "Contact Section",
-      "description": "Mobile menu comes with smooth slide animation.",
+      "title": "Get in touch",
+      "description": "Have a project or just want to say hi? Send me a message — I usually reply within 48 hours.",
       "form": {
         "name": "Your name",
         "email": "Your email",
         "message": "Your message",
         "button": "Send Message"
+      },
+      "status": {
+        "sending": "Sending...",
+        "success": "Message sent — thank you!",
+        "error": "Something went wrong. Please try again later."
+      },
+      "note": "I respect your privacy — your information will only be used to respond to your message.",
+      "errors": {
+        "nameMin": "Please enter at least 2 characters.",
+        "emailInvalid": "Please enter a valid email address.",
+        "messageMin": "Please enter at least 10 characters."
       }
     },
     "ResumeSection": {
-      "title": "Resume Section",
-      "description": "Navbar is built purely with Tailwind CSS 4.",
-      "button": "Download Resume"
+      "title": "CV",
+      "description": "Check my CV to learn more about my professional experience and skills.",
+      "button": "View CV"
     }
   },
   "footer": {
@@ -56,7 +81,7 @@
       "about": "About",
       "projects": "Projects",
       "contact": "Contact",
-      "resume": "Resume"
+      "resume": "CV"
     },
     "socials": {
       "title": "Connect"

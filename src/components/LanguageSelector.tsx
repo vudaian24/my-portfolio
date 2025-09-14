@@ -33,7 +33,7 @@ export default function LanguageSelector() {
   const currentLanguage = languages.find((lang) => lang.code === locale);
 
   const handleLanguageChange = (newLocale: AvailableLocale) => {
-    router.push(pathname, { locale: newLocale });
+    router.push(pathname, { locale: newLocale, scroll: false });
   };
 
   return (
@@ -55,8 +55,7 @@ export default function LanguageSelector() {
         <div
           className="absolute inset-0 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out opacity-10"
           style={{
-            background:
-              "linear-gradient(to right, var(--accent-green), var(--accent-teal))",
+            background: "linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7)",
           }}
         />
         <div className="absolute inset-0 bg-surface/50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out delay-75" />
@@ -75,7 +74,7 @@ export default function LanguageSelector() {
               key={language.code}
               onClick={() => handleLanguageChange(language.code)}
               className={`w-full flex items-center gap-3 cursor-pointer px-3 py-2.5 text-sm rounded-lg transition-all duration-200 
-                hover:bg-[linear-gradient(to_right,rgba(63,142,0,0.2),rgba(42,176,144,0.2))] 
+                hover:bg-[linear-gradient(90deg,#06b6d4,#3b82f6,#a855f7)] 
                 ${
                   language.code === locale
                     ? "bg-surface/30 text-foreground font-medium"
