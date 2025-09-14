@@ -35,7 +35,6 @@ const eslintConfig = [
 
       "no-unused-vars": "off",
       "no-console": ["warn", { allow: ["warn", "error"] }],
-      "no-duplicate-imports": "error",
     },
   },
   {

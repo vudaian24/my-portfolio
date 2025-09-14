@@ -14,17 +14,31 @@
       "about": "Giới thiệu",
       "projects": "Dự án",
       "contact": "Liên hệ",
-      "resume": "Sơ yếu lý lịch"
+      "resume": "CV"
     }
   },
   "HomePage": {
     "HeroSection": {
-      "title": "Navbar hoạt hình tuyệt đẹp",
-      "description": "Một navbar hiện đại với animation mượt mà, hiệu ứng glass morphism và responsive hoàn hảo."
+      "title": "Kiến tạo Trải nghiệm Số",
+      "description": "Tôi thiết kế và phát triển các ứng dụng web hiện đại với trọng tâm là hiệu năng, khả năng mở rộng và trải nghiệm người dùng tuyệt vời.",
+      "ctaProjects": "Xem Dự Án",
+      "ctaContact": "Liên Hệ",
+      "marqueeText": "✨ Lập trình viên sáng tạo • 🚀 Xây dựng trải nghiệm • 💻 Đam mê Full-stack ✨ Lập trình viên sáng tạo • 🚀 Xây dựng trải nghiệm • 💻 Đam mê Full-stack"
     },
     "AboutSection": {
-      "title": "Giới thiệu",
-      "description": "Kéo xuống để xem animation của navbar khi cuộn."
+      "title": "Giới thiệu về tôi",
+      "description": "Xin chào! Mình là An, một kỹ sư phần mềm chuyên về phát triển web với React, Next.js, TypeScript và Tailwind CSS. Mình đam mê xây dựng các sản phẩm chất lượng cao và học hỏi công nghệ mới.",
+      "cta": "Xem dự án của tôi",
+      "skillsTitle": "Kỹ năng công nghệ",
+      "skills": {
+        "react": "React",
+        "nextjs": "Next.js",
+        "typescript": "TypeScript",
+        "node": "Node.js",
+        "tailwind": "Tailwind CSS",
+        "framer": "Framer Motion",
+        "git": "Git & GitHub"
+      }
     },
     "ProjectsSection": {
       "title": "Dự án",
@@ -34,18 +48,29 @@
     },
     "ContactSection": {
       "title": "Liên hệ",
-      "description": "Menu mobile có hiệu ứng slide mượt mà.",
+      "description": "Có dự án hay muốn chào hỏi? Gửi tin nhắn cho tôi — tôi thường trả lời trong vòng 48 giờ.",
       "form": {
         "name": "Tên của bạn",
         "email": "Email của bạn",
         "message": "Lời nhắn",
-        "button": "Gửi tin nhắn"
+        "button": "Gửi"
+      },
+      "status": {
+        "sending": "Đang gửi...",
+        "success": "Gửi thành công — cảm ơn bạn!",
+        "error": "Có lỗi xảy ra. Vui lòng thử lại sau."
+      },
+      "note": "Tôi tôn trọng quyền riêng tư — thông tin chỉ được dùng để trả lời bạn.",
+      "errors": {
+        "nameMin": "Vui lòng nhập ít nhất 2 ký tự.",
+        "emailInvalid": "Vui lòng nhập địa chỉ email hợp lệ.",
+        "messageMin": "Vui lòng nhập ít nhất 10 ký tự."
       }
     },
     "ResumeSection": {
-      "title": "Hồ sơ",
-      "description": "Navbar được xây dựng hoàn toàn với Tailwind CSS 4.",
-      "button": "Tải CV"
+      "title": "CV",
+      "description": "Xem CV của tôi để tìm hiểu thêm về kinh nghiệm và kỹ năng chuyên môn của tôi.",
+      "button": "Xem CV"
     }
   },
   "footer": {
@@ -56,7 +81,7 @@
       "about": "Giới Thiệu",
       "projects": "Dự Án",
       "contact": "Liên Hệ",
-      "resume": "Hồ Sơ"
+      "resume": "CV"
     },
     "socials": {
       "title": "Kết Nối"

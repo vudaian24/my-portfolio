@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, PhoneCall } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -84,6 +84,7 @@ const Footer = () => {
                   size={20}
                   className="group-hover:rotate-12 transition-transform duration-300"
                 />
+                <span className="sr-only">Icon</span>
               </Link>
               <Link
                 href="https://www.linkedin.com/in/v%C5%A9-%C4%91%E1%BA%A1i-an-75110137b/"
@@ -94,12 +95,24 @@ const Footer = () => {
                   size={20}
                   className="group-hover:rotate-12 transition-transform duration-300"
                 />
+                <span className="sr-only">Icon</span>
+              </Link>
+              <Link
+                href="https://zalo.me/0398270233"
+                target="_blank"
+                className="group p-3 rounded-xl bg-surface/50 border border-border/50 text-text-secondary hover:text-accent-green hover:border-accent-green/30 hover:bg-accent-green/5 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+              >
+                <PhoneCall
+                  size={20}
+                  className="group-hover:rotate-12 transition-transform duration-300"
+                />
+                <span className="sr-only">Icon</span>
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-border/30 flex flex-col justify-between items-center gap-4">
           <p className="text-text-secondary text-sm">© 2025 {t("brand")}</p>
         </div>
       </div>
