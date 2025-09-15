@@ -2,13 +2,15 @@
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings=0",
-    "type-check": "tsc --noEmit",
-    "postinstall": "husky install"
+    "type-check": "tsc --noEmit --pretty",
+    "postinstall": "husky install",
+    "payload:types": "payload generate:types"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -18,14 +20,25 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
+    "@payloadcms/db-mongodb": "3.55.1",
+    "@payloadcms/next": "3.55.1",
+    "@payloadcms/payload-cloud": "3.55.1",
+    "@payloadcms/richtext-lexical": "3.55.1",
+    "@payloadcms/storage-s3": "^3.55.1",
+    "@payloadcms/ui": "3.55.1",
     "clsx": "^2.1.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "16.4.7",
     "framer-motion": "^12.23.12",
+    "graphql": "^16.8.1",
     "lucide-react": "^0.542.0",
     "next": "15.5.2",
     "next-intl": "^4.3.5",
+    "payload": "3.55.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.62.0",
+    "sharp": "^0.34.2",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.9",
