@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings=0",
     "type-check": "tsc --noEmit --pretty",
-    "postinstall": "husky install",
+    "postinstall": "husky install && npx sharp install",
     "payload:types": "payload generate:types"
   },
   "lint-staged": {
