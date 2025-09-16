@@ -9,8 +9,8 @@
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings=0",
     "type-check": "tsc --noEmit --pretty",
-    "postinstall": "npx --yes sharp install",
-    "prepare": "husky install",
+    "postinstall": "sharp install; husky install || true",
+    "husky:install": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && husky install || true",
     "payload:types": "payload generate:types"
   },
   "lint-staged": {
