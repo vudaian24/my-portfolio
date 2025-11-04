@@ -1,44 +1,47 @@
-# -------- Base image --------
-FROM node:20-alpine AS base
+# ===========================
+# 1️⃣ Build stage
+# ===========================
+FROM node:20-alpine AS builder
 
-# -------- Install dependencies --------
-FROM base AS deps
+# Cài đặt dependency cơ bản (libc6-compat cho Next.js)
 RUN apk add --no-cache libc6-compat
+
+# Tạo thư mục làm việc
 WORKDIR /app
 
-COPY package.json yarn.lock* ./
-RUN yarn install --frozen-lockfile
+# Copy các file cần thiết để cài dependencies
+COPY package.json yarn.lock ./
 
-# -------- Build stage --------
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+# Cài đặt dependencies, bỏ qua script cài đặt không cần thiết (nhanh hơn)
+RUN yarn install --frozen-lockfile --ignore-scripts
+
+# Copy toàn bộ mã nguồn
 COPY . .
 
-# Build the Next.js app
+# Tắt telemetry của Next.js
+RUN yarn next telemetry disable
+
+# Build ở chế độ production với output standalone
 RUN yarn build
 
-# -------- Production runner --------
-FROM base AS runner
+# ===========================
+# 2️⃣ Runtime stage
+# ===========================
+FROM node:20-alpine AS runner
+
 WORKDIR /app
 
-# ✅ Dùng cú pháp ENV key=value
 ENV NODE_ENV=production
 ENV PORT=3000
-ENV HOSTNAME=0.0.0.0
 
-# Tạo user không root
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
-
-# Copy các file cần thiết
+# Copy cần thiết từ build stage
 COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/src/locales ./src/locales
 
-USER nextjs
+# Expose port cho container
+EXPOSE ${PORT}
 
-EXPOSE 3000
-
-# ✅ Entry point đúng cho standalone Next.js build
+# Chạy ứng dụng
 CMD ["node", "server.js"]
