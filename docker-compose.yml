@@ -1,7 +1,7 @@
 services:
   portfolio_app:
     container_name: portfolio_app_container
-    image: anvd/my-portfolio:latest
+    image: ${DOCKER_HUB_USERNAME}/my-portfolio:${IMAGE_TAG:-latest}
     restart: always
     expose:
       - "3000"
