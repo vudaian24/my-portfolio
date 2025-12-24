@@ -48,12 +48,14 @@ jobs:
           envs: IMAGE_TAG
           timeout: 60s
           command_timeout: 20m
-        env:
-          IMAGE_TAG: ${{ github.sha }}
           script: |
+            set -e
             cd ~/my-portfolio
             export IMAGE_TAG="${IMAGE_TAG}"
             docker compose pull
             docker compose up -d
             docker images "${{ secrets.DOCKER_HUB_USERNAME }}/my-portfolio" --format "{{.ID}} {{.Tag}}" | \
               grep -v "latest" | grep -v "${{ github.sha }}" | awk '{print $1}' | xargs -r docker rmi -f || true
+
+        env:
+          IMAGE_TAG: ${{ github.sha }}
