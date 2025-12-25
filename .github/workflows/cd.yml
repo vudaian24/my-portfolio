@@ -66,6 +66,7 @@ jobs:
             set -e
             cd ~/my-portfolio
             export IMAGE_TAG="${IMAGE_TAG}"
+            export DOCKER_HUB_USERNAME="${{ secrets.DOCKER_HUB_USERNAME }}"
             
             echo "--- Pulling latest images ---"
             docker compose pull
