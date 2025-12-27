@@ -71,6 +71,21 @@
       "title": "CV",
       "description": "Check my CV to learn more about my professional experience and skills.",
       "button": "View CV"
+    },
+    "Projects": {
+      "title": "Projects",
+      "description": "Here are some featured projects, hover over them to see the effects",
+      "viewDetail": "View Details →",
+      "items": {
+        "portfolio": {
+          "title": "Portfolio Website",
+          "description": "A personal website to showcase projects and programming skills."
+        },
+        "taskApp": {
+          "title": "Task Management App",
+          "description": "A task management application featuring real-time updates and notifications."
+        }
+      }
     }
   },
   "footer": {

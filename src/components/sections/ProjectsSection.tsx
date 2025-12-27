@@ -2,22 +2,11 @@
 
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function ProjectsSection() {
-  const projects = [
-    {
-      title: "Portfolio Website",
-      description:
-        "Một website cá nhân để showcase các dự án và kỹ năng lập trình.",
-      link: "#",
-    },
-    {
-      title: "Task Management App",
-      description:
-        "Ứng dụng quản lý công việc với realtime updates và notifications.",
-      link: "#",
-    },
-  ];
+  const t = useTranslations("HomePage.Projects");
+  const projectKeys = ["portfolio", "taskApp"] as const;
 
   const cardVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
@@ -38,9 +27,9 @@ export default function ProjectsSection() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-accent-green to-accent-teal bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-extrabold mb-4 bg-linear-to-r from-accent-green to-accent-teal bg-clip-text text-transparent"
         >
-          Projects
+          {t("title")}
         </motion.h2>
 
         <motion.p
@@ -49,14 +38,14 @@ export default function ProjectsSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-muted-foreground text-lg"
         >
-          Dưới đây là một số dự án nổi bật, di chuột vào để xem hiệu ứng
+          {t("description")}
         </motion.p>
 
         <div className="grid md:grid-cols-2 gap-8 mt-8">
-          {projects.map((project, index) => (
+          {projectKeys.map((project, index) => (
             <motion.a
               key={index}
-              href={project.link}
+              href={'#'}
               className="group relative block p-6 rounded-xl border border-border/40 bg-surface shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
               custom={index}
               initial="hidden"
@@ -64,15 +53,15 @@ export default function ProjectsSection() {
               viewport={{ once: true, amount: 0.2 }}
               variants={cardVariants}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-accent-green/20 to-accent-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-accent-green/20 to-accent-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
               <h3 className="relative text-2xl font-semibold mb-2 text-foreground group-hover:text-accent-green transition-colors duration-300">
-                {project.title}
+                {t(`items.${project}.title`)}
               </h3>
               <p className="relative text-sm text-muted-foreground">
-                {project.description}
+                {t(`items.${project}.description`)}
               </p>
               <span className="absolute bottom-4 right-4 text-accent-teal text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Xem chi tiết →
+                {t("viewDetail")}
               </span>
             </motion.a>
           ))}

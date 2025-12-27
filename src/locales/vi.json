@@ -71,6 +71,21 @@
       "title": "CV",
       "description": "Xem CV của tôi để tìm hiểu thêm về kinh nghiệm và kỹ năng chuyên môn của tôi.",
       "button": "Xem CV"
+    },
+    "Projects": {
+      "title": "Dự án",
+      "description": "Dưới đây là một số dự án nổi bật, di chuột vào để xem hiệu ứng",
+      "viewDetail": "Xem chi tiết →",
+      "items": {
+        "portfolio": {
+          "title": "Portfolio Website",
+          "description": "Một website cá nhân để showcase các dự án và kỹ năng lập trình."
+        },
+        "taskApp": {
+          "title": "Task Management App",
+          "description": "Ứng dụng quản lý công việc với realtime updates và notifications."
+        }
+      }
     }
   },
   "footer": {
