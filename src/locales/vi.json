@@ -53,19 +53,19 @@
         "name": "Tên của bạn",
         "email": "Email của bạn",
         "message": "Lời nhắn",
-        "button": "Gửi"
+        "button": "Gửi tin nhắn"
       },
       "status": {
         "sending": "Đang gửi...",
         "success": "Gửi thành công — cảm ơn bạn!",
         "error": "Có lỗi xảy ra. Vui lòng thử lại sau."
       },
-      "note": "Tôi tôn trọng quyền riêng tư — thông tin chỉ được dùng để trả lời bạn.",
       "errors": {
         "nameMin": "Vui lòng nhập ít nhất 2 ký tự.",
         "emailInvalid": "Vui lòng nhập địa chỉ email hợp lệ.",
         "messageMin": "Vui lòng nhập ít nhất 10 ký tự."
-      }
+      },
+      "note": "Tôi tôn trọng quyền riêng tư — thông tin chỉ được dùng để trả lời bạn."
     },
     "ResumeSection": {
       "title": "CV",

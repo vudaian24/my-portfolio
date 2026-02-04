@@ -9,6 +9,7 @@ export default function middleware(request: NextRequest) {
 
   if (
     pathname.startsWith("/api") ||
+    pathname.startsWith("/web-api") ||
     pathname.startsWith("/_next") ||
     pathname.startsWith("/admin") ||
     pathname.includes(".")
@@ -20,5 +21,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|admin|.*\\..*).*)"],
+  matcher: ["/((?!api|web-api|_next|admin|.*\\..*).*)"],
 };
