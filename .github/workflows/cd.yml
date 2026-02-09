@@ -36,45 +36,45 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Config Files
-        uses: actions/checkout@v4
+  # deploy:
+  #   needs: build-and-push
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Config Files
+  #       uses: actions/checkout@v4
 
-      - name: Copy files to EC2
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          source: "docker-compose.yml,nginx/default.conf"
-          target: "~/my-portfolio"
-          strip_components: 0
-          
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.2.4
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          envs: IMAGE_TAG
-          timeout: 120s
-          command_timeout: 20m
-          script: |
-            set -e
-            cd ~/my-portfolio
-            export IMAGE_TAG="${IMAGE_TAG}"
-            export DOCKER_HUB_USERNAME="${{ secrets.DOCKER_HUB_USERNAME }}"
-            
-            echo "--- Pulling latest images ---"
-            docker compose pull
-            
-            echo "--- Restarting containers ---"
-            docker compose up -d
+  #     - name: Copy files to EC2
+  #       uses: appleboy/scp-action@v0.1.7
+  #       with:
+  #         host: ${{ secrets.EC2_HOST }}
+  #         username: ${{ secrets.EC2_USERNAME }}
+  #         key: ${{ secrets.EC2_SSH_KEY }}
+  #         source: "docker-compose.yml,nginx/default.conf"
+  #         target: "~/my-portfolio"
+  #         strip_components: 0
 
-            echo "--- Cleaning up old images ---"
-            docker image prune -f
-        env:
-          IMAGE_TAG: ${{ github.sha }}
+  #     - name: Deploy via SSH
+  #       uses: appleboy/ssh-action@v1.2.4
+  #       with:
+  #         host: ${{ secrets.EC2_HOST }}
+  #         username: ${{ secrets.EC2_USERNAME }}
+  #         key: ${{ secrets.EC2_SSH_KEY }}
+  #         envs: IMAGE_TAG
+  #         timeout: 120s
+  #         command_timeout: 20m
+  #         script: |
+  #           set -e
+  #           cd ~/my-portfolio
+  #           export IMAGE_TAG="${IMAGE_TAG}"
+  #           export DOCKER_HUB_USERNAME="${{ secrets.DOCKER_HUB_USERNAME }}"
+
+  #           echo "--- Pulling latest images ---"
+  #           docker compose pull
+
+  #           echo "--- Restarting containers ---"
+  #           docker compose up -d
+
+  #           echo "--- Cleaning up old images ---"
+  #           docker image prune -f
+  #       env:
+  #         IMAGE_TAG: ${{ github.sha }}
