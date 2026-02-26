@@ -37,7 +37,7 @@ jobs:
 
   deploy:
     needs: build-and-push
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -58,19 +58,16 @@ jobs:
           host: ${{ secrets.WEB_SERVER_HOST }}
           username: ${{ secrets.WEB_SERVER_USERNAME }}
           key: ${{ secrets.WEB_SERVER_SSH_KEY }}
-          envs: IMAGE_TAG
           timeout: 120s
           command_timeout: 20m
           script: |
             set -e
             cd ~/my-portfolio
-            export IMAGE_TAG="${IMAGE_TAG}"
             export DOCKER_HUB_USERNAME="${{ secrets.DOCKER_HUB_USERNAME }}"
+            export IMAGE_TAG="${{ github.sha }}"
             echo "--- Pulling latest images ---"
             docker compose pull
             echo "--- Restarting containers ---"
             docker compose up -d
             echo "--- Cleaning up old images ---"
             docker image prune -f
-        env:
-          IMAGE_TAG: ${{ github.sha }}
