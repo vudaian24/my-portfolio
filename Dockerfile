@@ -1,6 +1,5 @@
 # Stage 1: Install dependencies
 FROM node:20-alpine AS deps
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile --production=false
@@ -10,12 +9,12 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN yarn build
 
 # Stage 3: Runner
 FROM node:20-alpine AS runner
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 ENV NODE_ENV=production \
@@ -32,7 +31,9 @@ COPY --from=builder --chown=portfolio_user:portfolio_group /app/.next/static ./.
 COPY --from=builder --chown=portfolio_user:portfolio_group /app/src/locales ./src/locales
 
 USER portfolio_user
-
 EXPOSE 3000
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD wget -qO- http://localhost:3000 || exit 1
 
 CMD ["node", "server.js"]
