@@ -21,3 +21,15 @@ docker-compose.yml
 .dockerignore
 .husky
 .vscode
+coverage
+.nyc_output
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+__tests__
+cypress
+playwright
+.eslintrc*
+.prettierrc*
+jest.config*

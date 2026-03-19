@@ -35,39 +35,39 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+  # deploy:
+  #   needs: build-and-push
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v4
 
-      - name: Copy files to web-server
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.WEB_SERVER_HOST }}
-          username: ${{ secrets.WEB_SERVER_USERNAME }}
-          key: ${{ secrets.WEB_SERVER_SSH_KEY }}
-          source: "docker-compose.yml,nginx/default.conf"
-          target: "~/my-portfolio"
-          strip_components: 0
+  #     - name: Copy files to web-server
+  #       uses: appleboy/scp-action@v0.1.7
+  #       with:
+  #         host: ${{ secrets.WEB_SERVER_HOST }}
+  #         username: ${{ secrets.WEB_SERVER_USERNAME }}
+  #         key: ${{ secrets.WEB_SERVER_SSH_KEY }}
+  #         source: "docker-compose.yml,nginx/default.conf"
+  #         target: "~/my-portfolio"
+  #         strip_components: 0
 
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.2.4
-        with:
-          host: ${{ secrets.WEB_SERVER_HOST }}
-          username: ${{ secrets.WEB_SERVER_USERNAME }}
-          key: ${{ secrets.WEB_SERVER_SSH_KEY }}
-          timeout: 120s
-          command_timeout: 20m
-          script: |
-            set -e
-            cd ~/my-portfolio
-            export DOCKER_HUB_USERNAME="${{ secrets.DOCKER_HUB_USERNAME }}"
-            export IMAGE_TAG="${{ github.sha }}"
-            echo "--- Pulling latest images ---"
-            docker compose pull
-            echo "--- Restarting containers ---"
-            docker compose up -d
-            echo "--- Cleaning up old images ---"
-            docker image prune -f
+  #     - name: Deploy via SSH
+  #       uses: appleboy/ssh-action@v1.2.4
+  #       with:
+  #         host: ${{ secrets.WEB_SERVER_HOST }}
+  #         username: ${{ secrets.WEB_SERVER_USERNAME }}
+  #         key: ${{ secrets.WEB_SERVER_SSH_KEY }}
+  #         timeout: 120s
+  #         command_timeout: 20m
+  #         script: |
+  #           set -e
+  #           cd ~/my-portfolio
+  #           export DOCKER_HUB_USERNAME="${{ secrets.DOCKER_HUB_USERNAME }}"
+  #           export IMAGE_TAG="${{ github.sha }}"
+  #           echo "--- Pulling latest images ---"
+  #           docker compose pull
+  #           echo "--- Restarting containers ---"
+  #           docker compose up -d
+  #           echo "--- Cleaning up old images ---"
+  #           docker image prune -f
