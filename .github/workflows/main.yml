@@ -2,9 +2,9 @@ name: Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,5 +17,6 @@ jobs:
     needs: ci
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     uses: ./.github/workflows/cd.yml
+    with:
+      image_tag: ${{ github.sha }}
     secrets: inherit
-  
