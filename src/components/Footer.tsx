@@ -8,60 +8,52 @@ const Footer = () => {
   const t = useTranslations("footer");
 
   const links = [
+    { href: "#about", label: t("links.about") },
+    { href: "#projects", label: t("links.projects") },
+    { href: "#resume", label: t("links.resume") },
+    { href: "#contact", label: t("links.contact") },
+  ];
+
+  const socials = [
     {
-      href: "#about",
-      label: t("links.about"),
-      hover: "hover:text-accent-green",
+      href: "https://github.com/vudaian24",
+      icon: Github,
+      label: "GitHub",
     },
     {
-      href: "#projects",
-      label: t("links.projects"),
-      hover: "hover:text-accent-blue",
+      href: "https://www.linkedin.com/in/v%C5%A9-%C4%91%E1%BA%A1i-an-75110137b/",
+      icon: Linkedin,
+      label: "LinkedIn",
     },
     {
-      href: "#contact",
-      label: t("links.contact"),
-      hover: "hover:text-accent-orange",
-    },
-    {
-      href: "#resume",
-      label: t("links.resume"),
-      hover: "hover:text-accent-teal",
+      href: "https://zalo.me/0398270233",
+      icon: PhoneCall,
+      label: "Zalo",
     },
   ];
 
   return (
-    <footer className="relative bg-gradient-to-br from-surface via-surface/95 to-background border-t border-border/50 mt-16 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-accent-green/5 via-transparent to-accent-teal/5" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent-blue/3 rounded-full blur-3xl -translate-y-1/2" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-orange/3 rounded-full blur-3xl translate-y-1/2" />
-
-      <div className="relative container mx-auto px-4 md:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-2xl font-bold mb-3 bg-gradient-to-r from-accent-green to-accent-teal bg-clip-text">
-                {t("brand")}
-              </h2>
-              <p className="text-text-secondary text-sm leading-relaxed max-w-sm">
-                {t("about")}
-              </p>
-            </div>
+    <footer className="relative z-10 mt-24 border-t border-border bg-surface/40">
+      <div className="section-shell py-14 md:py-16">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-8">
+          <div className="md:col-span-5">
+            <p className="font-display text-xl font-semibold tracking-tight text-foreground">
+              {t("brand")}
+            </p>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-text-secondary">
+              {t("about")}
+            </p>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-text-primary mb-6 relative">
-              {t("links.title")}
-              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-accent-blue to-accent-teal rounded-full" />
-            </h3>
-            <ul className="space-y-3">
-              {links.map((item, _index) => (
+          <div className="md:col-span-3">
+            <p className="section-label mb-4">{t("links.title")}</p>
+            <ul className="space-y-2.5">
+              {links.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`group text-text-secondary transition-all duration-300 ${item.hover} flex items-center gap-2 hover:translate-x-1`}
+                    className="text-sm text-text-secondary transition-colors hover:text-brand"
                   >
-                    <div className="w-1 h-1 rounded-full bg-current opacity-0 group-hover:opacity-100 transition-opacity" />
                     {item.label}
                   </Link>
                 </li>
@@ -69,51 +61,30 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-text-primary mb-6 relative">
-              {t("socials.title")}
-              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-accent-green to-accent-orange rounded-full" />
-            </h3>
-            <div className="flex gap-4">
-              <Link
-                href="https://github.com/vudaian24"
-                target="_blank"
-                className="group p-3 rounded-xl bg-surface/50 border border-border/50 text-text-secondary hover:text-accent-blue hover:border-accent-blue/30 hover:bg-accent-blue/5 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-              >
-                <Github
-                  size={20}
-                  className="group-hover:rotate-12 transition-transform duration-300"
-                />
-                <span className="sr-only">Icon</span>
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/v%C5%A9-%C4%91%E1%BA%A1i-an-75110137b/"
-                target="_blank"
-                className="group p-3 rounded-xl bg-surface/50 border border-border/50 text-text-secondary hover:text-accent-green hover:border-accent-green/30 hover:bg-accent-green/5 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-              >
-                <Linkedin
-                  size={20}
-                  className="group-hover:rotate-12 transition-transform duration-300"
-                />
-                <span className="sr-only">Icon</span>
-              </Link>
-              <Link
-                href="https://zalo.me/0398270233"
-                target="_blank"
-                className="group p-3 rounded-xl bg-surface/50 border border-border/50 text-text-secondary hover:text-accent-green hover:border-accent-green/30 hover:bg-accent-green/5 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-              >
-                <PhoneCall
-                  size={20}
-                  className="group-hover:rotate-12 transition-transform duration-300"
-                />
-                <span className="sr-only">Icon</span>
-              </Link>
+          <div className="md:col-span-4">
+            <p className="section-label mb-4">{t("socials.title")}</p>
+            <div className="flex flex-wrap gap-2">
+              {socials.map((s) => (
+                <Link
+                  key={s.href}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface-elevated/80 px-3 py-2 text-sm text-text-secondary transition-all hover:border-brand/40 hover:text-brand"
+                  aria-label={s.label}
+                >
+                  <s.icon size={16} strokeWidth={1.75} />
+                  {s.label}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border/30 flex flex-col justify-between items-center gap-4">
-          <p className="text-text-secondary text-sm">© 2025 {t("brand")}</p>
+        <div className="mt-12 border-t border-border/80 pt-8 text-center text-xs text-text-muted sm:text-left">
+          <p>
+            © {new Date().getFullYear()} {t("brand")}
+          </p>
         </div>
       </div>
     </footer>

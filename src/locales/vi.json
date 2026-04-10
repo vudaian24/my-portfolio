@@ -19,13 +19,16 @@
   },
   "HomePage": {
     "HeroSection": {
+      "eyebrow": "Phần mềm · Web · Sản phẩm",
       "title": "Kiến tạo Trải nghiệm Số",
       "description": "Tôi thiết kế và phát triển các ứng dụng web hiện đại với trọng tâm là hiệu năng, khả năng mở rộng và trải nghiệm người dùng tuyệt vời.",
       "ctaProjects": "Xem Dự Án",
       "ctaContact": "Liên Hệ",
+      "photoAlt": "Ảnh đại diện",
       "marqueeText": "✨ Lập trình viên sáng tạo • 🚀 Xây dựng trải nghiệm • 💻 Đam mê Full-stack ✨ Lập trình viên sáng tạo • 🚀 Xây dựng trải nghiệm • 💻 Đam mê Full-stack"
     },
     "AboutSection": {
+      "eyebrow": "Giới thiệu",
       "title": "Giới thiệu về tôi",
       "description": "Xin chào! Mình là An, một kỹ sư phần mềm chuyên về phát triển web với React, Next.js, TypeScript và Tailwind CSS. Mình đam mê xây dựng các sản phẩm chất lượng cao và học hỏi công nghệ mới.",
       "cta": "Xem dự án của tôi",
@@ -47,6 +50,7 @@
       "projectDescription": "Mô tả ngắn gọn về dự án {number}."
     },
     "ContactSection": {
+      "eyebrow": "Kết nối",
       "title": "Liên hệ",
       "description": "Có dự án hay muốn chào hỏi? Gửi tin nhắn cho tôi — tôi thường trả lời trong vòng 48 giờ.",
       "form": {
@@ -68,13 +72,16 @@
       "note": "Tôi tôn trọng quyền riêng tư — thông tin chỉ được dùng để trả lời bạn."
     },
     "ResumeSection": {
+      "eyebrow": "Hồ sơ",
       "title": "CV",
       "description": "Xem CV của tôi để tìm hiểu thêm về kinh nghiệm và kỹ năng chuyên môn của tôi.",
       "button": "Xem CV"
     },
     "Projects": {
+      "eyebrow": "Dự án tiêu biểu",
       "title": "Dự án",
       "description": "Dưới đây là một số dự án nổi bật, di chuột vào để xem hiệu ứng",
+      "previewPlaceholder": "Xem trước",
       "viewDetail": "Xem chi tiết →",
       "items": {
         "portfolio": {

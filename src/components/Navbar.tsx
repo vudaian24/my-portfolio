@@ -24,19 +24,24 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   const navItems = [
     { href: "#home", label: t("home"), icon: Home },
     { href: "#about", label: t("about"), icon: User },
     { href: "#projects", label: t("projects"), icon: Briefcase },
-    { href: "#contact", label: t("contact"), icon: Mail },
     { href: "#resume", label: t("resume"), icon: FileText },
+    { href: "#contact", label: t("contact"), icon: Mail },
   ];
 
   const socialLinks = [
@@ -55,195 +60,120 @@ const Navbar = () => {
 
   return (
     <>
-      <nav
+      <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
+          "fixed top-0 left-0 right-0 z-50 transition-[box-shadow,background-color,border-color] duration-300",
           scrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5"
-            : "bg-background/80 backdrop-blur-xl",
+            ? "border-b border-border/80 bg-background/85 shadow-sm backdrop-blur-md"
+            : "border-b border-transparent bg-background/70 backdrop-blur-sm",
         )}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            <Link
-              href="/"
-              className="group relative flex items-center space-x-2 text-2xl md:text-3xl font-extrabold tracking-tight"
-            >
-              <div className="relative">
-                <div
-                  className="absolute inset-0 rounded-lg blur-lg opacity-0 group-hover:opacity-70 transition duration-500"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7)",
-                  }}
+        <nav
+          className="section-shell flex h-16 items-center justify-between md:h-[4.25rem]"
+          aria-label="Primary"
+        >
+          <Link
+            href="/"
+            className="font-display text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-brand md:text-xl"
+          >
+            {t("brand")}
+          </Link>
+
+          <div className="hidden items-center gap-1 lg:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground"
+              >
+                <item.icon
+                  size={15}
+                  className="text-brand opacity-80 transition-opacity group-hover:opacity-100"
+                  aria-hidden
                 />
-                <div
-                  className="relative transition-transform duration-500 group-hover:scale-110"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  {t("brand")}
-                </div>
-              </div>
-            </Link>
-            <div className="hidden lg:flex items-center space-x-1">
-              {navItems.map((item, index) => (
+                {item.label}
+              </Link>
+            ))}
+            <div className="ml-2 h-6 w-px bg-border" aria-hidden />
+            <div className="flex items-center gap-0.5 pl-1">
+              {socialLinks.map((social) => (
                 <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group relative px-4 py-2 rounded-full text-sm font-medium text-foreground hover:text-foreground transition-all duration-300 ease-out"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  key={social.href}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg p-2.5 text-muted-foreground transition-colors hover:bg-surface hover:text-brand"
+                  aria-label={social.label}
                 >
-                  <span className="relative z-10 flex items-center space-x-2">
-                    <item.icon
-                      size={16}
-                      className="transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <span>{item.label}</span>
-                  </span>
-                  <div
-                    className="absolute inset-0 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out opacity-10"
-                    style={{
-                      background:
-                        "linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7)",
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-surface/50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out delay-75" />
+                  <social.icon size={18} strokeWidth={1.75} />
                 </Link>
               ))}
-              <LanguageSelector />
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="hidden lg:flex items-center space-x-2">
-                {socialLinks.map((social, index) => (
-                  <Link
-                    key={social.href}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative p-2 rounded-full text-foreground hover:text-foreground transition-all duration-300"
-                    style={{
-                      animationDelay: `${(navItems.length + index) * 100}ms`,
-                    }}
-                  >
-                    <social.icon
-                      size={18}
-                      className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
-                    />
-                    <span className="sr-only">Icon</span>
-                    <div
-                      className="absolute inset-0 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 opacity-20"
-                      style={{
-                        background:
-                          "linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7)",
-                      }}
-                    />
-                  </Link>
-                ))}
-              </div>
-
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden relative p-2 rounded-full text-foreground hover:text-foreground transition-all duration-300 hover:bg-surface/50 cursor-pointer"
-              >
-                <div className="relative w-6 h-6">
-                  <Menu
-                    size={24}
-                    className={cn(
-                      "absolute inset-0 transition-all duration-300",
-                      isOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100",
-                    )}
-                  />
-                  <X
-                    size={24}
-                    className={cn(
-                      "absolute inset-0 transition-all duration-300",
-                      isOpen ? "rotate-0 opacity-100" : "-rotate-180 opacity-0",
-                    )}
-                  />
-                </div>
-              </button>
-            </div>
+            <LanguageSelector />
           </div>
-        </div>
+
+          <div className="flex items-center gap-2 lg:hidden">
+            <LanguageSelector />
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border/80 bg-surface/80 text-foreground transition-colors hover:border-brand/30 hover:bg-brand-muted/30"
+              aria-expanded={isOpen}
+              aria-controls="mobile-nav"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </nav>
 
         <div
+          id="mobile-nav"
           className={cn(
-            "lg:hidden absolute top-full left-0 right-0 transition-all duration-500 ease-out",
+            "fixed inset-x-0 top-16 z-40 border-b border-border bg-background/95 backdrop-blur-lg transition-[opacity,visibility] duration-200 lg:hidden",
             isOpen
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-4 pointer-events-none",
+              ? "visible opacity-100"
+              : "invisible pointer-events-none opacity-0",
           )}
         >
-          <div className="bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-xl">
-            <div className="container mx-auto px-4 py-6">
-              <div className="flex flex-col space-y-4">
-                {navItems.map((item, index) => (
+          <div className="section-shell max-h-[min(70vh,calc(100dvh-4rem))] overflow-y-auto py-6">
+            <ul className="flex flex-col gap-1">
+              {navItems.map((item) => (
+                <li key={item.href}>
                   <Link
-                    key={item.href}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "group flex items-center space-x-3 px-4 py-3 rounded-xl text-foreground hover:text-foreground hover:bg-surface/50 transition-all duration-300",
-                      "transform transition-all duration-500 ease-out",
-                      isOpen
-                        ? "translate-x-0 opacity-100"
-                        : "translate-x-8 opacity-0",
-                    )}
-                    style={{
-                      transitionDelay: isOpen ? `${index * 100}ms` : "0ms",
-                    }}
+                    className="flex items-center gap-3 rounded-xl px-4 py-3.5 text-base font-medium text-foreground transition-colors hover:bg-surface"
                   >
-                    <item.icon
-                      size={20}
-                      className="transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <span className="font-medium">{item.label}</span>
+                    <item.icon size={18} className="text-brand" aria-hidden />
+                    {item.label}
                   </Link>
-                ))}
-                <LanguageSelector />
-
-                <div className="flex items-center justify-center space-x-6 pt-4 border-t border-border/50">
-                  {socialLinks.map((social, index) => (
-                    <Link
-                      key={social.href}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cn(
-                        "group p-3 rounded-full text-foreground hover:text-foreground hover:bg-surface/50 transition-all duration-300",
-                        "transform transition-all duration-500 ease-out",
-                        isOpen
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-4 opacity-0",
-                      )}
-                      style={{
-                        transitionDelay: isOpen
-                          ? `${(navItems.length + index) * 100}ms`
-                          : "0ms",
-                      }}
-                    >
-                      <social.icon
-                        size={20}
-                        className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
-                      />
-                    </Link>
-                  ))}
-                </div>
-              </div>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex justify-center gap-4 border-t border-border pt-6">
+              {socialLinks.map((social) => (
+                <Link
+                  key={social.href}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl border border-border bg-surface/50 p-3 text-muted-foreground transition-colors hover:border-brand/40 hover:text-brand"
+                  aria-label={social.label}
+                >
+                  <social.icon size={20} strokeWidth={1.75} />
+                </Link>
+              ))}
             </div>
           </div>
         </div>
-      </nav>
+      </header>
 
       {isOpen && (
-        <div
-          className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity duration-300"
+        <button
+          type="button"
+          className="fixed inset-0 z-30 bg-foreground/20 backdrop-blur-[2px] lg:hidden"
+          aria-label="Close menu"
           onClick={() => setIsOpen(false)}
         />
       )}

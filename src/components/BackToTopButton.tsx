@@ -8,14 +8,9 @@ export default function BackToTopButton() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 200) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.scrollY > 400);
     };
-
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
@@ -23,14 +18,12 @@ export default function BackToTopButton() {
 
   return (
     <button
+      type="button"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-6 right-6 z-50 p-3 rounded-full shadow-lg
-                 bg-gradient-to-r from-accent-green/80 to-accent-teal/80
-                 hover:from-accent-green hover:to-accent-teal hover:cursor-pointer
-                 text-white transition-all duration-300 animate-in fade-in-0 zoom-in-95"
+      className="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface-elevated/95 text-brand shadow-md backdrop-blur-sm transition-all hover:border-brand/50 hover:bg-brand-muted/40 hover:shadow-lg"
       aria-label="Back to top"
     >
-      <ArrowUp className="w-6 h-6" />
+      <ArrowUp className="h-5 w-5" strokeWidth={2} />
     </button>
   );
 }

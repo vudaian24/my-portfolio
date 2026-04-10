@@ -11,97 +11,74 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative container min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 px-4 sm:px-6 lg:px-8 mx-auto overflow-hidden py-10"
+      className="relative flex min-h-[min(100dvh,900px)] flex-col items-center justify-center gap-12 py-16 md:flex-row md:gap-16 md:py-24"
     >
-      <div className="flex-1 order-2 md:order-1 text-center md:text-left space-y-6">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-extrabold leading-tight"
-        >
-          <motion.span
-            className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent inline-block"
-            style={{
-              backgroundSize: "200% auto",
-            }}
-            animate={{
-              backgroundPosition: ["0% center", "200% center"],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 4,
-              ease: "linear",
-            }}
-          >
-            {t("title")}
-          </motion.span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto md:mx-0"
-        >
-          {t("description")}
-        </motion.p>
-        <div className="overflow-hidden relative h-10 mt-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="overflow-hidden relative h-10 mt-6"
-          >
-            <span className="mr-8">{t("marqueeText")}</span>
-            <span>{t("marqueeText")}</span>
-          </motion.div>
-        </div>
+      <div className="section-shell flex w-full flex-col items-center gap-12 md:flex-row md:items-center md:justify-between md:gap-16">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="flex flex-col md:flex-row gap-4 justify-center md:justify-start mt-8"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="order-2 flex max-w-xl flex-1 flex-col items-center text-center md:order-1 md:items-start md:text-left"
         >
-          <Link
-            href="#projects"
-            className="relative px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold shadow-lg overflow-hidden group"
-          >
-            <span className="relative z-10 transition-transform duration-300 group-hover:scale-105 inline-block">
+          <p className="section-label mb-4">{t("eyebrow")}</p>
+          <h1 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
+            <span className="text-gradient-brand">{t("title")}</span>
+          </h1>
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            {t("description")}
+          </p>
+
+          <div className="marquee mt-8 w-full max-w-xl overflow-hidden py-1 md:max-w-none">
+            <div className="marquee-track gap-12 pr-12 text-sm font-medium text-text-muted">
+              <span className="shrink-0 whitespace-nowrap">
+                {t("marqueeText")}
+              </span>
+              <span className="shrink-0 whitespace-nowrap" aria-hidden>
+                {t("marqueeText")}
+              </span>
+            </div>
+          </div>
+
+          <div className="mt-10 flex w-full flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
+            <Link
+              href="#projects"
+              className="font-display inline-flex h-12 items-center justify-center rounded-lg bg-brand px-8 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
+            >
               {t("ctaProjects")}
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 blur-md transition duration-500"></span>
-          </Link>
-          <Link
-            href="#contact"
-            className="relative px-6 py-3 rounded-xl border border-border text-foreground font-semibold overflow-hidden group"
-          >
-            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+            </Link>
+            <Link
+              href="#contact"
+              className="inline-flex h-12 items-center justify-center rounded-lg border border-border bg-transparent px-8 text-sm font-semibold text-foreground transition-colors hover:border-brand/40 hover:bg-brand-muted/30"
+            >
               {t("ctaContact")}
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
-          </Link>
+            </Link>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          className="order-1 flex flex-1 justify-center md:order-2 md:justify-end"
+        >
+          <div className="relative">
+            <div
+              className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-brand-muted via-transparent to-brand-subtle opacity-80 blur-2xl"
+              aria-hidden
+            />
+            <div className="relative aspect-square w-56 overflow-hidden rounded-2xl border border-border bg-surface shadow-xl sm:w-64 md:w-72">
+              <Image
+                src="https://placehold.co/400"
+                alt={t("photoAlt")}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 224px, 288px"
+                priority
+              />
+            </div>
+          </div>
         </motion.div>
       </div>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-        className="md:flex-1 order-1 md:order-2 flex justify-center"
-      >
-        <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-accent">
-          <Image
-            src="https://placehold.co/400"
-            alt="Portrait"
-            fill
-            className="object-cover hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }

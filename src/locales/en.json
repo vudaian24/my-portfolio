@@ -19,13 +19,16 @@
   },
   "HomePage": {
     "HeroSection": {
+      "eyebrow": "Software · Web · Product",
       "title": "Crafting Digital Experiences",
       "description": "I design and build modern web applications with a focus on performance, scalability, and delightful user experiences.",
       "ctaProjects": "View Projects",
       "ctaContact": "Contact Me",
+      "photoAlt": "Portrait",
       "marqueeText": "✨ Creative Developer • 🚀 Building Experiences • 💻 Full-stack Passion ✨ Creative Developer • 🚀 Building Experiences • 💻 Full-stack Passion"
     },
     "AboutSection": {
+      "eyebrow": "Introduction",
       "title": "About Me",
       "description": "Hello! I'm An, a software engineer specializing in web development with React, Next.js, TypeScript, and Tailwind CSS. I'm passionate about building high-quality products and learning new technologies.",
       "cta": "View my projects",
@@ -47,6 +50,7 @@
       "projectDescription": "A short description for project {number}."
     },
     "ContactSection": {
+      "eyebrow": "Contact",
       "title": "Get in touch",
       "description": "Have a project or just want to say hi? Send me a message — I usually reply within 48 hours.",
       "form": {
@@ -68,13 +72,16 @@
       "note": "I respect your privacy — your information will only be used to respond to your message."
     },
     "ResumeSection": {
+      "eyebrow": "Resume",
       "title": "CV",
       "description": "Check my CV to learn more about my professional experience and skills.",
       "button": "View CV"
     },
     "Projects": {
+      "eyebrow": "Selected work",
       "title": "Projects",
       "description": "Here are some featured projects, hover over them to see the effects",
+      "previewPlaceholder": "Preview",
       "viewDetail": "View Details →",
       "items": {
         "portfolio": {

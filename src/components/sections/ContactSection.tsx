@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 const ContactSchema = z.object({
   name: z.string().min(2, { message: "nameMin" }),
@@ -15,6 +16,9 @@ const ContactSchema = z.object({
 });
 
 type ContactForm = z.infer<typeof ContactSchema>;
+
+const inputClass =
+  "w-full rounded-lg border bg-background/80 px-4 py-3 text-sm text-foreground transition-[border-color,box-shadow] outline-none placeholder:text-text-muted focus-visible:ring-2 focus-visible:ring-brand/25 disabled:cursor-not-allowed disabled:opacity-50";
 
 export default function ContactSection() {
   const t = useTranslations("HomePage.ContactSection");
@@ -60,108 +64,123 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center bg-background px-6 py-20"
+      className="scroll-mt-24 border-t border-border/60 py-20 md:py-28"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="w-full max-w-3xl mx-auto bg-surface/5 backdrop-blur-md border border-border rounded-2xl p-8 md:p-12 shadow-xl"
-      >
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-3 bg-linear-to-r from-cyan-400 via-blue-400 to-indigo-500 bg-clip-text text-transparent">
+      <div className="section-shell max-w-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center"
+        >
+          <p className="section-label mb-3">{t("eyebrow")}</p>
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             {t("title")}
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
             {t("description")}
           </p>
-        </div>
+        </motion.div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-          <div className="space-y-1">
-            <label className="sr-only" htmlFor="name">
-              {t("form.name")}
-            </label>
-            <input
-              id="name"
-              disabled={isSubmitting}
-              {...register("name")}
-              placeholder={t("form.name")}
-              className={`w-full px-4 py-3 rounded-lg border bg-surface/20 transition-all duration-200 outline-none
-                ${
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-12 rounded-2xl border border-border bg-surface-elevated/50 p-6 shadow-sm backdrop-blur-sm md:p-10"
+        >
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <div className="space-y-2">
+              <label
+                htmlFor="name"
+                className="block text-left text-xs font-medium uppercase tracking-wider text-text-secondary"
+              >
+                {t("form.name")}
+              </label>
+              <input
+                id="name"
+                disabled={isSubmitting}
+                {...register("name")}
+                placeholder={t("form.name")}
+                className={`${inputClass} ${
                   errors.name
-                    ? "border-destructive focus:ring-destructive/30"
-                    : "border-border/60 focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
-                } disabled:opacity-50 disabled:cursor-not-allowed`}
-              aria-invalid={!!errors.name}
-            />
-            {errors.name && (
-              <p className="text-sm text-destructive font-medium ml-1">
-                {tErrors(errors.name.message as any)}
-              </p>
-            )}
-          </div>
-          <div className="space-y-1">
-            <label className="sr-only" htmlFor="email">
-              {t("form.email")}
-            </label>
-            <input
-              id="email"
-              type="email"
-              disabled={isSubmitting}
-              {...register("email")}
-              placeholder={t("form.email")}
-              className={`w-full px-4 py-3 rounded-lg border bg-surface/20 transition-all duration-200 outline-none
-                ${
+                    ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/20"
+                    : "border-border focus-visible:border-brand/50"
+                }`}
+                aria-invalid={!!errors.name}
+                autoComplete="name"
+              />
+              {errors.name && (
+                <p className="text-left text-sm text-destructive">
+                  {tErrors(errors.name.message as any)}
+                </p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <label
+                htmlFor="email"
+                className="block text-left text-xs font-medium uppercase tracking-wider text-text-secondary"
+              >
+                {t("form.email")}
+              </label>
+              <input
+                id="email"
+                type="email"
+                disabled={isSubmitting}
+                {...register("email")}
+                placeholder={t("form.email")}
+                className={`${inputClass} ${
                   errors.email
-                    ? "border-destructive focus:ring-destructive/30"
-                    : "border-border/60 focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
-                } disabled:opacity-50 disabled:cursor-not-allowed`}
-              aria-invalid={!!errors.email}
-            />
-            {errors.email && (
-              <p className="text-sm text-destructive font-medium ml-1">
-                {tErrors(errors.email.message as any)}
-              </p>
-            )}
-          </div>
-          <div className="space-y-1">
-            <label className="sr-only" htmlFor="message">
-              {t("form.message")}
-            </label>
-            <textarea
-              id="message"
-              rows={5}
-              disabled={isSubmitting}
-              {...register("message")}
-              placeholder={t("form.message")}
-              className={`w-full px-4 py-3 rounded-lg border bg-surface/20 transition-all duration-200 outline-none resize-none
-                ${
+                    ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/20"
+                    : "border-border focus-visible:border-brand/50"
+                }`}
+                aria-invalid={!!errors.email}
+                autoComplete="email"
+              />
+              {errors.email && (
+                <p className="text-left text-sm text-destructive">
+                  {tErrors(errors.email.message as any)}
+                </p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <label
+                htmlFor="message"
+                className="block text-left text-xs font-medium uppercase tracking-wider text-text-secondary"
+              >
+                {t("form.message")}
+              </label>
+              <textarea
+                id="message"
+                rows={5}
+                disabled={isSubmitting}
+                {...register("message")}
+                placeholder={t("form.message")}
+                className={`${inputClass} resize-none ${
                   errors.message
-                    ? "border-destructive focus:ring-destructive/30"
-                    : "border-border/60 focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
-                } disabled:opacity-50 disabled:cursor-not-allowed`}
-              aria-invalid={!!errors.message}
-            />
-            {errors.message && (
-              <p className="text-sm text-destructive font-medium ml-1">
-                {tErrors(errors.message.message as any)}
-              </p>
-            )}
-          </div>
+                    ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/20"
+                    : "border-border focus-visible:border-brand/50"
+                }`}
+                aria-invalid={!!errors.message}
+              />
+              {errors.message && (
+                <p className="text-left text-sm text-destructive">
+                  {tErrors(errors.message.message as any)}
+                </p>
+              )}
+            </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="relative w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 rounded-lg border border-accent-green text-accent-green font-semibold overflow-hidden group transition-all disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-[0_0_20px_rgba(52,211,153,0.3)]"
-            >
-              <span className="absolute inset-0 bg-linear-to-r from-cyan-400 to-accent-teal -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
-
-              <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+            <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="font-display inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand px-8 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+              >
                 {isSubmitting ? (
-                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                  <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24">
                     <circle
                       className="opacity-25"
                       cx="12"
@@ -169,61 +188,52 @@ export default function ContactSection() {
                       r="10"
                       stroke="currentColor"
                       strokeWidth="4"
-                    ></circle>
+                      fill="none"
+                    />
                     <path
                       className="opacity-75"
                       fill="currentColor"
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
+                    />
                   </svg>
-                ) : null}
+                ) : (
+                  <Send className="h-4 w-4" strokeWidth={2} aria-hidden />
+                )}
                 {isSubmitting ? t("status.sending") : t("form.button")}
-              </span>
-            </button>
+              </button>
 
-            <AnimatePresence mode="wait">
-              {submitStatus === "success" && (
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="flex items-center gap-2 text-green-500 font-medium"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              <AnimatePresence mode="wait">
+                {submitStatus === "success" && (
+                  <motion.div
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="flex items-center justify-center gap-2 text-sm font-medium text-accent-green sm:justify-end"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                  {t("status.success")}
-                </motion.div>
-              )}
+                    <CheckCircle2 className="h-5 w-5 shrink-0" aria-hidden />
+                    {t("status.success")}
+                  </motion.div>
+                )}
+                {submitStatus === "error" && (
+                  <motion.div
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="flex items-center justify-center gap-2 text-sm font-medium text-destructive sm:justify-end"
+                  >
+                    <AlertCircle className="h-5 w-5 shrink-0" aria-hidden />
+                    {t("status.error")}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
-              {submitStatus === "error" && (
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="text-red-500 font-medium"
-                >
-                  {t("status.error")}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          <p className="text-xs text-muted-foreground mt-4 text-center sm:text-left opacity-70">
-            {t("note")}
-          </p>
-        </form>
-      </motion.div>
+            <p className="text-center text-xs text-text-muted sm:text-left">
+              {t("note")}
+            </p>
+          </form>
+        </motion.div>
+      </div>
     </section>
   );
 }

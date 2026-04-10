@@ -3,7 +3,9 @@
 import { useRouter, usePathname } from "@/i18n/navigation";
 import type { AvailableLocale } from "@/lib/types";
 import { useLocale, useTranslations } from "next-intl";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface Language {
   code: AvailableLocale;
@@ -16,83 +18,103 @@ export default function LanguageSelector() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   const languages: Language[] = [
-    {
-      code: "vi",
-      flag: "🇻🇳",
-      label: t("vi"),
-    },
-    {
-      code: "en",
-      flag: "🇺🇸",
-      label: t("en"),
-    },
+    { code: "vi", flag: "🇻🇳", label: t("vi") },
+    { code: "en", flag: "🇺🇸", label: t("en") },
   ];
 
   const currentLanguage = languages.find((lang) => lang.code === locale);
 
+  useEffect(() => {
+    if (!open) return;
+    const onPointer = (e: MouseEvent | TouchEvent) => {
+      if (!rootRef.current?.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("touchstart", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointer);
+      document.removeEventListener("touchstart", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
   const handleLanguageChange = (newLocale: AvailableLocale) => {
     router.push(pathname, { locale: newLocale, scroll: false });
+    setOpen(false);
   };
 
   return (
-    <div className="relative group">
+    <div ref={rootRef} className="relative">
       <button
-        className="relative flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium text-foreground hover:text-foreground transition-all duration-300 ease-out"
-        aria-haspopup="true"
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className={cn(
+          "flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-colors",
+          open
+            ? "border-brand/40 bg-brand-muted/40 text-foreground"
+            : "border-border/80 bg-surface/80 text-muted-foreground hover:border-border hover:bg-surface hover:text-foreground",
+        )}
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        aria-label="Language"
       >
-        <span className="relative z-10 flex items-center gap-2 cursor-pointer">
-          <span className="hidden sm:inline">
-            {currentLanguage?.flag} {currentLanguage?.label}
-          </span>
-          <span className="sm:hidden">{currentLanguage?.flag}</span>
-          <ChevronDown
-            size={14}
-            className="transition-transform duration-200 group-hover:rotate-180"
-          />
+        <span className="hidden sm:inline">
+          {currentLanguage?.flag} {currentLanguage?.label}
         </span>
-        <div
-          className="absolute inset-0 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out opacity-10"
-          style={{
-            background: "linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7)",
-          }}
+        <span className="sm:hidden" aria-hidden>
+          {currentLanguage?.flag}
+        </span>
+        <ChevronDown
+          size={14}
+          className={cn(
+            "opacity-70 transition-transform duration-200",
+            open && "rotate-180",
+          )}
+          aria-hidden
         />
-        <div className="absolute inset-0 bg-surface/50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out delay-75" />
       </button>
-      <div className="absolute top-full left-0 right-0 h-2"></div>
-      <div
-        className="absolute top-full mt-2 md:right-0 left-0 z-20 min-w-[180px] 
-          bg-background/95 backdrop-blur-xl border border-border/50 rounded-xl shadow-xl shadow-black/10 
-          opacity-0 scale-95 pointer-events-none 
-          group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto 
-          transition-all duration-200 ease-out origin-top"
-      >
-        <div className="p-2">
+
+      {open && (
+        <ul
+          className="absolute right-0 top-full z-[60] mt-1.5 min-w-[11rem] rounded-xl border border-border bg-surface-elevated/95 py-1 shadow-lg backdrop-blur-md"
+          role="listbox"
+        >
           {languages.map((language) => (
-            <button
-              key={language.code}
-              onClick={() => handleLanguageChange(language.code)}
-              className={`w-full flex items-center gap-3 cursor-pointer px-3 py-2.5 text-sm rounded-lg transition-all duration-200 
-                hover:bg-[linear-gradient(90deg,#06b6d4,#3b82f6,#a855f7)] 
-                ${
+            <li key={language.code} role="presentation">
+              <button
+                type="button"
+                role="option"
+                aria-selected={language.code === locale}
+                onClick={() => handleLanguageChange(language.code)}
+                className={cn(
+                  "flex w-full cursor-pointer items-center gap-2 px-3 py-2.5 text-left text-sm transition-colors",
                   language.code === locale
-                    ? "bg-surface/30 text-foreground font-medium"
-                    : "text-foreground/80 hover:text-foreground"
-                }`}
-            >
-              <span className="text-base">{language.flag}</span>
-              <span className="flex-1 text-left">{language.label}</span>
-              {language.code === locale && (
-                <div
-                  className="w-2 h-2 rounded-full"
-                  style={{ backgroundColor: "var(--accent-green)" }}
-                />
-              )}
-            </button>
+                    ? "bg-brand-muted/50 text-foreground"
+                    : "text-muted-foreground hover:bg-surface hover:text-foreground",
+                )}
+              >
+                <span className="text-base" aria-hidden>
+                  {language.flag}
+                </span>
+                <span className="flex-1">{language.label}</span>
+                {language.code === locale && (
+                  <Check size={14} className="shrink-0 text-brand" />
+                )}
+              </button>
+            </li>
           ))}
-        </div>
-      </div>
+        </ul>
+      )}
     </div>
   );
 }

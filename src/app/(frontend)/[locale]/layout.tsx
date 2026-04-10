@@ -1,4 +1,4 @@
-import { IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Outfit } from "next/font/google";
 
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
@@ -8,6 +8,12 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackToTopButton from "@/components/BackToTopButton";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-outfit",
+});
 
 const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -57,13 +63,22 @@ export default async function LocaleLayout({ params, children }: LayoutProps) {
         />
       </head>
       <body
-        className={cn(`${plexMono.variable} antialiased`)}
+        className={cn(outfit.variable, plexMono.variable, "antialiased")}
         suppressHydrationWarning
       >
         <NextIntlClientProvider locale={locale}>
-          <div className="min-h-screen bg-gradient-to-br from-background via-background to-surface/20">
+          <div className="relative min-h-screen">
+            <div
+              className="pointer-events-none fixed inset-0 z-0 opacity-[0.35]"
+              aria-hidden
+            >
+              <div className="absolute -left-1/4 top-0 h-[min(70vh,520px)] w-[min(70vw,520px)] rounded-full bg-brand-muted blur-3xl" />
+              <div className="absolute bottom-0 right-0 h-[min(50vh,400px)] w-[min(60vw,480px)] rounded-full bg-brand-subtle blur-3xl" />
+            </div>
             <Navbar />
-            <main className="pt-20">{children}</main>
+            <main className="relative z-10 pt-[4.5rem] md:pt-24">
+              {children}
+            </main>
             <Footer />
             <BackToTopButton />
           </div>

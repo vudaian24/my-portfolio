@@ -2,65 +2,77 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function AboutSection() {
   const t = useTranslations("HomePage.AboutSection");
 
   const skills = [
-    { name: t("skills.react") },
-    { name: t("skills.nextjs") },
-    { name: t("skills.typescript") },
-    { name: t("skills.node") },
-    { name: t("skills.tailwind") },
-    { name: t("skills.framer") },
-    { name: t("skills.git") },
+    t("skills.react"),
+    t("skills.nextjs"),
+    t("skills.typescript"),
+    t("skills.node"),
+    t("skills.tailwind"),
+    t("skills.framer"),
+    t("skills.git"),
   ];
 
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center px-6 py-20 bg-background"
+      className="scroll-mt-24 border-t border-border/60 py-20 md:py-28"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-6"
-        >
-          <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-            {t("title")}
-          </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            {t("description")}
-          </p>
-          <div className="flex justify-start">
-            <a
+      <div className="section-shell">
+        <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-6"
+          >
+            <p className="section-label mb-3">{t("eyebrow")}</p>
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              {t("title")}
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+              {t("description")}
+            </p>
+            <Link
               href="#projects"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transform transition"
+              className="font-display mt-8 inline-flex h-11 items-center rounded-lg border border-border px-6 text-sm font-semibold text-foreground transition-colors hover:border-brand/40 hover:bg-brand-muted/25"
             >
               {t("cta")}
-            </a>
-          </div>
-        </motion.div>
+            </Link>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-muted/5 p-6 rounded-2xl shadow-lg"
-        >
-          <h3 className="text-2xl font-bold mb-4">{t("skillsTitle")}</h3>
-          <ul className="space-y-3">
-            {skills.map((skill) => (
-              <li key={skill.name} className="flex justify-between">
-                <span>{skill.name}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.08,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="lg:col-span-6"
+          >
+            <div className="rounded-2xl border border-border bg-surface-elevated/60 p-6 shadow-sm backdrop-blur-sm md:p-8">
+              <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-text-secondary">
+                {t("skillsTitle")}
+              </h3>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {skills.map((name) => (
+                  <li key={name}>
+                    <span className="inline-flex items-center rounded-lg border border-border/80 bg-background/80 px-3 py-1.5 text-xs font-medium text-foreground md:text-sm">
+                      {name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

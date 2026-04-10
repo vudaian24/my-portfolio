@@ -10,35 +10,46 @@ export default function ResumeSection() {
   return (
     <section
       id="resume"
-      className="min-h-screen flex items-center justify-center px-6 bg-muted/5"
+      className="scroll-mt-24 border-t border-border/60 py-20 md:py-28"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
-        className="text-center max-w-2xl space-y-6"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
-          {t("title")}
-        </h2>
-
-        <p className="text-muted-foreground text-lg">{t("description")}</p>
-
-        <motion.a
-          href="/cv.pdf"
-          target="_blank"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="relative inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-yellow-500 text-yellow-500 font-semibold overflow-hidden group"
+      <div className="section-shell">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-elevated/90 via-surface/80 to-brand-muted/20 px-8 py-12 text-center md:px-14 md:py-16"
         >
-          <span className="relative z-10 flex items-center gap-2 transition-colors duration-300 group-hover:text-white">
-            <Download className="w-5 h-5" />
+          <div
+            className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-brand-muted/50 blur-3xl"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-brand-subtle blur-3xl"
+            aria-hidden
+          />
+
+          <p className="section-label mb-3">{t("eyebrow")}</p>
+          <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+            {t("title")}
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground md:text-base">
+            {t("description")}
+          </p>
+
+          <motion.a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="font-display mt-8 inline-flex h-12 items-center gap-2 rounded-lg bg-brand px-6 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
+          >
+            <Download className="h-4 w-4" strokeWidth={2} aria-hidden />
             {t("button")}
-          </span>
-          <span className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-orange-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
-        </motion.a>
-      </motion.div>
+          </motion.a>
+        </motion.div>
+      </div>
     </section>
   );
 }

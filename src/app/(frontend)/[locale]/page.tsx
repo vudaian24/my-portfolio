@@ -6,12 +6,12 @@ import ResumeSection from "@/components/sections/ResumeSection";
 
 export default function Home() {
   return (
-    <div>
+    <div className="relative">
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
-      <ContactSection />
       <ResumeSection />
+      <ContactSection />
     </div>
   );
 }
