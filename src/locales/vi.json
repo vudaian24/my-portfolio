@@ -1,11 +1,11 @@
 {
   "Common": {
     "Metadata": {
-      "title": "Đại An | Hồ sơ cá nhân",
-      "description": "Hồ sơ cá nhân của Đại An"
+      "title": "Đại An | Portfolio",
+      "description": "Trang portfolio giới thiệu bản thân, dự án tiêu biểu và thông tin liên hệ."
     },
     "Languages": {
-      "vi": "Tiếng Việt",
+      "vi": "Tiếng Việt",
       "en": "English"
     },
     "nav": {
@@ -19,20 +19,20 @@
   },
   "HomePage": {
     "HeroSection": {
-      "eyebrow": "Phần mềm · Web · Sản phẩm",
-      "title": "Kiến tạo Trải nghiệm Số",
-      "description": "Tôi thiết kế và phát triển các ứng dụng web hiện đại với trọng tâm là hiệu năng, khả năng mở rộng và trải nghiệm người dùng tuyệt vời.",
-      "ctaProjects": "Xem Dự Án",
-      "ctaContact": "Liên Hệ",
+      "eyebrow": "Full‑stack Developer · Web App · UI/UX",
+      "title": "Xây dựng sản phẩm web hiện đại",
+      "description": "Mình là Đại An — tập trung phát triển web app nhanh, ổn định và dễ mở rộng. Ưu tiên UI/UX rõ ràng, code sạch và trải nghiệm mượt trên mọi thiết bị.",
+      "ctaProjects": "Xem dự án",
+      "ctaContact": "Liên hệ",
       "photoAlt": "Ảnh đại diện",
-      "marqueeText": "✨ Lập trình viên sáng tạo • 🚀 Xây dựng trải nghiệm • 💻 Đam mê Full-stack ✨ Lập trình viên sáng tạo • 🚀 Xây dựng trải nghiệm • 💻 Đam mê Full-stack"
+      "marqueeText": "React • Next.js • TypeScript • UI/UX • Performance • API • React • Next.js • TypeScript • UI/UX • Performance • API"
     },
     "AboutSection": {
       "eyebrow": "Giới thiệu",
-      "title": "Giới thiệu về tôi",
-      "description": "Xin chào! Mình là An, một kỹ sư phần mềm chuyên về phát triển web với React, Next.js, TypeScript và Tailwind CSS. Mình đam mê xây dựng các sản phẩm chất lượng cao và học hỏi công nghệ mới.",
-      "cta": "Xem dự án của tôi",
-      "skillsTitle": "Kỹ năng công nghệ",
+      "title": "Về mình",
+      "description": "Mình phát triển ứng dụng web từ giao diện đến API, ưu tiên kiến trúc rõ ràng và hiệu năng tốt. Mình thích biến yêu cầu mơ hồ thành tính năng cụ thể, dễ dùng và dễ bảo trì.",
+      "cta": "Xem dự án tiêu biểu",
+      "skillsTitle": "Công nghệ mình dùng",
       "skills": {
         "react": "React",
         "nextjs": "Next.js",
@@ -45,19 +45,19 @@
     },
     "ProjectsSection": {
       "title": "Dự án",
-      "description": "Hover vào các mục navbar để xem animation.",
+      "description": "Một vài dự án mình đã thực hiện — tập trung vào UI/UX, chất lượng code và trải nghiệm người dùng.",
       "project": "Dự án {number}",
       "projectDescription": "Mô tả ngắn gọn về dự án {number}."
     },
     "ContactSection": {
       "eyebrow": "Kết nối",
       "title": "Liên hệ",
-      "description": "Có dự án hay muốn chào hỏi? Gửi tin nhắn cho tôi — tôi thường trả lời trong vòng 48 giờ.",
+      "description": "Bạn có dự án cần hỗ trợ, hoặc muốn trao đổi nhanh? Gửi tin nhắn ở đây — mình thường phản hồi trong vòng 24–48 giờ.",
       "form": {
-        "name": "Tên của bạn",
-        "email": "Email của bạn",
-        "message": "Lời nhắn",
-        "button": "Gửi tin nhắn"
+        "name": "Họ và tên",
+        "email": "Email",
+        "message": "Bạn muốn trao đổi điều gì?",
+        "button": "Gửi"
       },
       "status": {
         "sending": "Đang gửi...",
@@ -69,35 +69,35 @@
         "emailInvalid": "Vui lòng nhập địa chỉ email hợp lệ.",
         "messageMin": "Vui lòng nhập ít nhất 10 ký tự."
       },
-      "note": "Tôi tôn trọng quyền riêng tư — thông tin chỉ được dùng để trả lời bạn."
+      "note": "Thông tin của bạn chỉ được dùng để phản hồi tin nhắn (không spam)."
     },
     "ResumeSection": {
       "eyebrow": "Hồ sơ",
       "title": "CV",
-      "description": "Xem CV của tôi để tìm hiểu thêm về kinh nghiệm và kỹ năng chuyên môn của tôi.",
-      "button": "Xem CV"
+      "description": "Tóm tắt kinh nghiệm, kỹ năng và một số dự án nổi bật của mình.",
+      "button": "Mở CV"
     },
     "Projects": {
       "eyebrow": "Dự án tiêu biểu",
       "title": "Dự án",
-      "description": "Dưới đây là một số dự án nổi bật, di chuột vào để xem hiệu ứng",
+      "description": "Một vài dự án mình chọn lọc để thể hiện cách mình làm sản phẩm và giải quyết vấn đề.",
       "previewPlaceholder": "Xem trước",
       "viewDetail": "Xem chi tiết →",
       "items": {
         "portfolio": {
           "title": "Portfolio Website",
-          "description": "Một website cá nhân để showcase các dự án và kỹ năng lập trình."
+          "description": "Website portfolio đa ngôn ngữ, tối ưu trải nghiệm đọc và tốc độ tải trang; trình bày dự án, kỹ năng và form liên hệ."
         },
         "taskApp": {
           "title": "Task Management App",
-          "description": "Ứng dụng quản lý công việc với realtime updates và notifications."
+          "description": "Ứng dụng quản lý công việc: tạo/ghi chú/trạng thái, luồng làm việc rõ ràng, hỗ trợ cập nhật theo thời gian thực và thông báo."
         }
       }
     }
   },
   "footer": {
     "brand": "Dai An",
-    "about": "Lập trình viên full-stack đam mê tạo ra những ứng dụng web đẹp và hữu ích.",
+    "about": "Full‑stack developer tập trung vào web app hiệu năng tốt và UI/UX rõ ràng.",
     "links": {
       "title": "Liên Kết",
       "about": "Giới Thiệu",

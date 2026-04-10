@@ -2,10 +2,10 @@
   "Common": {
     "Metadata": {
       "title": "Dai An | Portfolio",
-      "description": "Portfolio of Dai An"
+      "description": "Portfolio showcasing selected projects, skills, and contact details."
     },
     "Languages": {
-      "vi": "Tiếng Việt",
+      "vi": "Tiếng Việt",
       "en": "English"
     },
     "nav": {
@@ -20,18 +20,18 @@
   "HomePage": {
     "HeroSection": {
       "eyebrow": "Software · Web · Product",
-      "title": "Crafting Digital Experiences",
-      "description": "I design and build modern web applications with a focus on performance, scalability, and delightful user experiences.",
+      "title": "Building modern web products",
+      "description": "I’m Dai An — a full‑stack developer focused on performance, clean architecture, and approachable UI/UX. I turn requirements into reliable features that ship.",
       "ctaProjects": "View Projects",
-      "ctaContact": "Contact Me",
+      "ctaContact": "Get in touch",
       "photoAlt": "Portrait",
-      "marqueeText": "✨ Creative Developer • 🚀 Building Experiences • 💻 Full-stack Passion ✨ Creative Developer • 🚀 Building Experiences • 💻 Full-stack Passion"
+      "marqueeText": "React • Next.js • TypeScript • UI/UX • Performance • API • React • Next.js • TypeScript • UI/UX • Performance • API"
     },
     "AboutSection": {
       "eyebrow": "Introduction",
       "title": "About Me",
-      "description": "Hello! I'm An, a software engineer specializing in web development with React, Next.js, TypeScript, and Tailwind CSS. I'm passionate about building high-quality products and learning new technologies.",
-      "cta": "View my projects",
+      "description": "I build web applications end‑to‑end — from UI to APIs. I care about readable code, maintainable systems, and shipping features that feel great to use.",
+      "cta": "See selected work",
       "skillsTitle": "Tech Skills",
       "skills": {
         "react": "React",
@@ -44,20 +44,20 @@
       }
     },
     "ProjectsSection": {
-      "title": "Projects Section",
-      "description": "Hover over nav items to see animations.",
+      "title": "Projects",
+      "description": "A few projects that reflect how I build: clear UX, solid engineering, and attention to detail.",
       "project": "Project {number}",
       "projectDescription": "A short description for project {number}."
     },
     "ContactSection": {
       "eyebrow": "Contact",
       "title": "Get in touch",
-      "description": "Have a project or just want to say hi? Send me a message — I usually reply within 48 hours.",
+      "description": "Have a project in mind or want to collaborate? Send a message here — I usually reply within 24–48 hours.",
       "form": {
         "name": "Your name",
         "email": "Your email",
-        "message": "Your message",
-        "button": "Send Message"
+        "message": "What would you like to discuss?",
+        "button": "Send"
       },
       "status": {
         "sending": "Sending...",
@@ -69,35 +69,35 @@
         "emailInvalid": "Please enter a valid email address.",
         "messageMin": "Please enter at least 10 characters."
       },
-      "note": "I respect your privacy — your information will only be used to respond to your message."
+      "note": "Your information will only be used to reply (no spam)."
     },
     "ResumeSection": {
       "eyebrow": "Resume",
       "title": "CV",
-      "description": "Check my CV to learn more about my professional experience and skills.",
-      "button": "View CV"
+      "description": "A quick overview of my experience, skills, and highlights.",
+      "button": "Open CV"
     },
     "Projects": {
       "eyebrow": "Selected work",
       "title": "Projects",
-      "description": "Here are some featured projects, hover over them to see the effects",
+      "description": "Featured projects that show how I think, build, and ship products.",
       "previewPlaceholder": "Preview",
       "viewDetail": "View Details →",
       "items": {
         "portfolio": {
           "title": "Portfolio Website",
-          "description": "A personal website to showcase projects and programming skills."
+          "description": "A bilingual portfolio with a clean reading experience, fast load times, and a contact flow."
         },
         "taskApp": {
           "title": "Task Management App",
-          "description": "A task management application featuring real-time updates and notifications."
+          "description": "A task workflow app with clear states, real‑time updates, and notifications."
         }
       }
     }
   },
   "footer": {
     "brand": "Dai An",
-    "about": "Full-stack developer passionate about creating beautiful and functional web applications.",
+    "about": "Full‑stack developer focused on performance and clear UI/UX.",
     "links": {
       "title": "Quick Links",
       "about": "About",
