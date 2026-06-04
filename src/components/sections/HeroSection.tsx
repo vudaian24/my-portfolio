@@ -4,20 +4,22 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { SECTION_IDS } from "@/config/site";
+import { EASE_OUT } from "@/lib/animation";
 
 export default function HeroSection() {
   const t = useTranslations("HomePage.HeroSection");
 
   return (
     <section
-      id="home"
+      id={SECTION_IDS.home}
       className="relative flex min-h-[min(100dvh,900px)] flex-col items-center justify-center gap-12 py-16 md:flex-row md:gap-16 md:py-24"
     >
       <div className="section-shell flex w-full flex-col items-center gap-12 md:flex-row md:items-center md:justify-between md:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: EASE_OUT }}
           className="order-2 flex max-w-xl flex-1 flex-col items-center text-center md:order-1 md:items-start md:text-left"
         >
           <p className="section-label mb-4">{t("eyebrow")}</p>
@@ -41,13 +43,13 @@ export default function HeroSection() {
 
           <div className="mt-10 flex w-full flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
             <Link
-              href="#projects"
+              href={`#${SECTION_IDS.projects}`}
               className="font-display inline-flex h-12 items-center justify-center rounded-lg bg-brand px-8 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
             >
               {t("ctaProjects")}
             </Link>
             <Link
-              href="#contact"
+              href={`#${SECTION_IDS.contact}`}
               className="inline-flex h-12 items-center justify-center rounded-lg border border-border bg-transparent px-8 text-sm font-semibold text-foreground transition-colors hover:border-brand/40 hover:bg-brand-muted/30"
             >
               {t("ctaContact")}
@@ -58,7 +60,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.65, delay: 0.12, ease: EASE_OUT }}
           className="order-1 flex flex-1 justify-center md:order-2 md:justify-end"
         >
           <div className="relative">

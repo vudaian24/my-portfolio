@@ -43,12 +43,6 @@
         "git": "Git & GitHub"
       }
     },
-    "ProjectsSection": {
-      "title": "Dự án",
-      "description": "Một vài dự án mình đã thực hiện — tập trung vào UI/UX, chất lượng code và trải nghiệm người dùng.",
-      "project": "Dự án {number}",
-      "projectDescription": "Mô tả ngắn gọn về dự án {number}."
-    },
     "ContactSection": {
       "eyebrow": "Kết nối",
       "title": "Liên hệ",

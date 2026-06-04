@@ -43,12 +43,6 @@
         "git": "Git & GitHub"
       }
     },
-    "ProjectsSection": {
-      "title": "Projects",
-      "description": "A few projects that reflect how I build: clear UX, solid engineering, and attention to detail.",
-      "project": "Project {number}",
-      "projectDescription": "A short description for project {number}."
-    },
     "ContactSection": {
       "eyebrow": "Contact",
       "title": "Get in touch",

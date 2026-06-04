@@ -1,30 +1,44 @@
 import { NextResponse } from "next/server";
+import { ContactSchema, escapeTelegramHtml } from "@/lib/contact";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message } = await req.json();
+    const body = await req.json();
+    const parsed = ContactSchema.safeParse(body);
+
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: "Invalid request body" },
+        { status: 400 },
+      );
+    }
+
+    const { name, email, message } = parsed.data;
 
     const token = process.env.TELEGRAM_BOT_TOKEN;
     const chatId = process.env.TELEGRAM_CHAT_ID;
 
     if (!token || !chatId) {
       console.error(
-        "❌ Lỗi: Không đọc được TELEGRAM_BOT_TOKEN hoặc TELEGRAM_CHAT_ID",
+        "Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID environment variables",
       );
       return NextResponse.json(
-        { error: "Thiếu cấu hình ENV trên Server" },
+        { error: "Server configuration error" },
         { status: 500 },
       );
     }
 
+    const safeName = escapeTelegramHtml(name);
+    const safeEmail = escapeTelegramHtml(email);
+    const safeMessage = escapeTelegramHtml(message);
+
     const text = `
-<b>📩 Yêu cầu liên hệ mới</b>
-<b>👤 Tên:</b> ${name}
-<b>📧 Email:</b> ${email}
-<b>💬 Nội dung:</b> ${message}
+<b>📩 New contact request</b>
+<b>👤 Name:</b> ${safeName}
+<b>📧 Email:</b> ${safeEmail}
+<b>💬 Message:</b> ${safeMessage}
     `;
 
-    // 2. Gọi API Telegram
     const response = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
       {
@@ -32,7 +46,7 @@ export async function POST(req: Request) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           chat_id: chatId,
-          text: text,
+          text,
           parse_mode: "HTML",
         }),
       },
@@ -41,14 +55,19 @@ export async function POST(req: Request) {
     const result = await response.json();
 
     if (!result.ok) {
-      console.error("❌ Telegram báo lỗi:", result); // In lỗi từ Telegram ra Terminal
-      return NextResponse.json({ error: result.description }, { status: 401 });
+      console.error("Telegram API error:", result);
+      return NextResponse.json(
+        { error: "Failed to deliver message" },
+        { status: 502 },
+      );
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    // 3. In lỗi hệ thống ra Terminal để debug
-    console.error("❌ Lỗi Server:", error);
-    return NextResponse.json({ error: "Lỗi server nội bộ" }, { status: 500 });
+    console.error("Contact API error:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 },
+    );
   }
 }

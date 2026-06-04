@@ -1,24 +1,27 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { MotionReveal } from "@/components/ui/MotionReveal";
+import { Section, SectionHeader } from "@/components/ui/Section";
+import { CONTACT_API_PATH, SECTION_IDS } from "@/config/site";
+import {
+  ContactSchema,
+  type ContactForm,
+  inputClass,
+  isContactErrorKey,
+} from "@/lib/contact";
+import { cn } from "@/lib/utils";
 
-const ContactSchema = z.object({
-  name: z.string().min(2, { message: "nameMin" }),
-  email: z.string().email({ message: "emailInvalid" }),
-  message: z.string().min(10, { message: "messageMin" }),
-});
-
-type ContactForm = z.infer<typeof ContactSchema>;
-
-const inputClass =
-  "w-full rounded-lg border bg-background/80 px-4 py-3 text-sm text-foreground transition-[border-color,box-shadow] outline-none placeholder:text-text-muted focus-visible:ring-2 focus-visible:ring-brand/25 disabled:cursor-not-allowed disabled:opacity-50";
+function fieldBorder(hasError: boolean) {
+  return hasError
+    ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/20"
+    : "border-border focus-visible:border-brand/50";
+}
 
 export default function ContactSection() {
   const t = useTranslations("HomePage.ContactSection");
@@ -41,7 +44,7 @@ export default function ContactSection() {
     setSubmitStatus("idle");
 
     try {
-      const res = await fetch("/web-api/contact", {
+      const res = await fetch(CONTACT_API_PATH, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -52,9 +55,7 @@ export default function ContactSection() {
       }
       setSubmitStatus("success");
       reset();
-      setTimeout(() => {
-        setSubmitStatus("idle");
-      }, 5000);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (err) {
       console.error("Contact submit error:", err);
       setSubmitStatus("error");
@@ -62,34 +63,18 @@ export default function ContactSection() {
   };
 
   return (
-    <section
-      id="contact"
-      className="scroll-mt-24 border-t border-border/60 py-20 md:py-28"
-    >
-      <div className="section-shell max-w-3xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center"
-        >
-          <p className="section-label mb-3">{t("eyebrow")}</p>
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            {t("title")}
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
-            {t("description")}
-          </p>
-        </motion.div>
+    <Section id={SECTION_IDS.contact} innerClassName="max-w-3xl">
+      <MotionReveal>
+        <SectionHeader
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          description={t("description")}
+          align="center"
+        />
+      </MotionReveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.5, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-12 rounded-2xl border border-border bg-surface-elevated/50 p-6 shadow-sm backdrop-blur-sm md:p-10"
-        >
+      <MotionReveal delay={0.06} className="mt-12">
+        <div className="rounded-2xl border border-border bg-surface-elevated/50 p-6 shadow-sm backdrop-blur-sm md:p-10">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div className="space-y-2">
               <label
@@ -103,19 +88,16 @@ export default function ContactSection() {
                 disabled={isSubmitting}
                 {...register("name")}
                 placeholder={t("form.name")}
-                className={`${inputClass} ${
-                  errors.name
-                    ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/20"
-                    : "border-border focus-visible:border-brand/50"
-                }`}
+                className={cn(inputClass, fieldBorder(!!errors.name))}
                 aria-invalid={!!errors.name}
                 autoComplete="name"
               />
-              {errors.name && (
-                <p className="text-left text-sm text-destructive">
-                  {tErrors(errors.name.message as any)}
-                </p>
-              )}
+              {errors.name?.message &&
+                isContactErrorKey(errors.name.message) && (
+                  <p className="text-left text-sm text-destructive">
+                    {tErrors(errors.name.message)}
+                  </p>
+                )}
             </div>
 
             <div className="space-y-2">
@@ -131,19 +113,16 @@ export default function ContactSection() {
                 disabled={isSubmitting}
                 {...register("email")}
                 placeholder={t("form.email")}
-                className={`${inputClass} ${
-                  errors.email
-                    ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/20"
-                    : "border-border focus-visible:border-brand/50"
-                }`}
+                className={cn(inputClass, fieldBorder(!!errors.email))}
                 aria-invalid={!!errors.email}
                 autoComplete="email"
               />
-              {errors.email && (
-                <p className="text-left text-sm text-destructive">
-                  {tErrors(errors.email.message as any)}
-                </p>
-              )}
+              {errors.email?.message &&
+                isContactErrorKey(errors.email.message) && (
+                  <p className="text-left text-sm text-destructive">
+                    {tErrors(errors.email.message)}
+                  </p>
+                )}
             </div>
 
             <div className="space-y-2">
@@ -159,18 +138,19 @@ export default function ContactSection() {
                 disabled={isSubmitting}
                 {...register("message")}
                 placeholder={t("form.message")}
-                className={`${inputClass} resize-none ${
-                  errors.message
-                    ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/20"
-                    : "border-border focus-visible:border-brand/50"
-                }`}
+                className={cn(
+                  inputClass,
+                  "resize-none",
+                  fieldBorder(!!errors.message),
+                )}
                 aria-invalid={!!errors.message}
               />
-              {errors.message && (
-                <p className="text-left text-sm text-destructive">
-                  {tErrors(errors.message.message as any)}
-                </p>
-              )}
+              {errors.message?.message &&
+                isContactErrorKey(errors.message.message) && (
+                  <p className="text-left text-sm text-destructive">
+                    {tErrors(errors.message.message)}
+                  </p>
+                )}
             </div>
 
             <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
@@ -232,8 +212,8 @@ export default function ContactSection() {
               {t("note")}
             </p>
           </form>
-        </motion.div>
-      </div>
-    </section>
+        </div>
+      </MotionReveal>
+    </Section>
   );
 }

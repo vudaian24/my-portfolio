@@ -1,24 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Menu,
-  X,
-  Home,
-  User,
-  Briefcase,
-  Mail,
-  FileText,
-  Github,
-  Linkedin,
-  PhoneCall,
-} from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import LanguageSelector from "./LanguageSelector";
+import { NAV_ITEMS, SOCIAL_LINKS } from "@/config/site";
 
-const Navbar = () => {
+export default function Navbar() {
   const t = useTranslations("Common.nav");
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -35,28 +25,6 @@ const Navbar = () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
-
-  const navItems = [
-    { href: "#home", label: t("home"), icon: Home },
-    { href: "#about", label: t("about"), icon: User },
-    { href: "#projects", label: t("projects"), icon: Briefcase },
-    { href: "#resume", label: t("resume"), icon: FileText },
-    { href: "#contact", label: t("contact"), icon: Mail },
-  ];
-
-  const socialLinks = [
-    { href: "https://github.com/vudaian24", icon: Github, label: "GitHub" },
-    {
-      href: "https://www.linkedin.com/in/v%C5%A9-%C4%91%E1%BA%A1i-an-75110137b/",
-      icon: Linkedin,
-      label: "LinkedIn",
-    },
-    {
-      href: "https://zalo.me/0398270233",
-      icon: PhoneCall,
-      label: "Zalo",
-    },
-  ];
 
   return (
     <>
@@ -80,7 +48,7 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -91,12 +59,12 @@ const Navbar = () => {
                   className="text-brand opacity-80 transition-opacity group-hover:opacity-100"
                   aria-hidden
                 />
-                {item.label}
+                {t(item.labelKey)}
               </Link>
             ))}
             <div className="ml-2 h-6 w-px bg-border" aria-hidden />
             <div className="flex items-center gap-0.5 pl-1">
-              {socialLinks.map((social) => (
+              {SOCIAL_LINKS.map((social) => (
                 <Link
                   key={social.href}
                   href={social.href}
@@ -138,7 +106,7 @@ const Navbar = () => {
         >
           <div className="section-shell max-h-[min(70vh,calc(100dvh-4rem))] overflow-y-auto py-6">
             <ul className="flex flex-col gap-1">
-              {navItems.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -146,13 +114,13 @@ const Navbar = () => {
                     className="flex items-center gap-3 rounded-xl px-4 py-3.5 text-base font-medium text-foreground transition-colors hover:bg-surface"
                   >
                     <item.icon size={18} className="text-brand" aria-hidden />
-                    {item.label}
+                    {t(item.labelKey)}
                   </Link>
                 </li>
               ))}
             </ul>
             <div className="mt-6 flex justify-center gap-4 border-t border-border pt-6">
-              {socialLinks.map((social) => (
+              {SOCIAL_LINKS.map((social) => (
                 <Link
                   key={social.href}
                   href={social.href}
@@ -179,6 +147,4 @@ const Navbar = () => {
       )}
     </>
   );
-};
-
-export default Navbar;
+}

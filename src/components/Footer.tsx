@@ -1,36 +1,18 @@
 "use client";
 
-import { Github, Linkedin, PhoneCall } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { SECTION_IDS, SOCIAL_LINKS } from "@/config/site";
 
-const Footer = () => {
+const FOOTER_LINKS = [
+  { href: `#${SECTION_IDS.about}`, labelKey: "about" as const },
+  { href: `#${SECTION_IDS.projects}`, labelKey: "projects" as const },
+  { href: `#${SECTION_IDS.resume}`, labelKey: "resume" as const },
+  { href: `#${SECTION_IDS.contact}`, labelKey: "contact" as const },
+] as const;
+
+export default function Footer() {
   const t = useTranslations("footer");
-
-  const links = [
-    { href: "#about", label: t("links.about") },
-    { href: "#projects", label: t("links.projects") },
-    { href: "#resume", label: t("links.resume") },
-    { href: "#contact", label: t("links.contact") },
-  ];
-
-  const socials = [
-    {
-      href: "https://github.com/vudaian24",
-      icon: Github,
-      label: "GitHub",
-    },
-    {
-      href: "https://www.linkedin.com/in/v%C5%A9-%C4%91%E1%BA%A1i-an-75110137b/",
-      icon: Linkedin,
-      label: "LinkedIn",
-    },
-    {
-      href: "https://zalo.me/0398270233",
-      icon: PhoneCall,
-      label: "Zalo",
-    },
-  ];
 
   return (
     <footer className="relative z-10 mt-24 border-t border-border bg-surface/40">
@@ -48,13 +30,13 @@ const Footer = () => {
           <div className="md:col-span-3">
             <p className="section-label mb-4">{t("links.title")}</p>
             <ul className="space-y-2.5">
-              {links.map((item) => (
+              {FOOTER_LINKS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     className="text-sm text-text-secondary transition-colors hover:text-brand"
                   >
-                    {item.label}
+                    {t(`links.${item.labelKey}`)}
                   </Link>
                 </li>
               ))}
@@ -64,7 +46,7 @@ const Footer = () => {
           <div className="md:col-span-4">
             <p className="section-label mb-4">{t("socials.title")}</p>
             <div className="flex flex-wrap gap-2">
-              {socials.map((s) => (
+              {SOCIAL_LINKS.map((s) => (
                 <Link
                   key={s.href}
                   href={s.href}
@@ -89,6 +71,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
