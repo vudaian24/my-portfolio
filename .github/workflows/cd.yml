@@ -1,4 +1,5 @@
 name: CD
+
 on:
   workflow_call:
     inputs:
@@ -6,17 +7,17 @@ on:
         required: true
         type: string
     secrets:
-      DOCKER_HUB_USERNAME: { required: true }
-      DOCKER_HUB_ACCESS_TOKEN: { required: true }
-      WEB_SERVER_HOST: { required: true }
-      WEB_SERVER_USERNAME: { required: true }
-      WEB_SERVER_SSH_KEY: { required: true }
+      DOCKER_HUB_USERNAME:
+        required: true
+      DOCKER_HUB_ACCESS_TOKEN:
+        required: true
 
 jobs:
   build-and-push:
+    name: Build and push image
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Docker Buildx
@@ -35,50 +36,6 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_HUB_USERNAME }}/my-portfolio:latest
-            ${{ secrets.DOCKER_HUB_USERNAME }}/my-portfolio:${{ github.sha }}
+            ${{ secrets.DOCKER_HUB_USERNAME }}/my-portfolio:${{ inputs.image_tag }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-  # deploy:
-  #   needs: build-and-push
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout Code
-  #       uses: actions/checkout@v4
-
-  #     - name: Copy files to web-server
-  #       uses: appleboy/scp-action@v1
-  #       with:
-  #         host: ${{ secrets.WEB_SERVER_HOST }}
-  #         username: ${{ secrets.WEB_SERVER_USERNAME }}
-  #         key: ${{ secrets.WEB_SERVER_SSH_KEY }}
-  #         source: "docker-compose.yml,nginx/default.conf"
-  #         target: "~/my-portfolio"
-  #         strip_components: 0
-
-  #     - name: Deploy via SSH
-  #       uses: appleboy/ssh-action@v1.2.4
-  #       with:
-  #         host: ${{ secrets.WEB_SERVER_HOST }}
-  #         username: ${{ secrets.WEB_SERVER_USERNAME }}
-  #         key: ${{ secrets.WEB_SERVER_SSH_KEY }}
-  #         envs: IMAGE_TAG,DOCKER_HUB_USERNAME
-  #         timeout: 120s
-  #         command_timeout: 20m
-  #         script: |
-  #           set -e
-  #           cd ~/my-portfolio
-  #           export IMAGE_TAG="${IMAGE_TAG}"
-  #           export DOCKER_HUB_USERNAME="${DOCKER_HUB_USERNAME}"
-  #           echo "--- Pulling latest images ---"
-  #           docker compose pull
-  #           echo "--- Restarting containers ---"
-  #           docker compose up -d
-  #           echo "--- Verifying deployment ---"
-  #           docker compose ps
-  #           docker compose logs --tail=20
-  #           echo "--- Cleaning up old images ---"
-  #           docker image prune -f
-  #       env:
-  #         IMAGE_TAG: ${{ inputs.image_tag }}
-  #         DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
