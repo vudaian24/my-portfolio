@@ -38,4 +38,4 @@ jobs:
             ${{ secrets.DOCKER_HUB_USERNAME }}/my-portfolio:latest
             ${{ secrets.DOCKER_HUB_USERNAME }}/my-portfolio:${{ inputs.image_tag }}
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-to: type=gha,mode=min
