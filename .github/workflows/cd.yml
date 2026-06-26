@@ -11,6 +11,10 @@ on:
         required: true
       DOCKER_HUB_ACCESS_TOKEN:
         required: true
+      TELEGRAM_BOT_TOKEN:
+        required: true
+      TELEGRAM_CHAT_ID:
+        required: true
 
 jobs:
   build-and-push:
@@ -39,3 +43,22 @@ jobs:
             ${{ secrets.DOCKER_HUB_USERNAME }}/my-portfolio:${{ inputs.image_tag }}
           cache-from: type=gha
           cache-to: type=gha,mode=min
+
+      - name: Notify Telegram
+        if: always()
+        run: |
+          STATUS="${{ job.status }}"
+          SHA="${{ github.sha }}"
+          REPO="${{ github.repository }}"
+          RUN_URL="https://github.com/${REPO}/actions/runs/${{ github.run_id }}"
+
+          if [ "$STATUS" = "success" ]; then
+            MESSAGE="✅ <b>Deploy succeeded</b>%0A📦 <code>${SHA:0:7}</code>%0A🔗 <a href='${RUN_URL}'>View run</a>"
+          else
+            MESSAGE="❌ <b>Deploy failed</b>%0A📦 <code>${SHA:0:7}</code>%0A🔗 <a href='${RUN_URL}'>View run</a>"
+          fi
+
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d parse_mode="HTML" \
+            -d text="$MESSAGE"
