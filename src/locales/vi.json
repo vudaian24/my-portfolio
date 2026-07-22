@@ -2,7 +2,7 @@
   "Common": {
     "Metadata": {
       "title": "Đại An | Portfolio",
-      "description": "Trang portfolio giới thiệu bản thân, dự án tiêu biểu và thông tin liên hệ."
+      "description": "Portfolio của Đại An — Full-stack Developer chuyên Next.js, TypeScript và triển khai CI/CD. Xem dự án tiêu biểu, kỹ năng và thông tin liên hệ."
     },
     "Languages": {
       "vi": "Tiếng Việt",
@@ -22,16 +22,16 @@
     "HeroSection": {
       "eyebrow": "Full‑stack Developer · Web App · UI/UX",
       "title": "Xây dựng sản phẩm web hiện đại",
-      "description": "Mình là Đại An — tập trung phát triển web app nhanh, ổn định và dễ mở rộng. Ưu tiên UI/UX rõ ràng, code sạch và trải nghiệm mượt trên mọi thiết bị.",
+      "description": "Mình là Đại An — full-stack developer tập trung xây dựng web app nhanh, ổn định và dễ mở rộng, từ giao diện đến hạ tầng triển khai. Ưu tiên code sạch, UI/UX rõ ràng và trải nghiệm mượt trên mọi thiết bị.",
       "ctaProjects": "Xem dự án",
       "ctaContact": "Liên hệ",
       "photoAlt": "Ảnh đại diện",
-      "marqueeText": "React • Next.js • TypeScript • UI/UX • Performance • API • React • Next.js • TypeScript • UI/UX • Performance • API"
+      "marqueeText": "React • Next.js • TypeScript • Node.js • Docker • CI/CD • UI/UX • Performance • React • Next.js • TypeScript • Node.js • Docker • CI/CD • UI/UX • Performance"
     },
     "AboutSection": {
       "eyebrow": "Giới thiệu",
       "title": "Về mình",
-      "description": "Mình phát triển ứng dụng web từ giao diện đến API, ưu tiên kiến trúc rõ ràng và hiệu năng tốt. Mình thích biến yêu cầu mơ hồ thành tính năng cụ thể, dễ dùng và dễ bảo trì.",
+      "description": "Mình phát triển ứng dụng web end-to-end — từ giao diện, API đến triển khai production, ưu tiên kiến trúc rõ ràng, hiệu năng tốt và quy trình CI/CD đáng tin cậy. Mình thích biến yêu cầu mơ hồ thành tính năng cụ thể, dễ dùng và dễ bảo trì.",
       "cta": "Xem dự án tiêu biểu",
       "skillsTitle": "Công nghệ mình dùng",
       "skills": {
@@ -41,6 +41,8 @@
         "node": "Node.js",
         "tailwind": "Tailwind CSS",
         "framer": "Framer Motion",
+        "docker": "Docker",
+        "cicd": "CI/CD",
         "git": "Git & GitHub"
       }
     },
@@ -122,7 +124,7 @@
   },
   "footer": {
     "brand": "Dai An",
-    "about": "Full‑stack developer tập trung vào web app hiệu năng tốt và UI/UX rõ ràng.",
+    "about": "Full‑stack developer tập trung xây dựng web app hiệu năng tốt, UI/UX rõ ràng và triển khai tự động hoá.",
     "links": {
       "title": "Liên Kết",
       "about": "Giới Thiệu",

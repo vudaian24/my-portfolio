@@ -47,12 +47,12 @@ export default function Navbar() {
             {t("brand")}
           </Link>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden items-center gap-1 xl:flex">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="group flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground"
+                className="group relative flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground"
               >
                 <item.icon
                   size={15}
@@ -60,6 +60,10 @@ export default function Navbar() {
                   aria-hidden
                 />
                 {t(item.labelKey)}
+                <span
+                  className="absolute inset-x-3 -bottom-px h-px scale-x-0 bg-brand transition-transform duration-300 ease-out group-hover:scale-x-100"
+                  aria-hidden
+                />
               </Link>
             ))}
             <div className="ml-2 h-6 w-px bg-border" aria-hidden />
@@ -80,7 +84,7 @@ export default function Navbar() {
             <LanguageSelector />
           </div>
 
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 xl:hidden">
             <LanguageSelector />
             <button
               type="button"
@@ -98,7 +102,7 @@ export default function Navbar() {
         <div
           id="mobile-nav"
           className={cn(
-            "fixed inset-x-0 top-16 z-40 border-b border-border bg-background/95 backdrop-blur-lg transition-[opacity,visibility] duration-200 lg:hidden",
+            "fixed inset-x-0 top-16 z-40 border-b border-border bg-background/95 backdrop-blur-lg transition-[opacity,visibility] duration-200 xl:hidden",
             isOpen
               ? "visible opacity-100"
               : "invisible pointer-events-none opacity-0",
@@ -140,7 +144,7 @@ export default function Navbar() {
       {isOpen && (
         <button
           type="button"
-          className="fixed inset-0 z-30 bg-foreground/20 backdrop-blur-[2px] lg:hidden"
+          className="fixed inset-0 z-30 bg-foreground/20 backdrop-blur-[2px] xl:hidden"
           aria-label="Close menu"
           onClick={() => setIsOpen(false)}
         />

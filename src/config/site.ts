@@ -74,6 +74,8 @@ export const SKILL_KEYS = [
   "node",
   "tailwind",
   "framer",
+  "docker",
+  "cicd",
   "git",
 ] as const;
 

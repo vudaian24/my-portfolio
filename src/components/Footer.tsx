@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { MotionReveal } from "@/components/ui/MotionReveal";
 import { SECTION_IDS, SOCIAL_LINKS } from "@/config/site";
 
 const FOOTER_LINKS = [
@@ -18,7 +19,10 @@ export default function Footer() {
   return (
     <footer className="relative z-10 mt-24 border-t border-border bg-surface/40">
       <div className="section-shell py-14 md:py-16">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-8">
+        <MotionReveal
+          viewportAmount={0.2}
+          className="grid gap-12 md:grid-cols-12 md:gap-8"
+        >
           <div className="md:col-span-5">
             <p className="font-display text-xl font-semibold tracking-tight text-foreground">
               {t("brand")}
@@ -35,9 +39,11 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-text-secondary transition-colors hover:text-brand"
+                    className="group inline-flex items-center text-sm text-text-secondary transition-colors hover:text-brand"
                   >
-                    {t(`links.${item.labelKey}`)}
+                    <span className="transition-transform duration-200 group-hover:translate-x-1">
+                      {t(`links.${item.labelKey}`)}
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -53,7 +59,7 @@ export default function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface-elevated/80 px-3 py-2 text-sm text-text-secondary transition-all hover:border-brand/40 hover:text-brand"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface-elevated/80 px-3 py-2 text-sm text-text-secondary transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:text-brand"
                   aria-label={s.label}
                 >
                   <s.icon size={16} strokeWidth={1.75} />
@@ -62,7 +68,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </div>
+        </MotionReveal>
 
         <div className="mt-12 border-t border-border/80 pt-8 text-center text-xs text-text-muted sm:text-left">
           <p>

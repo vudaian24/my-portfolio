@@ -2,7 +2,7 @@
   "Common": {
     "Metadata": {
       "title": "Dai An | Portfolio",
-      "description": "Portfolio showcasing selected projects, skills, and contact details."
+      "description": "Dai An's portfolio — a full-stack developer specializing in Next.js, TypeScript, and CI/CD deployments. Explore featured projects, skills, and get in touch."
     },
     "Languages": {
       "vi": "Tiếng Việt",
@@ -20,18 +20,18 @@
   },
   "HomePage": {
     "HeroSection": {
-      "eyebrow": "Software · Web · Product",
+      "eyebrow": "Full‑stack Developer · Web App · UI/UX",
       "title": "Building modern web products",
-      "description": "I’m Dai An — a full‑stack developer focused on performance, clean architecture, and approachable UI/UX. I turn requirements into reliable features that ship.",
+      "description": "I’m Dai An — a full‑stack developer focused on shipping fast, reliable, and scalable web apps, from the interface all the way to deployment infrastructure. I care about clean code, clear UI/UX, and a smooth experience on every device.",
       "ctaProjects": "View Projects",
       "ctaContact": "Get in touch",
       "photoAlt": "Portrait",
-      "marqueeText": "React • Next.js • TypeScript • UI/UX • Performance • API • React • Next.js • TypeScript • UI/UX • Performance • API"
+      "marqueeText": "React • Next.js • TypeScript • Node.js • Docker • CI/CD • UI/UX • Performance • React • Next.js • TypeScript • Node.js • Docker • CI/CD • UI/UX • Performance"
     },
     "AboutSection": {
       "eyebrow": "Introduction",
       "title": "About Me",
-      "description": "I build web applications end‑to‑end — from UI to APIs. I care about readable code, maintainable systems, and shipping features that feel great to use.",
+      "description": "I build web applications end‑to‑end — from UI and APIs to production deployment — with clear architecture, strong performance, and a dependable CI/CD workflow. I care about turning ambiguous requirements into features that feel great to use.",
       "cta": "See selected work",
       "skillsTitle": "Tech Skills",
       "skills": {
@@ -41,6 +41,8 @@
         "node": "Node.js",
         "tailwind": "Tailwind CSS",
         "framer": "Framer Motion",
+        "docker": "Docker",
+        "cicd": "CI/CD",
         "git": "Git & GitHub"
       }
     },
@@ -122,7 +124,7 @@
   },
   "footer": {
     "brand": "Dai An",
-    "about": "Full‑stack developer focused on performance and clear UI/UX.",
+    "about": "Full‑stack developer focused on high‑performance web apps, clear UI/UX, and automated deployments.",
     "links": {
       "title": "Quick Links",
       "about": "About",

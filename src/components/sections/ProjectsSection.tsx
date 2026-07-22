@@ -46,8 +46,9 @@ export default function ProjectsSection() {
               rel={project.external ? "noopener noreferrer" : undefined}
               className="flex h-full flex-col rounded-2xl border border-border bg-surface-elevated/50 p-6 shadow-sm transition-all duration-300 hover:border-brand/35 hover:shadow-md md:p-8"
             >
-              <div className="mb-6 flex aspect-[16/10] items-center justify-center rounded-xl border border-dashed border-border/80 bg-surface/80 text-xs font-medium uppercase tracking-wider text-text-muted transition-colors group-hover:border-brand/25 group-hover:text-brand">
-                {t("previewPlaceholder")}
+              <div className="relative mb-6 flex aspect-[16/10] items-center justify-center overflow-hidden rounded-xl border border-dashed border-border/80 bg-surface/80 text-xs font-medium uppercase tracking-wider text-text-muted transition-colors group-hover:border-brand/25 group-hover:text-brand">
+                <span className="shimmer-sweep" aria-hidden />
+                <span className="relative">{t("previewPlaceholder")}</span>
               </div>
               <div className="flex flex-1 flex-col">
                 <div className="flex items-start justify-between gap-4">

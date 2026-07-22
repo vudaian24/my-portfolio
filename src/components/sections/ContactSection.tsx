@@ -154,9 +154,11 @@ export default function ContactSection() {
             </div>
 
             <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
-              <button
+              <motion.button
                 type="submit"
                 disabled={isSubmitting}
+                whileHover={isSubmitting ? undefined : { scale: 1.02 }}
+                whileTap={isSubmitting ? undefined : { scale: 0.98 }}
                 className="font-display inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand px-8 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
               >
                 {isSubmitting ? (
@@ -180,7 +182,7 @@ export default function ContactSection() {
                   <Send className="h-4 w-4" strokeWidth={2} aria-hidden />
                 )}
                 {isSubmitting ? t("status.sending") : t("form.button")}
-              </button>
+              </motion.button>
 
               <AnimatePresence mode="wait">
                 {submitStatus === "success" && (

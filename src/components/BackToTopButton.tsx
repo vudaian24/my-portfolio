@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
 export default function BackToTopButton() {
@@ -14,16 +15,24 @@ export default function BackToTopButton() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  if (!isVisible) return null;
-
   return (
-    <button
-      type="button"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface-elevated/95 text-brand shadow-md backdrop-blur-sm transition-all hover:border-brand/50 hover:bg-brand-muted/40 hover:shadow-lg"
-      aria-label="Back to top"
-    >
-      <ArrowUp className="h-5 w-5" strokeWidth={2} />
-    </button>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.button
+          type="button"
+          initial={{ opacity: 0, scale: 0.7, y: 12 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.7, y: 12 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.94 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface-elevated/95 text-brand shadow-md backdrop-blur-sm hover:border-brand/50 hover:bg-brand-muted/40 hover:shadow-lg"
+          aria-label="Back to top"
+        >
+          <ArrowUp className="h-5 w-5" strokeWidth={2} />
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 }
