@@ -10,7 +10,7 @@ FROM base AS deps
 ENV HUSKY=0 \
     CI=true
 COPY package.json yarn.lock ./
-RUN --mount=type=cache,target=/root/.yarn-cache \
+RUN --mount=type=cache,target=/root/.cache/yarn \
     yarn install --frozen-lockfile --network-timeout 300000
 
 # --- Build (webpack; avoid --turbopack in Docker/CI) ---
@@ -32,7 +32,7 @@ ENV NODE_ENV=production \
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # next-intl dynamic imports: ensure locale JSON is available at runtime

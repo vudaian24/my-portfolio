@@ -11,4 +11,11 @@ export const routing = defineRouting({
   localePrefix: {
     mode: "as-needed",
   },
+
+  // Always resolve strictly from the URL/defaultLocale. With this left on
+  // (the default), a stale NEXT_LOCALE cookie from a previous visit to a
+  // non-default locale takes priority over the current URL, so switching
+  // locale client-side and then triggering another navigation (e.g. a nav
+  // link) makes the middleware redirect back to the old locale.
+  localeDetection: false,
 });
