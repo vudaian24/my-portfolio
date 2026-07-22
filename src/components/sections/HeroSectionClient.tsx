@@ -79,13 +79,13 @@ export default function HeroSectionClient({ content }: HeroSectionClientProps) {
               className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-brand-muted via-transparent to-brand-subtle opacity-80 blur-2xl"
               aria-hidden
             />
-            <div className="relative aspect-square w-56 overflow-hidden rounded-2xl border border-border bg-surface shadow-xl sm:w-64 md:w-72">
+            <div className="relative aspect-[779/1280] w-48 overflow-hidden rounded-2xl border border-border bg-surface shadow-xl sm:w-56 md:w-64">
               <Image
                 src="/avatar.jpg"
                 alt={content.photoAlt}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 224px, 288px"
+                sizes="(max-width: 768px) 192px, 256px"
                 priority
               />
             </div>
