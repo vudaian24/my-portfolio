@@ -61,6 +61,17 @@ export default function ProjectsSection() {
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground md:text-base">
                   {t(`items.${project.id}.description`)}
                 </p>
+                {project.tags?.length ? (
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <li key={tag}>
+                        <span className="inline-flex items-center rounded-md border border-border/70 bg-background/60 px-2 py-1 text-xs font-medium text-text-secondary">
+                          {tag}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
                 <p className="mt-6 text-sm font-medium text-brand opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   {t("viewDetail")}
                 </p>

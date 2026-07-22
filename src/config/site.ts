@@ -3,6 +3,7 @@ import {
   Briefcase,
   FileText,
   Github,
+  History,
   Home,
   Linkedin,
   Mail,
@@ -13,6 +14,7 @@ import {
 export const SECTION_IDS = {
   home: "home",
   about: "about",
+  experience: "experience",
   projects: "projects",
   resume: "resume",
   contact: "contact",
@@ -23,6 +25,11 @@ export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];
 export const NAV_ITEMS = [
   { href: `#${SECTION_IDS.home}`, labelKey: "home" as const, icon: Home },
   { href: `#${SECTION_IDS.about}`, labelKey: "about" as const, icon: User },
+  {
+    href: `#${SECTION_IDS.experience}`,
+    labelKey: "experience" as const,
+    icon: History,
+  },
   {
     href: `#${SECTION_IDS.projects}`,
     labelKey: "projects" as const,
@@ -72,7 +79,7 @@ export const SKILL_KEYS = [
 
 export type SkillKey = (typeof SKILL_KEYS)[number];
 
-export const PROJECT_IDS = ["portfolio", "taskApp"] as const;
+export const PROJECT_IDS = ["portfolio", "taskApp", "devopsPipeline"] as const;
 
 export type ProjectId = (typeof PROJECT_IDS)[number];
 
@@ -80,14 +87,38 @@ export type ProjectConfig = {
   id: ProjectId;
   href: string;
   external?: boolean;
+  tags?: readonly string[];
 };
 
 /** Update href when demo/repo URLs are ready */
 export const PROJECTS: readonly ProjectConfig[] = [
   { id: "portfolio", href: "#", external: false },
   { id: "taskApp", href: "#", external: false },
+  {
+    id: "devopsPipeline",
+    href: "https://github.com/vudaian24/my-portfolio",
+    external: true,
+    tags: ["Docker", "GitHub Actions", "Watchtower", "Cloudflare"],
+  },
 ] as const;
 
 export const CV_PATH = "/cv.pdf";
 
 export const CONTACT_API_PATH = "/web-api/contact";
+
+export const EXPERIENCE_IDS = ["job3", "job2", "job1"] as const;
+
+export type ExperienceId = (typeof EXPERIENCE_IDS)[number];
+
+export type ExperienceConfig = {
+  id: ExperienceId;
+  current?: boolean;
+  tags?: readonly string[];
+};
+
+/** Dummy placeholder timeline — replace with real work experience */
+export const EXPERIENCE_ITEMS: readonly ExperienceConfig[] = [
+  { id: "job3", current: true, tags: ["Next.js", "Node.js", "Docker"] },
+  { id: "job2", tags: ["React", "TypeScript", "REST API"] },
+  { id: "job1", tags: ["JavaScript", "Git", "Agile"] },
+] as const;

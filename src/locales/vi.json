@@ -12,6 +12,7 @@
       "brand": "Đại An",
       "home": "Trang chủ",
       "about": "Giới thiệu",
+      "experience": "Kinh nghiệm",
       "projects": "Dự án",
       "contact": "Liên hệ",
       "resume": "CV"
@@ -71,6 +72,32 @@
       "description": "Tóm tắt kinh nghiệm, kỹ năng và một số dự án nổi bật của mình.",
       "button": "Mở CV"
     },
+    "ExperienceSection": {
+      "eyebrow": "Kinh nghiệm",
+      "title": "Hành trình làm việc",
+      "description": "Một vài dấu mốc trong quá trình học tập và làm việc của mình.",
+      "current": "Hiện tại",
+      "items": {
+        "job3": {
+          "role": "Fullstack Developer",
+          "company": "Công ty Cổ phần Công nghệ ABC",
+          "period": "07/2024 — Hiện tại",
+          "description": "Phát triển và bảo trì các module web app, xây dựng API, tối ưu hiệu năng và triển khai CI/CD lên môi trường production."
+        },
+        "job2": {
+          "role": "Junior Web Developer",
+          "company": "XYZ Solutions",
+          "period": "01/2024 — 06/2024",
+          "description": "Tham gia xây dựng giao diện người dùng, tích hợp API và phối hợp với đội thiết kế để hoàn thiện sản phẩm."
+        },
+        "job1": {
+          "role": "Thực tập sinh Lập trình viên",
+          "company": "Startup Studio",
+          "period": "06/2023 — 12/2023",
+          "description": "Học và thực hành phát triển web cơ bản, tham gia các dự án nhỏ trong môi trường agile."
+        }
+      }
+    },
     "Projects": {
       "eyebrow": "Dự án tiêu biểu",
       "title": "Dự án",
@@ -85,6 +112,10 @@
         "taskApp": {
           "title": "Task Management App",
           "description": "Ứng dụng quản lý công việc: tạo/ghi chú/trạng thái, luồng làm việc rõ ràng, hỗ trợ cập nhật theo thời gian thực và thông báo."
+        },
+        "devopsPipeline": {
+          "title": "Hạ tầng & Triển khai (CI/CD)",
+          "description": "Pipeline CI/CD tự động cho chính website này: GitHub Actions build & push Docker image, Watchtower tự động deploy phiên bản mới, HTTPS qua Cloudflare Origin Certificate, và thông báo trạng thái deploy qua Telegram."
         }
       }
     }
@@ -95,6 +126,7 @@
     "links": {
       "title": "Liên Kết",
       "about": "Giới Thiệu",
+      "experience": "Kinh Nghiệm",
       "projects": "Dự Án",
       "contact": "Liên Hệ",
       "resume": "CV"

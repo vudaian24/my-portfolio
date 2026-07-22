@@ -81,7 +81,7 @@ export default function HeroSectionClient({ content }: HeroSectionClientProps) {
             />
             <div className="relative aspect-square w-56 overflow-hidden rounded-2xl border border-border bg-surface shadow-xl sm:w-64 md:w-72">
               <Image
-                src="https://placehold.co/400"
+                src="/avatar.jpg"
                 alt={content.photoAlt}
                 fill
                 className="object-cover"

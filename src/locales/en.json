@@ -12,6 +12,7 @@
       "brand": "Dai An",
       "home": "Home",
       "about": "About",
+      "experience": "Experience",
       "projects": "Projects",
       "contact": "Contact",
       "resume": "CV"
@@ -71,6 +72,32 @@
       "description": "A quick overview of my experience, skills, and highlights.",
       "button": "Open CV"
     },
+    "ExperienceSection": {
+      "eyebrow": "Experience",
+      "title": "Work Journey",
+      "description": "A few milestones from my learning and working journey.",
+      "current": "Present",
+      "items": {
+        "job3": {
+          "role": "Fullstack Developer",
+          "company": "ABC Tech Co.",
+          "period": "Jul 2024 — Present",
+          "description": "Building and maintaining web app modules, designing APIs, optimizing performance, and shipping CI/CD pipelines to production."
+        },
+        "job2": {
+          "role": "Junior Web Developer",
+          "company": "XYZ Solutions",
+          "period": "Jan 2024 — Jun 2024",
+          "description": "Built user interfaces, integrated APIs, and collaborated with the design team to ship polished features."
+        },
+        "job1": {
+          "role": "Software Development Intern",
+          "company": "Startup Studio",
+          "period": "Jun 2023 — Dec 2023",
+          "description": "Learned web development fundamentals and contributed to small projects in an agile environment."
+        }
+      }
+    },
     "Projects": {
       "eyebrow": "Selected work",
       "title": "Projects",
@@ -85,6 +112,10 @@
         "taskApp": {
           "title": "Task Management App",
           "description": "A task workflow app with clear states, real‑time updates, and notifications."
+        },
+        "devopsPipeline": {
+          "title": "Infrastructure & Deployment (CI/CD)",
+          "description": "The automated CI/CD pipeline behind this very site: GitHub Actions builds and pushes Docker images, Watchtower auto‑deploys new releases, HTTPS via Cloudflare Origin Certificates, and deployment status alerts sent to Telegram."
         }
       }
     }
@@ -95,6 +126,7 @@
     "links": {
       "title": "Quick Links",
       "about": "About",
+      "experience": "Experience",
       "projects": "Projects",
       "contact": "Contact",
       "resume": "CV"
