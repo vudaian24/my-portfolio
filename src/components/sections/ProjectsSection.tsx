@@ -38,58 +38,46 @@ export default function ProjectsSection() {
           const hasLink = Boolean(project.href);
 
           const body = (
-            <>
-              <div
-                className={cn(
-                  "relative mb-6 flex aspect-[16/10] items-center justify-center overflow-hidden rounded-xl border border-dashed border-border/80 bg-surface/80 text-xs font-medium uppercase tracking-wider text-text-muted",
-                  hasLink &&
-                    "transition-colors group-hover:border-brand/25 group-hover:text-brand",
-                )}
-              >
-                <span className="shimmer-sweep" aria-hidden />
-                <span className="relative">{t("previewPlaceholder")}</span>
-              </div>
-              <div className="flex flex-1 flex-col">
-                <div className="flex items-start justify-between gap-4">
-                  <h3
-                    className={cn(
-                      "font-display text-xl font-semibold text-foreground md:text-2xl",
-                      hasLink && "transition-colors group-hover:text-brand",
-                    )}
-                  >
-                    {t(`items.${project.id}.title`)}
-                  </h3>
-                  {hasLink ? (
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-all group-hover:border-brand/40 group-hover:bg-brand-muted/30 group-hover:text-brand">
-                      <ArrowUpRight size={18} strokeWidth={2} aria-hidden />
-                    </span>
-                  ) : null}
-                </div>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground md:text-base">
-                  {t(`items.${project.id}.description`)}
-                </p>
-                {project.tags?.length ? (
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <li key={tag}>
-                        <span className="inline-flex items-center rounded-md border border-border/70 bg-background/60 px-2 py-1 text-xs font-medium text-text-secondary">
-                          {tag}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+            <div className="flex flex-1 flex-col">
+              <div className="flex items-start justify-between gap-4">
+                <h3
+                  className={cn(
+                    "font-display text-xl font-semibold text-foreground md:text-2xl",
+                    hasLink && "transition-colors group-hover:text-brand",
+                  )}
+                >
+                  {t(`items.${project.id}.title`)}
+                </h3>
                 {hasLink ? (
-                  <p className="mt-6 text-sm font-medium text-brand opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    {t("viewDetail")}
-                  </p>
-                ) : (
-                  <p className="mt-6 text-sm font-medium text-text-muted">
-                    {t("noPublicLink")}
-                  </p>
-                )}
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-all group-hover:border-brand/40 group-hover:bg-brand-muted/30 group-hover:text-brand">
+                    <ArrowUpRight size={18} strokeWidth={2} aria-hidden />
+                  </span>
+                ) : null}
               </div>
-            </>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground md:text-base">
+                {t(`items.${project.id}.description`)}
+              </p>
+              {project.tags?.length ? (
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <li key={tag}>
+                      <span className="inline-flex items-center rounded-md border border-border/70 bg-background/60 px-2 py-1 text-xs font-medium text-text-secondary">
+                        {tag}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              {hasLink ? (
+                <p className="mt-6 text-sm font-medium text-brand opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  {t("viewDetail")}
+                </p>
+              ) : (
+                <p className="mt-6 text-sm font-medium text-text-muted">
+                  {t("noPublicLink")}
+                </p>
+              )}
+            </div>
           );
 
           return (
