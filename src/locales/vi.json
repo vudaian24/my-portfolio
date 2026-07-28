@@ -2,7 +2,7 @@
   "Common": {
     "Metadata": {
       "title": "Đại An | Portfolio",
-      "description": "Portfolio của Đại An — Full-stack Developer chuyên Next.js, TypeScript và triển khai CI/CD. Xem dự án tiêu biểu, kỹ năng và thông tin liên hệ."
+      "description": "Portfolio của Đại An — Full-stack Software Engineer chuyên TypeScript, Next.js, Nest.js và DevOps trên AWS. Xem dự án tiêu biểu, kỹ năng và thông tin liên hệ."
     },
     "Languages": {
       "vi": "Tiếng Việt",
@@ -20,30 +20,40 @@
   },
   "HomePage": {
     "HeroSection": {
-      "eyebrow": "Full‑stack Developer · Web App · UI/UX",
-      "title": "Xây dựng sản phẩm web hiện đại",
-      "description": "Mình là Đại An — full-stack developer tập trung xây dựng web app nhanh, ổn định và dễ mở rộng, từ giao diện đến hạ tầng triển khai. Ưu tiên code sạch, UI/UX rõ ràng và trải nghiệm mượt trên mọi thiết bị.",
+      "eyebrow": "Full‑stack Software Engineer · Web · Cloud & DevOps",
+      "title": "Xây dựng sản phẩm web end-to-end",
+      "description": "Mình là Đại An — full-stack software engineer với hơn 3 năm phát triển web app production bằng TypeScript, Next.js và Nest.js. Mình làm trọn vẹn từ giao diện, API đến hạ tầng AWS mà sản phẩm chạy trên đó, và phụ trách luôn phần DevOps: Terraform, Docker và CI/CD.",
       "ctaProjects": "Xem dự án",
       "ctaContact": "Liên hệ",
       "photoAlt": "Ảnh đại diện",
-      "marqueeText": "React • Next.js • TypeScript • Node.js • Docker • CI/CD • UI/UX • Performance • React • Next.js • TypeScript • Node.js • Docker • CI/CD • UI/UX • Performance"
+      "marqueeText": "Next.js • Nest.js • TypeScript • React • Vue.js • AWS • Terraform • Docker • GitHub Actions • PostgreSQL • MongoDB • Redis"
     },
     "AboutSection": {
       "eyebrow": "Giới thiệu",
       "title": "Về mình",
-      "description": "Mình phát triển ứng dụng web end-to-end — từ giao diện, API đến triển khai production, ưu tiên kiến trúc rõ ràng, hiệu năng tốt và quy trình CI/CD đáng tin cậy. Mình thích biến yêu cầu mơ hồ thành tính năng cụ thể, dễ dùng và dễ bảo trì.",
+      "description": "Mình phát triển ứng dụng web end-to-end — giao diện, API và cả hạ tầng cloud mà sản phẩm chạy trên đó. Hơn 3 năm tại Tokyo Tech Lab, mình đã tham gia các sản phẩm khách hàng từ SaaS chatbot AI đến nền tảng livestream và đặt lịch phòng khám, đồng thời phụ trách DevOps: Terraform infrastructure-as-code, Docker và CI/CD với GitHub Actions. Mình làm việc bằng tiếng Anh với đối tác nước ngoài và thích biến yêu cầu mơ hồ thành tính năng cụ thể, dễ dùng và dễ bảo trì.",
       "cta": "Xem dự án tiêu biểu",
       "skillsTitle": "Công nghệ mình dùng",
       "skills": {
-        "react": "React",
-        "nextjs": "Next.js",
         "typescript": "TypeScript",
-        "node": "Node.js",
+        "javascript": "JavaScript",
+        "python": "Python",
+        "nextjs": "Next.js",
+        "react": "React",
+        "vue": "Vue.js",
         "tailwind": "Tailwind CSS",
-        "framer": "Framer Motion",
+        "nestjs": "Nest.js",
+        "node": "Node.js",
+        "langchain": "LangChain",
+        "postgresql": "PostgreSQL",
+        "mongodb": "MongoDB",
+        "redis": "Redis",
+        "aws": "AWS",
+        "terraform": "Terraform",
         "docker": "Docker",
-        "cicd": "CI/CD",
-        "git": "Git & GitHub"
+        "kubernetes": "Kubernetes",
+        "githubActions": "GitHub Actions",
+        "linux": "Linux"
       }
     },
     "ContactSection": {
@@ -80,23 +90,17 @@
       "description": "Một vài dấu mốc trong quá trình học tập và làm việc của mình.",
       "current": "Hiện tại",
       "items": {
-        "job3": {
-          "role": "Fullstack Developer",
-          "company": "Công ty Cổ phần Công nghệ ABC",
-          "period": "07/2024 — Hiện tại",
-          "description": "Phát triển và bảo trì các module web app, xây dựng API, tối ưu hiệu năng và triển khai CI/CD lên môi trường production."
+        "softwareEngineer": {
+          "role": "Software Engineer",
+          "company": "Tokyo Tech Lab Viet Nam",
+          "period": "10/2024 — Hiện tại",
+          "description": "Phát triển tính năng end-to-end trên ba sản phẩm khách hàng song song, trong đội 5–15 engineer, từ thiết kế kỹ thuật qua code review đến release lên AWS. Đồng thời là DevOps engineer chính của các dự án khách hàng — Terraform infrastructure-as-code, Docker và CI/CD với GitHub Actions."
         },
-        "job2": {
-          "role": "Junior Web Developer",
-          "company": "XYZ Solutions",
-          "period": "01/2024 — 06/2024",
-          "description": "Tham gia xây dựng giao diện người dùng, tích hợp API và phối hợp với đội thiết kế để hoàn thiện sản phẩm."
-        },
-        "job1": {
+        "softwareIntern": {
           "role": "Thực tập sinh Lập trình viên",
-          "company": "Startup Studio",
-          "period": "06/2023 — 12/2023",
-          "description": "Học và thực hành phát triển web cơ bản, tham gia các dự án nhỏ trong môi trường agile."
+          "company": "Tokyo Tech Lab Viet Nam",
+          "period": "04/2024 — 10/2024",
+          "description": "Xây dựng Gitman — công cụ quản lý Git repository nội bộ — từ đầu với Vue.js, TypeScript, Nest.js và MongoDB; đồng thời phát triển tính năng frontend cho hệ thống HR production của công ty. Được nhận chính thức vị trí Software Engineer sau sáu tháng."
         }
       }
     },
@@ -106,25 +110,34 @@
       "description": "Một vài dự án mình chọn lọc để thể hiện cách mình làm sản phẩm và giải quyết vấn đề.",
       "previewPlaceholder": "Xem trước",
       "viewDetail": "Xem chi tiết →",
+      "noPublicLink": "Dự án khách hàng — không có link công khai",
       "items": {
+        "kotae": {
+          "title": "Kotae — Nền tảng AI Chatbot",
+          "description": "SaaS chatbot AI hỗ trợ khách hàng cho doanh nghiệp SME: pipeline RAG hỏi đáp tri thức trên OpenAI và LangChain, dashboard Next.js, widget nhúng cho website bên thứ ba và nhắn tin real-time chạy trên AWS."
+        },
+        "starlive": {
+          "title": "StarLive — Nền tảng Live Streaming",
+          "description": "Nền tảng livestream và video call 1:1 trả phí với cơ chế tính điểm theo phút, tích hợp Tencent RTC và monorepo worker Nest.js trên AWS SQS xử lý billing, thông báo và media."
+        },
+        "ercBooking": {
+          "title": "ERC Booking — Đặt lịch phòng khám",
+          "description": "Nền tảng đặt lịch phòng khám mà mình phụ trách DevOps: hạ tầng AWS đa môi trường provisioning bằng Terraform, CI/CD GitHub Actions kèm migration database, cùng API phân quyền RBAC và pipeline email bất đồng bộ."
+        },
         "portfolio": {
-          "title": "Portfolio Website",
-          "description": "Website portfolio đa ngôn ngữ, tối ưu trải nghiệm đọc và tốc độ tải trang; trình bày dự án, kỹ năng và form liên hệ."
+          "title": "Personal Portfolio",
+          "description": "Chính website này — portfolio Next.js song ngữ (EN/VI), self-host trên VPS với Docker Compose và Nginx reverse proxy HTTPS, tự động deploy qua GitHub Actions và Watchtower kèm thông báo Telegram."
         },
-        "taskApp": {
-          "title": "Task Management App",
-          "description": "Ứng dụng quản lý công việc: tạo/ghi chú/trạng thái, luồng làm việc rõ ràng, hỗ trợ cập nhật theo thời gian thực và thông báo."
-        },
-        "devopsPipeline": {
-          "title": "Hạ tầng & Triển khai (CI/CD)",
-          "description": "Pipeline CI/CD tự động cho chính website này: GitHub Actions build & push Docker image, Watchtower tự động deploy phiên bản mới, HTTPS qua Cloudflare Origin Certificate, và thông báo trạng thái deploy qua Telegram."
+        "hrm": {
+          "title": "HRM Platform — Quản trị nhân sự",
+          "description": "Hệ thống nhân sự nội bộ gồm các module nhân viên, chấm công và luồng phê duyệt cho khoảng 50 nhân sự; mình xây dựng UI Vue 3 + TypeScript và API Nest.js cho các module chính."
         }
       }
     }
   },
   "footer": {
-    "brand": "Dai An",
-    "about": "Full‑stack developer tập trung xây dựng web app hiệu năng tốt, UI/UX rõ ràng và triển khai tự động hoá.",
+    "brand": "Đại An",
+    "about": "Full‑stack software engineer phát triển web app production bằng TypeScript, Next.js và Nest.js — cùng hạ tầng AWS và CI/CD phía sau.",
     "links": {
       "title": "Liên Kết",
       "about": "Giới Thiệu",

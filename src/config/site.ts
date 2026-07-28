@@ -67,40 +67,104 @@ export const SOCIAL_LINKS = [
   label: string;
 }>;
 
+/** Ordered language -> frontend -> backend -> data -> cloud & devops */
 export const SKILL_KEYS = [
-  "react",
-  "nextjs",
   "typescript",
-  "node",
+  "javascript",
+  "python",
+  "nextjs",
+  "react",
+  "vue",
   "tailwind",
-  "framer",
+  "nestjs",
+  "node",
+  "langchain",
+  "postgresql",
+  "mongodb",
+  "redis",
+  "aws",
+  "terraform",
   "docker",
-  "cicd",
-  "git",
+  "kubernetes",
+  "githubActions",
+  "linux",
 ] as const;
 
 export type SkillKey = (typeof SKILL_KEYS)[number];
 
-export const PROJECT_IDS = ["portfolio", "taskApp", "devopsPipeline"] as const;
+export const PROJECT_IDS = [
+  "kotae",
+  "starlive",
+  "ercBooking",
+  "portfolio",
+  "hrm",
+] as const;
 
 export type ProjectId = (typeof PROJECT_IDS)[number];
 
 export type ProjectConfig = {
   id: ProjectId;
-  href: string;
+  /** Omit for client/internal work with no public URL — the card renders non-interactive */
+  href?: string;
   external?: boolean;
   tags?: readonly string[];
 };
 
-/** Update href when demo/repo URLs are ready */
 export const PROJECTS: readonly ProjectConfig[] = [
-  { id: "portfolio", href: "#", external: false },
-  { id: "taskApp", href: "#", external: false },
   {
-    id: "devopsPipeline",
+    id: "kotae",
+    href: "https://kotae.ai/",
+    external: true,
+    tags: [
+      "Next.js",
+      "Nest.js",
+      "TypeScript",
+      "MongoDB",
+      "LangChain",
+      "OpenAI",
+      "AWS",
+    ],
+  },
+  {
+    id: "starlive",
+    tags: [
+      "Next.js",
+      "Nest.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Redis",
+      "Tencent RTC",
+      "AWS",
+    ],
+  },
+  {
+    id: "ercBooking",
+    tags: [
+      "React",
+      "Nest.js",
+      "TypeScript",
+      "Terraform",
+      "AWS",
+      "PostgreSQL",
+      "GitHub Actions",
+    ],
+  },
+  {
+    id: "portfolio",
     href: "https://github.com/vudaian24/my-portfolio",
     external: true,
-    tags: ["Docker", "GitHub Actions", "Watchtower", "Cloudflare"],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Docker",
+      "Nginx",
+      "GitHub Actions",
+      "Telegram",
+    ],
+  },
+  {
+    id: "hrm",
+    tags: ["Vue 3", "TypeScript", "Nest.js", "MySQL"],
   },
 ] as const;
 
@@ -108,7 +172,7 @@ export const CV_PATH = "/cv.pdf";
 
 export const CONTACT_API_PATH = "/web-api/contact";
 
-export const EXPERIENCE_IDS = ["job3", "job2", "job1"] as const;
+export const EXPERIENCE_IDS = ["softwareEngineer", "softwareIntern"] as const;
 
 export type ExperienceId = (typeof EXPERIENCE_IDS)[number];
 
@@ -118,9 +182,22 @@ export type ExperienceConfig = {
   tags?: readonly string[];
 };
 
-/** Dummy placeholder timeline — replace with real work experience */
+/** Reverse-chronological work timeline */
 export const EXPERIENCE_ITEMS: readonly ExperienceConfig[] = [
-  { id: "job3", current: true, tags: ["Next.js", "Node.js", "Docker"] },
-  { id: "job2", tags: ["React", "TypeScript", "REST API"] },
-  { id: "job1", tags: ["JavaScript", "Git", "Agile"] },
+  {
+    id: "softwareEngineer",
+    current: true,
+    tags: [
+      "Next.js",
+      "Nest.js",
+      "TypeScript",
+      "AWS",
+      "Terraform",
+      "GitHub Actions",
+    ],
+  },
+  {
+    id: "softwareIntern",
+    tags: ["Vue 3", "TypeScript", "Nest.js", "MongoDB"],
+  },
 ] as const;

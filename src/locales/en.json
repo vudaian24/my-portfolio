@@ -2,7 +2,7 @@
   "Common": {
     "Metadata": {
       "title": "Dai An | Portfolio",
-      "description": "Dai An's portfolio — a full-stack developer specializing in Next.js, TypeScript, and CI/CD deployments. Explore featured projects, skills, and get in touch."
+      "description": "Dai An's portfolio — a full-stack software engineer specializing in TypeScript, Next.js, Nest.js, and AWS DevOps. Explore featured projects, skills, and get in touch."
     },
     "Languages": {
       "vi": "Tiếng Việt",
@@ -20,30 +20,40 @@
   },
   "HomePage": {
     "HeroSection": {
-      "eyebrow": "Full‑stack Developer · Web App · UI/UX",
-      "title": "Building modern web products",
-      "description": "I’m Dai An — a full‑stack developer focused on shipping fast, reliable, and scalable web apps, from the interface all the way to deployment infrastructure. I care about clean code, clear UI/UX, and a smooth experience on every device.",
+      "eyebrow": "Full‑stack Software Engineer · Web · Cloud & DevOps",
+      "title": "Building web products end to end",
+      "description": "I’m Dai An — a full‑stack software engineer with 3+ years shipping production web apps in TypeScript, Next.js, and Nest.js. I own features from the interface through the API to the AWS infrastructure they run on, and I handle the DevOps side too: Terraform, Docker, and CI/CD.",
       "ctaProjects": "View Projects",
       "ctaContact": "Get in touch",
       "photoAlt": "Portrait",
-      "marqueeText": "React • Next.js • TypeScript • Node.js • Docker • CI/CD • UI/UX • Performance • React • Next.js • TypeScript • Node.js • Docker • CI/CD • UI/UX • Performance"
+      "marqueeText": "Next.js • Nest.js • TypeScript • React • Vue.js • AWS • Terraform • Docker • GitHub Actions • PostgreSQL • MongoDB • Redis"
     },
     "AboutSection": {
       "eyebrow": "Introduction",
       "title": "About Me",
-      "description": "I build web applications end‑to‑end — from UI and APIs to production deployment — with clear architecture, strong performance, and a dependable CI/CD workflow. I care about turning ambiguous requirements into features that feel great to use.",
+      "description": "I build web applications end‑to‑end — UI, APIs, and the cloud infrastructure they run on. Over 3+ years at Tokyo Tech Lab I’ve delivered client products ranging from an AI chatbot SaaS to live‑streaming and clinic booking platforms, and I own the DevOps side: Terraform infrastructure‑as‑code, Docker, and GitHub Actions CI/CD. I work in English with overseas partners and enjoy turning ambiguous requirements into features that feel great to use.",
       "cta": "See selected work",
       "skillsTitle": "Tech Skills",
       "skills": {
-        "react": "React",
-        "nextjs": "Next.js",
         "typescript": "TypeScript",
-        "node": "Node.js",
+        "javascript": "JavaScript",
+        "python": "Python",
+        "nextjs": "Next.js",
+        "react": "React",
+        "vue": "Vue.js",
         "tailwind": "Tailwind CSS",
-        "framer": "Framer Motion",
+        "nestjs": "Nest.js",
+        "node": "Node.js",
+        "langchain": "LangChain",
+        "postgresql": "PostgreSQL",
+        "mongodb": "MongoDB",
+        "redis": "Redis",
+        "aws": "AWS",
+        "terraform": "Terraform",
         "docker": "Docker",
-        "cicd": "CI/CD",
-        "git": "Git & GitHub"
+        "kubernetes": "Kubernetes",
+        "githubActions": "GitHub Actions",
+        "linux": "Linux"
       }
     },
     "ContactSection": {
@@ -80,23 +90,17 @@
       "description": "A few milestones from my learning and working journey.",
       "current": "Present",
       "items": {
-        "job3": {
-          "role": "Fullstack Developer",
-          "company": "ABC Tech Co.",
-          "period": "Jul 2024 — Present",
-          "description": "Building and maintaining web app modules, designing APIs, optimizing performance, and shipping CI/CD pipelines to production."
+        "softwareEngineer": {
+          "role": "Software Engineer",
+          "company": "Tokyo Tech Lab Viet Nam",
+          "period": "Oct 2024 — Present",
+          "description": "Delivering features end-to-end across three concurrent client products in teams of 5–15 engineers, from technical design through code review to AWS release. Also the primary DevOps engineer on client work — Terraform infrastructure-as-code, Docker, and GitHub Actions CI/CD."
         },
-        "job2": {
-          "role": "Junior Web Developer",
-          "company": "XYZ Solutions",
-          "period": "Jan 2024 — Jun 2024",
-          "description": "Built user interfaces, integrated APIs, and collaborated with the design team to ship polished features."
-        },
-        "job1": {
-          "role": "Software Development Intern",
-          "company": "Startup Studio",
-          "period": "Jun 2023 — Dec 2023",
-          "description": "Learned web development fundamentals and contributed to small projects in an agile environment."
+        "softwareIntern": {
+          "role": "Software Intern",
+          "company": "Tokyo Tech Lab Viet Nam",
+          "period": "Apr 2024 — Oct 2024",
+          "description": "Built Gitman, an internal Git repository management tool, from scratch with Vue.js, TypeScript, Nest.js, and MongoDB, and shipped frontend features into the company's production HR platform. Promoted to full-time Software Engineer after six months."
         }
       }
     },
@@ -106,25 +110,34 @@
       "description": "Featured projects that show how I think, build, and ship products.",
       "previewPlaceholder": "Preview",
       "viewDetail": "View Details →",
+      "noPublicLink": "Client project — no public link",
       "items": {
+        "kotae": {
+          "title": "Kotae — AI Chatbot Platform",
+          "description": "An AI chatbot SaaS for SME customer support: RAG-based knowledge Q&A built on OpenAI and LangChain, Next.js dashboards, an embeddable widget for third-party sites, and real-time messaging running on AWS."
+        },
+        "starlive": {
+          "title": "StarLive — Live Streaming Platform",
+          "description": "A paid live-streaming and 1:1 video-call platform with per-minute point billing, Tencent RTC integration, and a Nest.js worker monorepo on AWS SQS handling billing, notifications, and media processing."
+        },
+        "ercBooking": {
+          "title": "ERC Booking — Clinic Scheduling",
+          "description": "A clinic booking platform where I led DevOps: multi-environment AWS infrastructure provisioned with Terraform, GitHub Actions CI/CD with database migrations, plus RBAC APIs and an async email pipeline."
+        },
         "portfolio": {
-          "title": "Portfolio Website",
-          "description": "A bilingual portfolio with a clean reading experience, fast load times, and a contact flow."
+          "title": "Personal Portfolio",
+          "description": "This very site — a bilingual (EN/VI) Next.js portfolio, self-hosted on a VPS with Docker Compose and an Nginx HTTPS reverse proxy, auto-deployed by GitHub Actions and Watchtower with Telegram alerts."
         },
-        "taskApp": {
-          "title": "Task Management App",
-          "description": "A task workflow app with clear states, real‑time updates, and notifications."
-        },
-        "devopsPipeline": {
-          "title": "Infrastructure & Deployment (CI/CD)",
-          "description": "The automated CI/CD pipeline behind this very site: GitHub Actions builds and pushes Docker images, Watchtower auto‑deploys new releases, HTTPS via Cloudflare Origin Certificates, and deployment status alerts sent to Telegram."
+        "hrm": {
+          "title": "HRM Platform — Human Resources",
+          "description": "An internal HR system covering employee, timekeeping, and approval workflows for ~50 staff; I built the Vue 3 and TypeScript UI along with Nest.js APIs for core modules."
         }
       }
     }
   },
   "footer": {
     "brand": "Dai An",
-    "about": "Full‑stack developer focused on high‑performance web apps, clear UI/UX, and automated deployments.",
+    "about": "Full‑stack software engineer building production web apps in TypeScript, Next.js, and Nest.js — with the AWS infrastructure and CI/CD behind them.",
     "links": {
       "title": "Quick Links",
       "about": "About",
