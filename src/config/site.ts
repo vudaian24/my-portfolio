@@ -3,6 +3,7 @@ import {
   Briefcase,
   FileText,
   Github,
+  GraduationCap,
   History,
   Home,
   Linkedin,
@@ -16,6 +17,7 @@ export const SECTION_IDS = {
   about: "about",
   experience: "experience",
   projects: "projects",
+  education: "education",
   resume: "resume",
   contact: "contact",
 } as const;
@@ -36,6 +38,11 @@ export const NAV_ITEMS = [
     icon: Briefcase,
   },
   {
+    href: `#${SECTION_IDS.education}`,
+    labelKey: "education" as const,
+    icon: GraduationCap,
+  },
+  {
     href: `#${SECTION_IDS.resume}`,
     labelKey: "resume" as const,
     icon: FileText,
@@ -52,7 +59,7 @@ export const SOCIAL_LINKS = [
     label: "GitHub",
   },
   {
-    href: "https://www.linkedin.com/in/v%C5%A9-%C4%91%E1%BA%A1i-an-75110137b/",
+    href: "https://linkedin.com/in/anvd24",
     icon: Linkedin,
     label: "LinkedIn",
   },
@@ -67,44 +74,75 @@ export const SOCIAL_LINKS = [
   label: string;
 }>;
 
-/** Ordered language -> frontend -> backend -> data -> cloud & devops */
-export const SKILL_KEYS = [
-  "typescript",
-  "javascript",
-  "python",
-  "nextjs",
-  "react",
-  "vue",
-  "tailwind",
-  "nestjs",
-  "node",
-  "langchain",
-  "postgresql",
-  "mongodb",
-  "redis",
-  "aws",
-  "terraform",
-  "docker",
-  "kubernetes",
-  "githubActions",
-  "linux",
+export const SKILL_GROUPS = [
+  {
+    id: "languages",
+    keys: ["typescript", "javascript", "sql"],
+  },
+  {
+    id: "frontend",
+    keys: ["nextjs", "react", "vue", "tailwind", "shadcn", "vite"],
+  },
+  {
+    id: "backend",
+    keys: ["nestjs", "node", "express", "openapi", "socketio", "langchain"],
+  },
+  {
+    id: "data",
+    keys: ["postgresql", "mongodb", "mysql", "redis"],
+  },
+  {
+    id: "cloud",
+    keys: [
+      "aws",
+      "terraform",
+      "docker",
+      "nginx",
+      "githubActions",
+      "linux",
+      "grafana",
+    ],
+  },
+  {
+    id: "practices",
+    keys: [
+      "scrum",
+      "gitflow",
+      "codeReview",
+      "jira",
+      "postman",
+      "figma",
+      "turborepo",
+    ],
+  },
 ] as const;
 
-export type SkillKey = (typeof SKILL_KEYS)[number];
+export type SkillGroupId = (typeof SKILL_GROUPS)[number]["id"];
+export type SkillKey = (typeof SKILL_GROUPS)[number]["keys"][number];
+
+export const SKILL_KEYS = SKILL_GROUPS.flatMap(
+  (g) => [...g.keys],
+) as unknown as readonly SkillKey[];
 
 export const PROJECT_IDS = [
   "kotae",
   "starlive",
   "ercBooking",
-  "portfolio",
   "hrm",
+  "portfolio",
 ] as const;
 
 export type ProjectId = (typeof PROJECT_IDS)[number];
 
+export const FEATURED_PROJECT_ID: ProjectId = "kotae";
+
+export function isProjectId(id: string): id is ProjectId {
+  return (PROJECT_IDS as readonly string[]).includes(id);
+}
+
 export type ProjectConfig = {
   id: ProjectId;
-  /** Omit for client/internal work with no public URL — the card renders non-interactive */
+  /** Omit for client/internal work with no public URL */
   href?: string;
   external?: boolean;
   tags?: readonly string[];
@@ -150,6 +188,10 @@ export const PROJECTS: readonly ProjectConfig[] = [
     ],
   },
   {
+    id: "hrm",
+    tags: ["Vue 3", "TypeScript", "Nest.js", "MySQL"],
+  },
+  {
     id: "portfolio",
     href: "https://github.com/vudaian24/my-portfolio",
     external: true,
@@ -161,10 +203,6 @@ export const PROJECTS: readonly ProjectConfig[] = [
       "GitHub Actions",
       "Telegram",
     ],
-  },
-  {
-    id: "hrm",
-    tags: ["Vue 3", "TypeScript", "Nest.js", "MySQL"],
   },
 ] as const;
 

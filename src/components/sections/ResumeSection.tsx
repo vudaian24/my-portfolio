@@ -13,16 +13,7 @@ export default function ResumeSection() {
   return (
     <Section id={SECTION_IDS.resume}>
       <MotionReveal viewportAmount={0.3}>
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-elevated/90 via-surface/80 to-brand-muted/20 px-8 py-12 text-center md:px-14 md:py-16">
-          <div
-            className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-brand-muted/50 blur-3xl"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-brand-subtle blur-3xl"
-            aria-hidden
-          />
-
+        <div className="relative border-t border-border px-2 py-10 text-center md:py-14">
           <p className="section-label mb-3">{t("eyebrow")}</p>
           <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
             {t("title")}

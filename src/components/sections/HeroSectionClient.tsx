@@ -3,16 +3,17 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { SECTION_IDS } from "@/config/site";
+import { CV_PATH, SECTION_IDS, SOCIAL_LINKS } from "@/config/site";
 import { EASE_OUT } from "@/lib/animation";
 
 export type HeroContent = {
+  brand: string;
   eyebrow: string;
   title: string;
   description: string;
-  marqueeText: string;
   ctaProjects: string;
   ctaContact: string;
+  ctaResume: string;
   photoAlt: string;
 };
 
@@ -34,23 +35,15 @@ export default function HeroSectionClient({ content }: HeroSectionClientProps) {
           className="order-2 flex w-full max-w-xl flex-1 flex-col items-center text-center lg:order-1 lg:items-start lg:text-left"
         >
           <p className="section-label mb-4">{content.eyebrow}</p>
-          <h1 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
-            <span className="text-gradient-brand">{content.title}</span>
+          <p className="font-display text-5xl font-semibold tracking-tight text-foreground sm:text-6xl md:text-7xl">
+            {content.brand}
+          </p>
+          <h1 className="mt-4 font-display text-2xl font-semibold text-text-secondary sm:text-3xl md:text-4xl">
+            {content.title}
           </h1>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
             {content.description}
           </p>
-
-          <div className="marquee mt-8 w-full max-w-xl overflow-hidden py-1 lg:max-w-none">
-            <div className="marquee-track gap-12 pr-12 text-sm font-medium text-text-muted">
-              <span className="shrink-0 whitespace-nowrap">
-                {content.marqueeText}
-              </span>
-              <span className="shrink-0 whitespace-nowrap" aria-hidden>
-                {content.marqueeText}
-              </span>
-            </div>
-          </div>
 
           <div className="mt-10 flex w-full flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
             <Link
@@ -65,7 +58,31 @@ export default function HeroSectionClient({ content }: HeroSectionClientProps) {
             >
               {content.ctaContact}
             </Link>
+            <a
+              href={CV_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center justify-center rounded-lg px-6 text-sm font-semibold text-brand underline-offset-4 transition-colors hover:underline"
+            >
+              {content.ctaResume}
+            </a>
           </div>
+
+          <ul className="mt-8 flex items-center gap-1">
+            {SOCIAL_LINKS.map((social) => (
+              <li key={social.href}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex rounded-lg p-2.5 text-muted-foreground transition-colors hover:bg-surface hover:text-brand"
+                  aria-label={social.label}
+                >
+                  <social.icon size={20} strokeWidth={1.75} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </motion.div>
 
         <motion.div

@@ -2,7 +2,7 @@
   "Common": {
     "Metadata": {
       "title": "Dai An | Portfolio",
-      "description": "Dai An's portfolio — a full-stack software engineer specializing in TypeScript, Next.js, Nest.js, and AWS DevOps. Explore featured projects, skills, and get in touch."
+      "description": "Dai An — full-stack software engineer shipping production web apps in TypeScript, Next.js, and Nest.js, with AWS DevOps. Explore featured projects, experience, and get in touch."
     },
     "Languages": {
       "vi": "Tiếng Việt",
@@ -14,52 +14,82 @@
       "about": "About",
       "experience": "Experience",
       "projects": "Projects",
+      "education": "Education",
       "contact": "Contact",
       "resume": "CV"
     }
   },
   "HomePage": {
     "HeroSection": {
-      "eyebrow": "Full‑stack Software Engineer · Web · Cloud & DevOps",
-      "title": "Building web products end to end",
-      "description": "I’m Dai An — a full‑stack software engineer with 3+ years shipping production web apps in TypeScript, Next.js, and Nest.js. I own features from the interface through the API to the AWS infrastructure they run on, and I handle the DevOps side too: Terraform, Docker, and CI/CD.",
-      "ctaProjects": "View Projects",
+      "brand": "Dai An",
+      "eyebrow": "Full-stack Software Engineer · Web · Cloud & DevOps",
+      "title": "Shipping production web products end to end",
+      "description": "Full-stack engineer with 3+ years in TypeScript, Next.js, and Nest.js — and primary DevOps on client work (Terraform, Docker, GitHub Actions, AWS). I deliver features across AI/RAG, real-time streaming, and scheduling products with overseas partners in English.",
+      "ctaProjects": "View projects",
       "ctaContact": "Get in touch",
-      "photoAlt": "Portrait",
-      "marqueeText": "Next.js • Nest.js • TypeScript • React • Vue.js • AWS • Terraform • Docker • GitHub Actions • PostgreSQL • MongoDB • Redis"
+      "ctaResume": "Open CV",
+      "photoAlt": "Portrait of Dai An"
+    },
+    "FeaturedWork": {
+      "eyebrow": "Featured",
+      "title": "Selected highlight",
+      "cta": "Read case study",
+      "live": "Visit live site"
     },
     "AboutSection": {
       "eyebrow": "Introduction",
       "title": "About Me",
-      "description": "I build web applications end‑to‑end — UI, APIs, and the cloud infrastructure they run on. Over 3+ years at Tokyo Tech Lab I’ve delivered client products ranging from an AI chatbot SaaS to live‑streaming and clinic booking platforms, and I own the DevOps side: Terraform infrastructure‑as‑code, Docker, and GitHub Actions CI/CD. I work in English with overseas partners and enjoy turning ambiguous requirements into features that feel great to use.",
+      "description": "Full-stack software engineer with 3+ years shipping production web applications in TypeScript, Next.js, and Nest.js, and primary DevOps engineer on client projects (Terraform, Docker, GitHub Actions, AWS). Delivered features end-to-end on three concurrent client products—an AI/RAG chatbot, real-time streaming with per-minute billing, and clinic scheduling—in teams of 5–15 engineers, working directly with overseas product owners and designers in English.",
       "cta": "See selected work",
       "skillsTitle": "Tech Skills",
+      "groups": {
+        "languages": "Languages",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "data": "Databases & Cache",
+        "cloud": "Cloud & DevOps",
+        "practices": "Practices & Tools"
+      },
       "skills": {
         "typescript": "TypeScript",
         "javascript": "JavaScript",
-        "python": "Python",
+        "sql": "SQL",
         "nextjs": "Next.js",
         "react": "React",
-        "vue": "Vue.js",
+        "vue": "Vue 3",
         "tailwind": "Tailwind CSS",
+        "shadcn": "Shadcn UI",
+        "vite": "Vite",
         "nestjs": "Nest.js",
         "node": "Node.js",
+        "express": "Express.js",
+        "openapi": "REST/OpenAPI",
+        "socketio": "Socket.io",
         "langchain": "LangChain",
         "postgresql": "PostgreSQL",
         "mongodb": "MongoDB",
+        "mysql": "MySQL",
         "redis": "Redis",
         "aws": "AWS",
         "terraform": "Terraform",
         "docker": "Docker",
-        "kubernetes": "Kubernetes",
+        "nginx": "Nginx",
         "githubActions": "GitHub Actions",
-        "linux": "Linux"
+        "linux": "Linux",
+        "grafana": "Grafana",
+        "scrum": "Agile Scrum",
+        "gitflow": "Gitflow",
+        "codeReview": "Code Review",
+        "jira": "Jira",
+        "postman": "Postman",
+        "figma": "Figma",
+        "turborepo": "Turborepo"
       }
     },
     "ContactSection": {
       "eyebrow": "Contact",
       "title": "Get in touch",
-      "description": "Have a project in mind or want to collaborate? Send a message here — I usually reply within 24–48 hours.",
+      "description": "Open to full-time or contract roles and to project collaboration. Send a message — I usually reply within 24–48 hours.",
       "form": {
         "name": "Your name",
         "email": "Your email",
@@ -81,67 +111,140 @@
     "ResumeSection": {
       "eyebrow": "Resume",
       "title": "CV",
-      "description": "A quick overview of my experience, skills, and highlights.",
+      "description": "A concise overview of experience, skills, and selected work — aligned with this site.",
       "button": "Open CV"
     },
     "ExperienceSection": {
       "eyebrow": "Experience",
       "title": "Work Journey",
-      "description": "A few milestones from my learning and working journey.",
+      "description": "Milestones from shipping client products and owning DevOps delivery.",
       "current": "Present",
       "items": {
         "softwareEngineer": {
           "role": "Software Engineer",
           "company": "Tokyo Tech Lab Viet Nam",
           "period": "Oct 2024 — Present",
-          "description": "Delivering features end-to-end across three concurrent client products in teams of 5–15 engineers, from technical design through code review to AWS release. Also the primary DevOps engineer on client work — Terraform infrastructure-as-code, Docker, and GitHub Actions CI/CD."
+          "bullets": [
+            "Promoted from intern within six months; now deliver features end-to-end on three concurrent client products in teams of 5–15 engineers, from technical design through code review to AWS release.",
+            "Serve as primary DevOps engineer across client work, standardizing Terraform infrastructure-as-code and GitHub Actions pipelines into reusable templates now shared across client projects and environments.",
+            "Eliminated a recurring class of frontend–backend integration defects by introducing type-safe API contracts generated from OpenAPI as a team-wide standard.",
+            "Uphold release quality through Gitflow code review, and own the architecture documentation that shortened new-joiner ramp-up.",
+            "Work directly with overseas product owners and designers in English, turning business requirements into sprint-level technical plans."
+          ]
         },
         "softwareIntern": {
           "role": "Software Intern",
           "company": "Tokyo Tech Lab Viet Nam",
           "period": "Apr 2024 — Oct 2024",
-          "description": "Built Gitman, an internal Git repository management tool, from scratch with Vue.js, TypeScript, Nest.js, and MongoDB, and shipped frontend features into the company's production HR platform. Promoted to full-time Software Engineer after six months."
+          "bullets": [
+            "Built Gitman, an internal Git repository management tool, from scratch with Vue.js, TypeScript, Nest.js, and MongoDB, and released it for company-wide internal use.",
+            "Shipped Vue 3 and TypeScript workflow features into the production HRM platform as one of 20 engineers, then moved onto client-facing product work at the end of the internship."
+          ]
         }
       }
+    },
+    "EducationSection": {
+      "eyebrow": "Education",
+      "title": "Education",
+      "description": "Formal training behind the work.",
+      "school": "Dai Nam University",
+      "degree": "Bachelor of Science in Information Technology",
+      "meta": "GPA 3.58 / 4.0 · 2020 – 2024"
+    },
+    "CaseStudy": {
+      "back": "Back to projects",
+      "role": "Role",
+      "period": "Period",
+      "team": "Team",
+      "stack": "Stack",
+      "approach": "Approach",
+      "outcome": "Outcome",
+      "live": "Live site",
+      "repo": "Repository",
+      "noPublicLink": "Client project — no public link"
     },
     "Projects": {
       "eyebrow": "Selected work",
       "title": "Projects",
-      "description": "Featured projects that show how I think, build, and ship products.",
+      "description": "Case studies from client and personal work — problem, ownership, and what shipped.",
       "viewDetail": "View Details →",
+      "viewCaseStudy": "View case study →",
       "noPublicLink": "Client project — no public link",
       "items": {
         "kotae": {
           "title": "Kotae — AI Chatbot Platform",
-          "description": "An AI chatbot SaaS for SME customer support: RAG-based knowledge Q&A built on OpenAI and LangChain, Next.js dashboards, an embeddable widget for third-party sites, and real-time messaging running on AWS."
+          "period": "Aug 2024 – Present",
+          "role": "Full-stack Developer / DevOps",
+          "team": "Tokyo Tech Lab · team of 14",
+          "summary": "AI-powered chatbot SaaS for SME customer support, combining RAG-based knowledge Q&A with omnichannel messaging.",
+          "bullets": [
+            "Owned end-to-end delivery from early product stages across Nest.js APIs, Next.js admin/embed UI, and AWS/GitOps (Docker/ECR, Helm, Terraform Cognito/S3).",
+            "Built Nest.js chat/Socket.io session flows and Redis/Bull jobs for analytics aggregation and email on MongoDB + OpenAI/LangChain.",
+            "Shipped Next.js chatbot configuration, knowledge-base training workflows, history/analytics dashboards, and an embeddable widget with WordPress publish flows."
+          ]
         },
         "starlive": {
           "title": "StarLive — Live Streaming Platform",
-          "description": "A paid live-streaming and 1:1 video-call platform with per-minute point billing, Tencent RTC integration, and a Nest.js worker monorepo on AWS SQS handling billing, notifications, and media processing."
+          "period": "Jul 2026 – Present",
+          "role": "Frontend Developer",
+          "team": "Tokyo Tech Lab · team of 15",
+          "summary": "Paid live-streaming and 1:1 video-call platform with real-time per-minute billing and cross-app RTC integration.",
+          "bullets": [
+            "Built the admin live-monitoring console with multi-room Tencent TRTC playback, IM chat logs, viewer lists, and moderator actions (force kick/end/premium), shared across admin and production apps via a Turborepo package.",
+            "Implemented recording review and livestream session analytics UIs—playback/detail with tags and comments, session stats, timeline charts, and consumption rankings.",
+            "Delivered agency production-fee settlement workflows with bulk confirm/success-fail actions and EN/JA localization.",
+            "Led Turborepo monorepo migration of the admin frontend (Next.js), extracting shared packages and aligning Docker/CI for workspace builds."
+          ]
         },
         "ercBooking": {
           "title": "ERC Booking — Clinic Scheduling",
-          "description": "A clinic booking platform where I led DevOps: multi-environment AWS infrastructure provisioned with Terraform, GitHub Actions CI/CD with database migrations, plus RBAC APIs and an async email pipeline."
-        },
-        "portfolio": {
-          "title": "Personal Portfolio",
-          "description": "This very site — a bilingual (EN/VI) Next.js portfolio, self-hosted on a VPS with Docker Compose and an Nginx HTTPS reverse proxy, auto-deployed by GitHub Actions and Watchtower with Telegram alerts."
+          "period": "Jan 2026 – May 2026",
+          "role": "Full-stack Developer / DevOps",
+          "team": "Tokyo Tech Lab · team of 5",
+          "summary": "Clinic scheduling platform with RBAC user management, automated multi-env infrastructure, and multilingual notification pipeline.",
+          "bullets": [
+            "Led DevOps for a clinic booking platform, provisioning multi-env AWS infrastructure with Terraform (VPC, ECS Fargate, Aurora, Redis, ALB, CloudFront, S3, SQS, SES).",
+            "Owned GitHub Actions CI/CD for S3/CloudFront frontend deploys, ECR/ECS backend rollouts, and Liquibase database migrations across environments.",
+            "Built Nest.js RBAC APIs and React admin features for user/role management with OpenAPI-synced clients.",
+            "Implemented an async email pipeline via SQS workers and SES SMTP with multilingual Handlebars templates."
+          ]
         },
         "hrm": {
           "title": "HRM Platform — Human Resources",
-          "description": "An internal HR system covering employee, timekeeping, and approval workflows for ~50 staff; I built the Vue 3 and TypeScript UI along with Nest.js APIs for core modules."
+          "period": "Apr 2024 – Oct 2024",
+          "role": "Front-end Developer",
+          "team": "Tokyo Tech Lab · team of 20",
+          "summary": "Internal human resource management system covering employee, timekeeping, and HR workflow modules.",
+          "bullets": [
+            "Built and refined HR workflows UI with Vue 3 and TypeScript for a production system serving 50+ internal employees, improving usability and stability.",
+            "Implemented Nest.js APIs and MySQL data layer for core HR modules.",
+            "Fixed bugs and iterated UX based on internal user feedback."
+          ]
+        },
+        "portfolio": {
+          "title": "Personal Portfolio",
+          "period": "Sep 2025 – Present",
+          "role": "Independent Developer",
+          "team": "Solo project",
+          "summary": "Multilingual personal portfolio showcasing projects and professional profile, self-hosted with automated CI/CD.",
+          "bullets": [
+            "Built a multilingual portfolio (EN/VI) with Next.js, TypeScript, Tailwind CSS, next-intl, and Framer Motion.",
+            "Deployed on a VPS with Docker Compose (Next.js standalone + Nginx HTTPS reverse proxy) and Watchtower auto-updates from Docker Hub.",
+            "Automated CI/CD via GitHub Actions (lint, type-check, image build/push) with Telegram alerts for deploys and contact form submissions."
+          ]
         }
       }
     }
   },
   "footer": {
     "brand": "Dai An",
-    "about": "Full‑stack software engineer building production web apps in TypeScript, Next.js, and Nest.js — with the AWS infrastructure and CI/CD behind them.",
+    "about": "Full-stack software engineer shipping production web apps in TypeScript, Next.js, and Nest.js — with Terraform, Docker, and AWS CI/CD behind them.",
     "links": {
       "title": "Quick Links",
       "about": "About",
       "experience": "Experience",
       "projects": "Projects",
+      "education": "Education",
       "contact": "Contact",
       "resume": "CV"
     },

@@ -1,4 +1,4 @@
-import { IBM_Plex_Mono, Outfit } from "next/font/google";
+import { Outfit, Source_Sans_3 } from "next/font/google";
 
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
@@ -15,10 +15,10 @@ const outfit = Outfit({
   variable: "--font-outfit",
 });
 
-const plexMono = IBM_Plex_Mono({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-plex-mono",
+  variable: "--font-body",
 });
 
 interface MetadataParams {
@@ -63,13 +63,13 @@ export default async function LocaleLayout({ params, children }: LayoutProps) {
         />
       </head>
       <body
-        className={cn(outfit.variable, plexMono.variable, "antialiased")}
+        className={cn(outfit.variable, sourceSans.variable, "antialiased")}
         suppressHydrationWarning
       >
         <NextIntlClientProvider locale={locale}>
           <div className="relative min-h-screen">
             <div
-              className="pointer-events-none fixed inset-0 z-0 opacity-[0.35]"
+              className="pointer-events-none fixed inset-0 z-0 opacity-[0.25]"
               aria-hidden
             >
               <div className="absolute -left-1/4 top-0 h-[min(70vh,520px)] w-[min(70vw,520px)] rounded-full bg-brand-muted blur-3xl" />

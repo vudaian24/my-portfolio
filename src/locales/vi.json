@@ -2,7 +2,7 @@
   "Common": {
     "Metadata": {
       "title": "Đại An | Portfolio",
-      "description": "Portfolio của Đại An — Full-stack Software Engineer chuyên TypeScript, Next.js, Nest.js và DevOps trên AWS. Xem dự án tiêu biểu, kỹ năng và thông tin liên hệ."
+      "description": "Đại An — full-stack software engineer phát triển web app production bằng TypeScript, Next.js và Nest.js, kèm DevOps trên AWS. Xem dự án, kinh nghiệm và liên hệ."
     },
     "Languages": {
       "vi": "Tiếng Việt",
@@ -14,139 +14,242 @@
       "about": "Giới thiệu",
       "experience": "Kinh nghiệm",
       "projects": "Dự án",
+      "education": "Học vấn",
       "contact": "Liên hệ",
       "resume": "CV"
     }
   },
   "HomePage": {
     "HeroSection": {
-      "eyebrow": "Full‑stack Software Engineer · Web · Cloud & DevOps",
-      "title": "Xây dựng sản phẩm web end-to-end",
-      "description": "Mình là Đại An — full-stack software engineer với hơn 3 năm phát triển web app production bằng TypeScript, Next.js và Nest.js. Mình làm trọn vẹn từ giao diện, API đến hạ tầng AWS mà sản phẩm chạy trên đó, và phụ trách luôn phần DevOps: Terraform, Docker và CI/CD.",
+      "brand": "Đại An",
+      "eyebrow": "Full-stack Software Engineer · Web · Cloud & DevOps",
+      "title": "Đưa sản phẩm web production ra thực tế end-to-end",
+      "description": "Full-stack engineer với hơn 3 năm làm TypeScript, Next.js và Nest.js — đồng thời là DevOps chính trên dự án khách hàng (Terraform, Docker, GitHub Actions, AWS). Mình giao tính năng trên các sản phẩm AI/RAG, streaming realtime và đặt lịch, làm việc tiếng Anh với đối tác nước ngoài.",
       "ctaProjects": "Xem dự án",
       "ctaContact": "Liên hệ",
-      "photoAlt": "Ảnh đại diện",
-      "marqueeText": "Next.js • Nest.js • TypeScript • React • Vue.js • AWS • Terraform • Docker • GitHub Actions • PostgreSQL • MongoDB • Redis"
+      "ctaResume": "Mở CV",
+      "photoAlt": "Ảnh đại diện của Đại An"
+    },
+    "FeaturedWork": {
+      "eyebrow": "Nổi bật",
+      "title": "Dự án tiêu biểu",
+      "cta": "Đọc case study",
+      "live": "Xem live site"
     },
     "AboutSection": {
       "eyebrow": "Giới thiệu",
       "title": "Về mình",
-      "description": "Mình phát triển ứng dụng web end-to-end — giao diện, API và cả hạ tầng cloud mà sản phẩm chạy trên đó. Hơn 3 năm tại Tokyo Tech Lab, mình đã tham gia các sản phẩm khách hàng từ SaaS chatbot AI đến nền tảng livestream và đặt lịch phòng khám, đồng thời phụ trách DevOps: Terraform infrastructure-as-code, Docker và CI/CD với GitHub Actions. Mình làm việc bằng tiếng Anh với đối tác nước ngoài và thích biến yêu cầu mơ hồ thành tính năng cụ thể, dễ dùng và dễ bảo trì.",
+      "description": "Full-stack software engineer với hơn 3 năm phát triển web app production bằng TypeScript, Next.js và Nest.js, đồng thời là DevOps engineer chính trên dự án khách hàng (Terraform, Docker, GitHub Actions, AWS). Đã giao tính năng end-to-end trên ba sản phẩm khách hàng song song — chatbot AI/RAG, streaming realtime tính phí theo phút, và đặt lịch phòng khám — trong đội 5–15 engineer, làm việc trực tiếp với product owner và designer nước ngoài bằng tiếng Anh.",
       "cta": "Xem dự án tiêu biểu",
       "skillsTitle": "Công nghệ mình dùng",
+      "groups": {
+        "languages": "Ngôn ngữ",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "data": "Database & Cache",
+        "cloud": "Cloud & DevOps",
+        "practices": "Thực hành & công cụ"
+      },
       "skills": {
         "typescript": "TypeScript",
         "javascript": "JavaScript",
-        "python": "Python",
+        "sql": "SQL",
         "nextjs": "Next.js",
         "react": "React",
-        "vue": "Vue.js",
+        "vue": "Vue 3",
         "tailwind": "Tailwind CSS",
+        "shadcn": "Shadcn UI",
+        "vite": "Vite",
         "nestjs": "Nest.js",
         "node": "Node.js",
+        "express": "Express.js",
+        "openapi": "REST/OpenAPI",
+        "socketio": "Socket.io",
         "langchain": "LangChain",
         "postgresql": "PostgreSQL",
         "mongodb": "MongoDB",
+        "mysql": "MySQL",
         "redis": "Redis",
         "aws": "AWS",
         "terraform": "Terraform",
         "docker": "Docker",
-        "kubernetes": "Kubernetes",
+        "nginx": "Nginx",
         "githubActions": "GitHub Actions",
-        "linux": "Linux"
+        "linux": "Linux",
+        "grafana": "Grafana",
+        "scrum": "Agile Scrum",
+        "gitflow": "Gitflow",
+        "codeReview": "Code Review",
+        "jira": "Jira",
+        "postman": "Postman",
+        "figma": "Figma",
+        "turborepo": "Turborepo"
       }
     },
     "ContactSection": {
-      "eyebrow": "Kết nối",
-      "title": "Liên hệ",
-      "description": "Bạn có dự án cần hỗ trợ, hoặc muốn trao đổi nhanh? Gửi tin nhắn ở đây — mình thường phản hồi trong vòng 24–48 giờ.",
+      "eyebrow": "Liên hệ",
+      "title": "Kết nối",
+      "description": "Mình mở cho vị trí full-time/contract và cả hợp tác dự án. Gửi tin nhắn — thường phản hồi trong 24–48 giờ.",
       "form": {
-        "name": "Họ và tên",
-        "email": "Email",
-        "message": "Bạn muốn trao đổi điều gì?",
+        "name": "Tên của bạn",
+        "email": "Email của bạn",
+        "message": "Bạn muốn trao đổi về điều gì?",
         "button": "Gửi"
       },
       "status": {
         "sending": "Đang gửi...",
-        "success": "Gửi thành công — cảm ơn bạn!",
-        "error": "Có lỗi xảy ra. Vui lòng thử lại sau."
+        "success": "Đã gửi — cảm ơn bạn!",
+        "error": "Có lỗi xảy ra. Vui lòng thử lại."
       },
       "errors": {
         "nameMin": "Vui lòng nhập ít nhất 2 ký tự.",
-        "emailInvalid": "Vui lòng nhập địa chỉ email hợp lệ.",
+        "emailInvalid": "Vui lòng nhập email hợp lệ.",
         "messageMin": "Vui lòng nhập ít nhất 10 ký tự."
       },
-      "note": "Thông tin của bạn chỉ được dùng để phản hồi tin nhắn (không spam)."
+      "note": "Thông tin chỉ dùng để phản hồi (không spam)."
     },
     "ResumeSection": {
       "eyebrow": "Hồ sơ",
       "title": "CV",
-      "description": "Tóm tắt kinh nghiệm, kỹ năng và một số dự án nổi bật của mình.",
+      "description": "Tóm tắt kinh nghiệm, kỹ năng và dự án tiêu biểu — khớp với nội dung trên site.",
       "button": "Mở CV"
     },
     "ExperienceSection": {
       "eyebrow": "Kinh nghiệm",
       "title": "Hành trình làm việc",
-      "description": "Một vài dấu mốc trong quá trình học tập và làm việc của mình.",
+      "description": "Các mốc giao sản phẩm khách hàng và phụ trách DevOps.",
       "current": "Hiện tại",
       "items": {
         "softwareEngineer": {
           "role": "Software Engineer",
           "company": "Tokyo Tech Lab Viet Nam",
           "period": "10/2024 — Hiện tại",
-          "description": "Phát triển tính năng end-to-end trên ba sản phẩm khách hàng song song, trong đội 5–15 engineer, từ thiết kế kỹ thuật qua code review đến release lên AWS. Đồng thời là DevOps engineer chính của các dự án khách hàng — Terraform infrastructure-as-code, Docker và CI/CD với GitHub Actions."
+          "bullets": [
+            "Được promote từ intern trong sáu tháng; hiện giao tính năng end-to-end trên ba sản phẩm khách hàng song song trong đội 5–15 engineer, từ thiết kế kỹ thuật qua code review đến release trên AWS.",
+            "Là DevOps engineer chính trên các dự án khách hàng, chuẩn hóa Terraform infrastructure-as-code và pipeline GitHub Actions thành template tái sử dụng giữa các dự án và môi trường.",
+            "Loại bỏ một lớp lỗi tích hợp frontend–backend lặp lại bằng việc đưa contract API type-safe sinh từ OpenAPI thành chuẩn dùng chung trong team.",
+            "Đảm bảo chất lượng release qua Gitflow code review, và sở hữu tài liệu kiến trúc giúp rút ngắn thời gian onboard thành viên mới.",
+            "Làm việc trực tiếp với product owner và designer nước ngoài bằng tiếng Anh, biến yêu cầu nghiệp vụ thành kế hoạch kỹ thuật theo sprint."
+          ]
         },
         "softwareIntern": {
-          "role": "Thực tập sinh Lập trình viên",
+          "role": "Software Intern",
           "company": "Tokyo Tech Lab Viet Nam",
           "period": "04/2024 — 10/2024",
-          "description": "Xây dựng Gitman — công cụ quản lý Git repository nội bộ — từ đầu với Vue.js, TypeScript, Nest.js và MongoDB; đồng thời phát triển tính năng frontend cho hệ thống HR production của công ty. Được nhận chính thức vị trí Software Engineer sau sáu tháng."
+          "bullets": [
+            "Xây dựng Gitman — công cụ quản lý Git repository nội bộ — từ đầu với Vue.js, TypeScript, Nest.js và MongoDB, rồi phát hành dùng nội bộ toàn công ty.",
+            "Ship tính năng workflow Vue 3 và TypeScript vào nền tảng HRM production trong đội 20 engineer, sau đó chuyển sang làm sản phẩm hướng khách hàng khi kết thúc thực tập."
+          ]
         }
       }
+    },
+    "EducationSection": {
+      "eyebrow": "Học vấn",
+      "title": "Học vấn",
+      "description": "Nền tảng đào tạo phía sau công việc.",
+      "school": "Đại học Đại Nam",
+      "degree": "Cử nhân Công nghệ Thông tin",
+      "meta": "GPA 3.58 / 4.0 · 2020 – 2024"
+    },
+    "CaseStudy": {
+      "back": "Quay lại dự án",
+      "role": "Vai trò",
+      "period": "Thời gian",
+      "team": "Đội ngũ",
+      "stack": "Công nghệ",
+      "approach": "Cách làm",
+      "outcome": "Kết quả",
+      "live": "Live site",
+      "repo": "Repository",
+      "noPublicLink": "Dự án khách hàng — không có link công khai"
     },
     "Projects": {
       "eyebrow": "Dự án tiêu biểu",
       "title": "Dự án",
-      "description": "Một vài dự án mình chọn lọc để thể hiện cách mình làm sản phẩm và giải quyết vấn đề.",
+      "description": "Case study từ công việc khách hàng và cá nhân — bài toán, phần mình sở hữu, và những gì đã ship.",
       "viewDetail": "Xem chi tiết →",
+      "viewCaseStudy": "Xem case study →",
       "noPublicLink": "Dự án khách hàng — không có link công khai",
       "items": {
         "kotae": {
           "title": "Kotae — Nền tảng AI Chatbot",
-          "description": "SaaS chatbot AI hỗ trợ khách hàng cho doanh nghiệp SME: pipeline RAG hỏi đáp tri thức trên OpenAI và LangChain, dashboard Next.js, widget nhúng cho website bên thứ ba và nhắn tin real-time chạy trên AWS."
+          "period": "08/2024 – Hiện tại",
+          "role": "Full-stack Developer / DevOps",
+          "team": "Tokyo Tech Lab · đội 14 người",
+          "summary": "SaaS chatbot AI hỗ trợ khách hàng SME, kết hợp hỏi đáp tri thức RAG với nhắn tin đa kênh.",
+          "bullets": [
+            "Sở hữu giao hàng end-to-end từ giai đoạn sớm: Nest.js API, Next.js admin/embed UI, và AWS/GitOps (Docker/ECR, Helm, Terraform Cognito/S3).",
+            "Xây flow chat/Socket.io trên Nest.js và job Redis/Bull cho analytics cùng email trên MongoDB + OpenAI/LangChain.",
+            "Ship cấu hình chatbot Next.js, luồng train knowledge base, dashboard lịch sử/analytics, và widget nhúng kèm publish WordPress."
+          ]
         },
         "starlive": {
           "title": "StarLive — Nền tảng Live Streaming",
-          "description": "Nền tảng livestream và video call 1:1 trả phí với cơ chế tính điểm theo phút, tích hợp Tencent RTC và monorepo worker Nest.js trên AWS SQS xử lý billing, thông báo và media."
+          "period": "07/2026 – Hiện tại",
+          "role": "Frontend Developer",
+          "team": "Tokyo Tech Lab · đội 15 người",
+          "summary": "Nền tảng livestream và video call 1:1 trả phí với billing theo phút realtime và tích hợp RTC cross-app.",
+          "bullets": [
+            "Xây console giám sát live admin với phát lại multi-room Tencent TRTC, log chat IM, danh sách viewer và thao tác moderator (kick/end/premium), chia sẻ qua package Turborepo giữa admin và production.",
+            "Implement UI review recording và analytics phiên livestream — playback/chi tiết kèm tag/comment, thống kê phiên, biểu đồ timeline và xếp hạng tiêu thụ.",
+            "Giao luồng quyết toán phí sản xuất agency với bulk confirm/success-fail và localization EN/JA.",
+            "Dẫn migration Turborepo monorepo cho admin frontend (Next.js), tách shared package và căn Docker/CI cho workspace build."
+          ]
         },
         "ercBooking": {
           "title": "ERC Booking — Đặt lịch phòng khám",
-          "description": "Nền tảng đặt lịch phòng khám mà mình phụ trách DevOps: hạ tầng AWS đa môi trường provisioning bằng Terraform, CI/CD GitHub Actions kèm migration database, cùng API phân quyền RBAC và pipeline email bất đồng bộ."
-        },
-        "portfolio": {
-          "title": "Personal Portfolio",
-          "description": "Chính website này — portfolio Next.js song ngữ (EN/VI), self-host trên VPS với Docker Compose và Nginx reverse proxy HTTPS, tự động deploy qua GitHub Actions và Watchtower kèm thông báo Telegram."
+          "period": "01/2026 – 05/2026",
+          "role": "Full-stack Developer / DevOps",
+          "team": "Tokyo Tech Lab · đội 5 người",
+          "summary": "Nền tảng đặt lịch phòng khám với RBAC, hạ tầng đa môi trường tự động và pipeline thông báo đa ngôn ngữ.",
+          "bullets": [
+            "Dẫn DevOps cho nền tảng booking phòng khám, provision hạ tầng AWS đa môi trường bằng Terraform (VPC, ECS Fargate, Aurora, Redis, ALB, CloudFront, S3, SQS, SES).",
+            "Sở hữu CI/CD GitHub Actions cho deploy frontend S3/CloudFront, rollout backend ECR/ECS, và migration Liquibase qua các môi trường.",
+            "Xây API RBAC Nest.js và tính năng admin React cho quản lý user/role với client đồng bộ OpenAPI.",
+            "Implement pipeline email bất đồng bộ qua SQS worker và SES SMTP với template Handlebars đa ngôn ngữ."
+          ]
         },
         "hrm": {
           "title": "HRM Platform — Quản trị nhân sự",
-          "description": "Hệ thống nhân sự nội bộ gồm các module nhân viên, chấm công và luồng phê duyệt cho khoảng 50 nhân sự; mình xây dựng UI Vue 3 + TypeScript và API Nest.js cho các module chính."
+          "period": "04/2024 – 10/2024",
+          "role": "Front-end Developer",
+          "team": "Tokyo Tech Lab · đội 20 người",
+          "summary": "Hệ thống nhân sự nội bộ gồm module nhân viên, chấm công và workflow HR.",
+          "bullets": [
+            "Xây và tinh chỉnh UI workflow HR bằng Vue 3 và TypeScript cho hệ thống production phục vụ 50+ nhân sự nội bộ, cải thiện khả năng dùng và ổn định.",
+            "Implement API Nest.js và lớp dữ liệu MySQL cho các module HR cốt lõi.",
+            "Sửa bug và iterate UX dựa trên phản hồi người dùng nội bộ."
+          ]
+        },
+        "portfolio": {
+          "title": "Personal Portfolio",
+          "period": "09/2025 – Hiện tại",
+          "role": "Independent Developer",
+          "team": "Dự án cá nhân",
+          "summary": "Portfolio cá nhân đa ngôn ngữ giới thiệu dự án và hồ sơ nghề nghiệp, self-host với CI/CD tự động.",
+          "bullets": [
+            "Xây portfolio đa ngôn ngữ (EN/VI) với Next.js, TypeScript, Tailwind CSS, next-intl và Framer Motion.",
+            "Deploy trên VPS với Docker Compose (Next.js standalone + Nginx reverse proxy HTTPS) và Watchtower tự cập nhật từ Docker Hub.",
+            "Tự động hóa CI/CD qua GitHub Actions (lint, type-check, build/push image) kèm cảnh báo Telegram cho deploy và form liên hệ."
+          ]
         }
       }
     }
   },
   "footer": {
     "brand": "Đại An",
-    "about": "Full‑stack software engineer phát triển web app production bằng TypeScript, Next.js và Nest.js — cùng hạ tầng AWS và CI/CD phía sau.",
+    "about": "Full-stack software engineer phát triển web app production bằng TypeScript, Next.js và Nest.js — cùng Terraform, Docker và CI/CD trên AWS.",
     "links": {
-      "title": "Liên Kết",
-      "about": "Giới Thiệu",
-      "experience": "Kinh Nghiệm",
-      "projects": "Dự Án",
-      "contact": "Liên Hệ",
+      "title": "Liên kết",
+      "about": "Giới thiệu",
+      "experience": "Kinh nghiệm",
+      "projects": "Dự án",
+      "education": "Học vấn",
+      "contact": "Liên hệ",
       "resume": "CV"
     },
     "socials": {
-      "title": "Kết Nối"
+      "title": "Kết nối"
     }
   }
 }

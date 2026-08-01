@@ -5,12 +5,13 @@ export default async function HeroSection() {
   const t = await getTranslations("HomePage.HeroSection");
 
   const content: HeroContent = {
+    brand: t("brand"),
     eyebrow: t("eyebrow"),
     title: t("title"),
     description: t("description"),
-    marqueeText: t("marqueeText"),
     ctaProjects: t("ctaProjects"),
     ctaContact: t("ctaContact"),
+    ctaResume: t("ctaResume"),
     photoAlt: t("photoAlt"),
   };
 
