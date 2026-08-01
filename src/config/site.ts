@@ -24,9 +24,9 @@ export const SECTION_IDS = {
 
 export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];
 
+/** Matches homepage scroll order (featured is not in nav) */
 export const NAV_ITEMS = [
   { href: `#${SECTION_IDS.home}`, labelKey: "home" as const, icon: Home },
-  { href: `#${SECTION_IDS.about}`, labelKey: "about" as const, icon: User },
   {
     href: `#${SECTION_IDS.experience}`,
     labelKey: "experience" as const,
@@ -37,6 +37,7 @@ export const NAV_ITEMS = [
     labelKey: "projects" as const,
     icon: Briefcase,
   },
+  { href: `#${SECTION_IDS.about}`, labelKey: "about" as const, icon: User },
   {
     href: `#${SECTION_IDS.education}`,
     labelKey: "education" as const,

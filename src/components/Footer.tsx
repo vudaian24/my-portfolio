@@ -6,9 +6,9 @@ import { MotionReveal } from "@/components/ui/MotionReveal";
 import { SECTION_IDS, SOCIAL_LINKS } from "@/config/site";
 
 const FOOTER_LINKS = [
-  { href: `#${SECTION_IDS.about}`, labelKey: "about" as const },
   { href: `#${SECTION_IDS.experience}`, labelKey: "experience" as const },
   { href: `#${SECTION_IDS.projects}`, labelKey: "projects" as const },
+  { href: `#${SECTION_IDS.about}`, labelKey: "about" as const },
   { href: `#${SECTION_IDS.education}`, labelKey: "education" as const },
   { href: `#${SECTION_IDS.resume}`, labelKey: "resume" as const },
   { href: `#${SECTION_IDS.contact}`, labelKey: "contact" as const },
