@@ -2,9 +2,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { FEATURED_PROJECT_ID, PROJECTS } from "@/config/site";
+import { FEATURED_PROJECT_ID, PROJECTS, SECTION_IDS, projectAnchorId } from "@/config/site";
 import { staggerContainer, staggerItem } from "@/lib/animation";
 
 export default function FeaturedWorkSection() {
@@ -58,12 +57,12 @@ export default function FeaturedWorkSection() {
             whileHover={reduceMotion ? undefined : { scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Link
-              href={`/projects/${project.id}`}
+            <a
+              href={`#${projectAnchorId(project.id)}`}
               className="font-display inline-flex h-11 items-center rounded-lg bg-brand px-6 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
             >
               {t("cta")}
-            </Link>
+            </a>
           </motion.div>
           {project.href ? (
             <motion.div
@@ -80,6 +79,12 @@ export default function FeaturedWorkSection() {
               </a>
             </motion.div>
           ) : null}
+          <a
+            href={`#${SECTION_IDS.projects}`}
+            className="inline-flex h-11 items-center px-2 text-sm font-medium text-brand underline-offset-4 hover:underline"
+          >
+            {tp("title")} →
+          </a>
         </motion.div>
       </motion.div>
     </Section>

@@ -137,6 +137,10 @@ export type ProjectId = (typeof PROJECT_IDS)[number];
 
 export const FEATURED_PROJECT_ID: ProjectId = "kotae";
 
+export function projectAnchorId(id: ProjectId) {
+  return `project-${id}`;
+}
+
 export function isProjectId(id: string): id is ProjectId {
   return (PROJECT_IDS as readonly string[]).includes(id);
 }

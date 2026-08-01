@@ -33,7 +33,7 @@
     "FeaturedWork": {
       "eyebrow": "Featured",
       "title": "Selected highlight",
-      "cta": "Read case study",
+      "cta": "Jump to project",
       "live": "Visit live site"
     },
     "AboutSection": {
@@ -166,9 +166,12 @@
     "Projects": {
       "eyebrow": "Selected work",
       "title": "Projects",
-      "description": "Case studies from client and personal work — problem, ownership, and what shipped.",
+      "description": "Full write-ups from client and personal work — context, ownership, and what shipped.",
       "viewDetail": "View Details →",
       "viewCaseStudy": "View case study →",
+      "live": "Live site",
+      "repo": "Repository",
+      "approach": "What I did",
       "noPublicLink": "Client project — no public link",
       "items": {
         "kotae": {

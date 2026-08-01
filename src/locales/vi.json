@@ -33,7 +33,7 @@
     "FeaturedWork": {
       "eyebrow": "Nổi bật",
       "title": "Dự án tiêu biểu",
-      "cta": "Đọc case study",
+      "cta": "Xem trong Projects",
       "live": "Xem live site"
     },
     "AboutSection": {
@@ -166,9 +166,12 @@
     "Projects": {
       "eyebrow": "Dự án tiêu biểu",
       "title": "Dự án",
-      "description": "Case study từ công việc khách hàng và cá nhân — bài toán, phần mình sở hữu, và những gì đã ship.",
+      "description": "Toàn bộ case study từ công việc khách hàng và cá nhân — ngữ cảnh, phần mình sở hữu, và những gì đã ship.",
       "viewDetail": "Xem chi tiết →",
       "viewCaseStudy": "Xem case study →",
+      "live": "Live site",
+      "repo": "Repository",
+      "approach": "Việc mình làm",
       "noPublicLink": "Dự án khách hàng — không có link công khai",
       "items": {
         "kotae": {
