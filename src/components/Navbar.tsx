@@ -3,15 +3,18 @@
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import LanguageSelector from "./LanguageSelector";
 import { NAV_ITEMS, SOCIAL_LINKS } from "@/config/site";
+import { EASE_OUT } from "@/lib/animation";
 
 export default function Navbar() {
   const t = useTranslations("Common.nav");
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
@@ -28,13 +31,23 @@ export default function Navbar() {
 
   return (
     <>
-      <header
+      <motion.header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-[box-shadow,background-color,border-color] duration-300",
+          "fixed top-0 left-0 right-0 z-50",
           scrolled
             ? "border-b border-border/80 bg-background/85 shadow-sm backdrop-blur-md"
             : "border-b border-transparent bg-background/70 backdrop-blur-sm",
         )}
+        animate={
+          reduceMotion
+            ? undefined
+            : {
+                boxShadow: scrolled
+                  ? "0 1px 0 oklch(0.5 0.02 220 / 0.08)"
+                  : "0 0 0 transparent",
+              }
+        }
+        transition={{ duration: 0.25, ease: EASE_OUT }}
       >
         <nav
           className="section-shell flex h-16 items-center justify-between md:h-[4.25rem]"
@@ -99,56 +112,79 @@ export default function Navbar() {
           </div>
         </nav>
 
-        <div
-          id="mobile-nav"
-          className={cn(
-            "fixed inset-x-0 top-16 z-40 border-b border-border bg-background/95 backdrop-blur-lg transition-[opacity,visibility] duration-200 xl:hidden",
-            isOpen
-              ? "visible opacity-100"
-              : "invisible pointer-events-none opacity-0",
-          )}
-        >
-          <div className="section-shell max-h-[min(70vh,calc(100dvh-4rem))] overflow-y-auto py-6">
-            <ul className="flex flex-col gap-1">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 rounded-xl px-4 py-3.5 text-base font-medium text-foreground transition-colors hover:bg-surface"
-                  >
-                    <item.icon size={18} className="text-brand" aria-hidden />
-                    {t(item.labelKey)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 flex justify-center gap-4 border-t border-border pt-6">
-              {SOCIAL_LINKS.map((social) => (
-                <Link
-                  key={social.href}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-xl border border-border bg-surface/50 p-3 text-muted-foreground transition-colors hover:border-brand/40 hover:text-brand"
-                  aria-label={social.label}
-                >
-                  <social.icon size={20} strokeWidth={1.75} />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </header>
+        <AnimatePresence>
+          {isOpen ? (
+            <motion.div
+              id="mobile-nav"
+              key="mobile-nav"
+              initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+              transition={{ duration: 0.22, ease: EASE_OUT }}
+              className="fixed inset-x-0 top-16 z-40 border-b border-border bg-background/95 backdrop-blur-lg xl:hidden"
+            >
+              <div className="section-shell max-h-[min(70vh,calc(100dvh-4rem))] overflow-y-auto py-6">
+                <ul className="flex flex-col gap-1">
+                  {NAV_ITEMS.map((item, i) => (
+                    <motion.li
+                      key={item.href}
+                      initial={reduceMotion ? false : { opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        delay: reduceMotion ? 0 : 0.04 + i * 0.04,
+                        duration: 0.25,
+                        ease: EASE_OUT,
+                      }}
+                    >
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center gap-3 rounded-xl px-4 py-3.5 text-base font-medium text-foreground transition-colors hover:bg-surface"
+                      >
+                        <item.icon
+                          size={18}
+                          className="text-brand"
+                          aria-hidden
+                        />
+                        {t(item.labelKey)}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
+                <div className="mt-6 flex justify-center gap-4 border-t border-border pt-6">
+                  {SOCIAL_LINKS.map((social) => (
+                    <Link
+                      key={social.href}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-xl border border-border bg-surface/50 p-3 text-muted-foreground transition-colors hover:border-brand/40 hover:text-brand"
+                      aria-label={social.label}
+                    >
+                      <social.icon size={20} strokeWidth={1.75} />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+      </motion.header>
 
-      {isOpen && (
-        <button
-          type="button"
-          className="fixed inset-0 z-30 bg-foreground/20 backdrop-blur-[2px] xl:hidden"
-          aria-label="Close menu"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
+      <AnimatePresence>
+        {isOpen ? (
+          <motion.button
+            key="nav-overlay"
+            type="button"
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-30 bg-foreground/20 backdrop-blur-[2px] xl:hidden"
+            aria-label="Close menu"
+            onClick={() => setIsOpen(false)}
+          />
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }

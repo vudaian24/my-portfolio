@@ -1,23 +1,25 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { EASE_OUT } from "@/lib/animation";
+import { EASE_OUT, timelineLine } from "@/lib/animation";
 import { EXPERIENCE_ITEMS, SECTION_IDS } from "@/config/site";
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, x: -16, y: 12 },
   visible: (i: number) => ({
     opacity: 1,
+    x: 0,
     y: 0,
-    transition: { delay: i * 0.12, duration: 0.5, ease: EASE_OUT },
+    transition: { delay: 0.15 + i * 0.14, duration: 0.5, ease: EASE_OUT },
   }),
 };
 
 export default function ExperienceSection() {
   const t = useTranslations("HomePage.ExperienceSection");
+  const reduceMotion = useReducedMotion();
 
   return (
     <Section id={SECTION_IDS.experience}>
@@ -29,9 +31,21 @@ export default function ExperienceSection() {
 
       <div className="relative mt-14 pl-8 md:pl-10">
         <div
-          className="absolute bottom-1 left-[7px] top-1 w-px bg-border md:left-[9px]"
+          className="absolute bottom-1 left-[7px] top-1 w-px overflow-hidden bg-border/40 md:left-[9px]"
           aria-hidden
-        />
+        >
+          {reduceMotion ? (
+            <div className="h-full w-px bg-brand/50" />
+          ) : (
+            <motion.div
+              className="h-full w-px origin-top bg-brand/50"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={timelineLine}
+            />
+          )}
+        </div>
 
         <ol className="flex flex-col gap-10">
           {EXPERIENCE_ITEMS.map((item, index) => {
@@ -41,10 +55,10 @@ export default function ExperienceSection() {
               <motion.li
                 key={item.id}
                 custom={index}
-                initial="hidden"
+                initial={reduceMotion ? false : "hidden"}
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                variants={itemVariants}
+                variants={reduceMotion ? undefined : itemVariants}
                 className="relative"
               >
                 <span
@@ -53,15 +67,17 @@ export default function ExperienceSection() {
                 >
                   {item.current ? (
                     <>
-                      <motion.span
-                        className="absolute h-full w-full rounded-full bg-brand/40"
-                        animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
-                        transition={{
-                          duration: 1.8,
-                          repeat: Infinity,
-                          ease: "easeOut",
-                        }}
-                      />
+                      {!reduceMotion ? (
+                        <motion.span
+                          className="absolute h-full w-full rounded-full bg-brand/40"
+                          animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
+                          transition={{
+                            duration: 1.8,
+                            repeat: Infinity,
+                            ease: "easeOut",
+                          }}
+                        />
+                      ) : null}
                       <span className="h-2 w-2 rounded-full bg-brand" />
                     </>
                   ) : (
@@ -88,8 +104,20 @@ export default function ExperienceSection() {
                     <span>{t(`items.${item.id}.period`)}</span>
                   </div>
                   <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground md:text-base">
-                    {bullets.map((bullet) => (
-                      <li key={bullet.slice(0, 48)}>{bullet}</li>
+                    {bullets.map((bullet, bi) => (
+                      <motion.li
+                        key={bullet.slice(0, 48)}
+                        initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          delay: 0.25 + index * 0.1 + bi * 0.05,
+                          duration: 0.35,
+                          ease: EASE_OUT,
+                        }}
+                      >
+                        {bullet}
+                      </motion.li>
                     ))}
                   </ul>
                   {item.tags?.length ? (

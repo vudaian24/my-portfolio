@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { PROJECTS, SECTION_IDS } from "@/config/site";
 
 const CARD_BASE =
-  "group flex h-full flex-col rounded-2xl border border-border bg-surface-elevated/50 p-6 shadow-sm transition-colors duration-300 hover:border-brand/35 md:p-8";
+  "group flex h-full flex-col rounded-2xl border border-border bg-surface-elevated/50 p-6 shadow-sm md:p-8";
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -25,6 +25,7 @@ const cardVariants: Variants = {
 
 export default function ProjectsSection() {
   const t = useTranslations("HomePage.Projects");
+  const reduceMotion = useReducedMotion();
 
   return (
     <Section id={SECTION_IDS.projects}>
@@ -42,20 +43,34 @@ export default function ProjectsSection() {
             <motion.div
               key={project.id}
               custom={index}
-              initial="hidden"
+              initial={reduceMotion ? false : "hidden"}
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
-              variants={cardVariants}
+              variants={reduceMotion ? undefined : cardVariants}
+              whileHover={
+                reduceMotion
+                  ? undefined
+                  : { y: -6, transition: { duration: 0.28, ease: EASE_OUT } }
+              }
             >
-              <Link href={`/projects/${project.id}`} className={cn(CARD_BASE)}>
+              <Link
+                href={`/projects/${project.id}`}
+                className={cn(
+                  CARD_BASE,
+                  "transition-[border-color,box-shadow] duration-300 hover:border-brand/35 hover:shadow-md",
+                )}
+              >
                 <div className="flex flex-1 flex-col">
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="font-display text-xl font-semibold text-foreground transition-colors group-hover:text-brand md:text-2xl">
                       {t(`items.${project.id}.title`)}
                     </h3>
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-all group-hover:border-brand/40 group-hover:bg-brand-muted/30 group-hover:text-brand">
+                    <motion.span
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-brand/40 group-hover:bg-brand-muted/30 group-hover:text-brand"
+                      whileHover={reduceMotion ? undefined : { rotate: 12, scale: 1.06 }}
+                    >
                       <ArrowUpRight size={18} strokeWidth={2} aria-hidden />
-                    </span>
+                    </motion.span>
                   </div>
                   <p className="mt-2 text-sm text-muted-foreground">
                     {t(`items.${project.id}.role`)} ·{" "}
