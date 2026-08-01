@@ -40,13 +40,13 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - DOCKER_API_VERSION=1.40
-      - WATCHTOWER_POLL_INTERVAL=60        # check Docker Hub mỗi 60 giây
-      - WATCHTOWER_CLEANUP=true            # tự xóa image cũ sau khi update
+      - WATCHTOWER_POLL_INTERVAL=60
+      - WATCHTOWER_CLEANUP=true
       - WATCHTOWER_INCLUDE_STOPPED=false
       - WATCHTOWER_MONITOR_ONLY=false
       - REPO_USER=${DOCKER_HUB_USERNAME}
       - REPO_PASS=${DOCKER_HUB_ACCESS_TOKEN}
-    command: portfolio_app                 # chỉ watch container này
+    command: portfolio_app
 
 networks:
   app_network:
