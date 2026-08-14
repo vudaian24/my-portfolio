@@ -121,9 +121,9 @@ export const SKILL_GROUPS = [
 export type SkillGroupId = (typeof SKILL_GROUPS)[number]["id"];
 export type SkillKey = (typeof SKILL_GROUPS)[number]["keys"][number];
 
-export const SKILL_KEYS = SKILL_GROUPS.flatMap(
-  (g) => [...g.keys],
-) as unknown as readonly SkillKey[];
+export const SKILL_KEYS = SKILL_GROUPS.flatMap((g) => [
+  ...g.keys,
+]) as unknown as readonly SkillKey[];
 
 export const PROJECT_IDS = [
   "kotae",
@@ -212,6 +212,7 @@ export const PROJECTS: readonly ProjectConfig[] = [
 ] as const;
 
 export const CV_PATH = "/cv.pdf";
+export const CV_DEVOPS_PATH = "/cv-devops.pdf";
 
 export const CONTACT_API_PATH = "/web-api/contact";
 

@@ -112,7 +112,8 @@
       "eyebrow": "Resume",
       "title": "CV",
       "description": "A concise overview of experience, skills, and selected work — aligned with this site.",
-      "button": "Open CV"
+      "buttonFullstack": "Full-Stack CV",
+      "buttonDevops": "DevOps CV"
     },
     "ExperienceSection": {
       "eyebrow": "Experience",

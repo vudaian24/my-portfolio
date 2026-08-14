@@ -5,7 +5,7 @@ import { Download } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { MotionReveal } from "@/components/ui/MotionReveal";
 import { Section } from "@/components/ui/Section";
-import { CV_PATH, SECTION_IDS } from "@/config/site";
+import { CV_DEVOPS_PATH, CV_PATH, SECTION_IDS } from "@/config/site";
 
 export default function ResumeSection() {
   const t = useTranslations("HomePage.ResumeSection");
@@ -22,17 +22,30 @@ export default function ResumeSection() {
             {t("description")}
           </p>
 
-          <motion.a
-            href={CV_PATH}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="font-display mt-8 inline-flex h-12 items-center gap-2 rounded-lg bg-brand px-6 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
-          >
-            <Download className="h-4 w-4" strokeWidth={2} aria-hidden />
-            {t("button")}
-          </motion.a>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <motion.a
+              href={CV_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="font-display inline-flex h-12 items-center gap-2 rounded-lg bg-brand px-6 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
+            >
+              <Download className="h-4 w-4" strokeWidth={2} aria-hidden />
+              {t("buttonFullstack")}
+            </motion.a>
+            <motion.a
+              href={CV_DEVOPS_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="font-display inline-flex h-12 items-center gap-2 rounded-lg border border-border bg-transparent px-6 text-sm font-semibold text-foreground transition-colors hover:border-brand/40 hover:bg-brand-muted/30"
+            >
+              <Download className="h-4 w-4" strokeWidth={2} aria-hidden />
+              {t("buttonDevops")}
+            </motion.a>
+          </div>
         </div>
       </MotionReveal>
     </Section>

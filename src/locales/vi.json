@@ -112,7 +112,8 @@
       "eyebrow": "Hồ sơ",
       "title": "CV",
       "description": "Tóm tắt kinh nghiệm, kỹ năng và dự án tiêu biểu — khớp với nội dung trên site.",
-      "button": "Mở CV"
+      "buttonFullstack": "CV Full-Stack",
+      "buttonDevops": "CV DevOps"
     },
     "ExperienceSection": {
       "eyebrow": "Kinh nghiệm",
