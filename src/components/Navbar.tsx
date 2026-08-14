@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import LanguageSelector from "./LanguageSelector";
+import ThemeToggle from "./ThemeToggle";
 import { NAV_ITEMS, SOCIAL_LINKS } from "@/config/site";
 import { EASE_OUT } from "@/lib/animation";
 
@@ -95,10 +96,12 @@ export default function Navbar() {
               ))}
             </div>
             <LanguageSelector />
+            <ThemeToggle className="ml-1" />
           </div>
 
           <div className="flex items-center gap-2 xl:hidden">
             <LanguageSelector />
+            <ThemeToggle />
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}

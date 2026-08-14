@@ -8,6 +8,11 @@
       "vi": "Tiếng Việt",
       "en": "English"
     },
+    "Theme": {
+      "toggleToLight": "Switch to light theme",
+      "toggleToDark": "Switch to dark theme",
+      "toggle": "Toggle theme"
+    },
     "nav": {
       "brand": "Dai An",
       "home": "Home",

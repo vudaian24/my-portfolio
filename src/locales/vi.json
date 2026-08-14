@@ -8,6 +8,11 @@
       "vi": "Tiếng Việt",
       "en": "English"
     },
+    "Theme": {
+      "toggleToLight": "Chuyển sang giao diện sáng",
+      "toggleToDark": "Chuyển sang giao diện tối",
+      "toggle": "Chuyển đổi giao diện"
+    },
     "nav": {
       "brand": "Đại An",
       "home": "Trang chủ",
