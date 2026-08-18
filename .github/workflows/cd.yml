@@ -24,9 +24,6 @@ jobs:
     # contents: read — mặc định của checkout, khai báo rõ vì đã ghi đè
     # permissions (khai báo permissions ở bất kỳ cấp nào sẽ TẮT hết các
     # quyền không nêu tên, không cộng dồn thêm vào mặc định).
-    permissions:
-      contents: read
-      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
