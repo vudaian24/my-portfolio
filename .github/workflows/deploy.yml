@@ -1,14 +1,14 @@
 name: Deploy
 
 # Reusable: SSH vào VPS, trỏ APP_VERSION sang image_tag, health check,
-# báo Telegram. Không build gì — image phải đã tồn tại trên Docker Hub
+# báo Telegram. Không build gì — image phải đã tồn tại trên ghcr.io
 # trước khi gọi workflow này.
 #
 # Dùng bởi 2 nơi:
 #   - cd.yml, ngay sau khi build-and-push xong (deploy tự động mỗi lần
 #     push lên main)
 #   - main.yml, nhánh workflow_dispatch thủ công với `rollback_tag` — deploy
-#     lại một tag CŨ đã có sẵn trên Docker Hub mà KHÔNG build lại, dùng để
+#     lại một tag CŨ đã có sẵn trên ghcr.io mà KHÔNG build lại, dùng để
 #     rollback khi bản mới có vấn đề.
 #
 # Server quản lý bởi repo vps-manager (ansible/roles/apps). Thư mục
@@ -22,8 +22,6 @@ on:
         required: true
         type: string
     secrets:
-      DOCKER_HUB_USERNAME:
-        required: true
       VPS_HOST:
         required: true
       VPS_SSH_KEY:

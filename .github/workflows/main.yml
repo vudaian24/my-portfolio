@@ -9,7 +9,7 @@ on:
     inputs:
       rollback_tag:
         description: >-
-          Rollback: tag image đã có trên Docker Hub (vd: git SHA của lần
+          Rollback: tag image đã có trên ghcr.io (vd: git SHA của lần
           deploy trước). Điền vào đây để deploy LẠI tag cũ, KHÔNG build
           lại. Để trống nếu chỉ muốn chạy CI/CD bình thường.
         required: false
@@ -18,6 +18,24 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+# Quyền của GITHUB_TOKEN cho CẢ workflow — bắt buộc khai báo Ở ĐÂY (workflow
+# gốc, không phải reusable workflow), không phải trong cd.yml.
+#
+# Đã thử job-level `permissions:` trong cd.yml trước: GitHub từ chối chạy
+# toàn bộ pipeline với lỗi "startup_failure" (không rõ nguyên nhân qua UI,
+# phải test thực nghiệm bằng cách bỏ đi mới xác định được). Sau khi bỏ,
+# pipeline chạy được nhưng bước push lên ghcr.io báo
+# "denied: installation not allowed to Create organization package" — vì
+# tổ chức/repo đặt default_workflow_permissions=read, và quyền không tự
+# cascade lên từ job con của reusable workflow lồng nhau (main.yml gọi
+# cd.yml gọi deploy.yml). Phải khai báo elevated permission ở ĐÚNG workflow
+# gốc (workflow-level, không phải job-level, không phải trong file được
+# gọi) để nó áp dụng cho mọi job — kể cả job trong reusable workflow được
+# gọi qua `uses:`.
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   ci:
