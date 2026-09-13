@@ -29,7 +29,7 @@
       "brand": "Đại An",
       "eyebrow": "Full-stack Software Engineer · Web · Cloud & DevOps",
       "title": "Đưa sản phẩm web production ra thực tế end-to-end",
-      "description": "Full-stack engineer với hơn 3 năm làm TypeScript, Next.js và Nest.js — đồng thời là DevOps chính trên dự án khách hàng (Terraform, Docker, GitHub Actions, AWS). Mình giao tính năng trên các sản phẩm AI/RAG, streaming realtime và đặt lịch, làm việc tiếng Anh với đối tác nước ngoài.",
+      "description": "Full-stack engineer với 2,5 năm làm TypeScript, Next.js và Nest.js — đồng thời là DevOps chính trên dự án khách hàng (Terraform, Docker, GitHub Actions, AWS). Mình giao tính năng trên các sản phẩm AI/RAG, streaming realtime và đặt lịch, làm việc tiếng Anh với đối tác nước ngoài.",
       "ctaProjects": "Xem dự án",
       "ctaContact": "Liên hệ",
       "ctaResume": "Mở CV",
@@ -44,7 +44,7 @@
     "AboutSection": {
       "eyebrow": "Giới thiệu",
       "title": "Về mình",
-      "description": "Full-stack software engineer với hơn 3 năm phát triển web app production bằng TypeScript, Next.js và Nest.js, đồng thời là DevOps engineer chính trên dự án khách hàng (Terraform, Docker, GitHub Actions, AWS). Đã giao tính năng end-to-end trên ba sản phẩm khách hàng song song — chatbot AI/RAG, streaming realtime tính phí theo phút, và đặt lịch phòng khám — trong đội 5–15 engineer, làm việc trực tiếp với product owner và designer nước ngoài bằng tiếng Anh.",
+      "description": "Full-stack software engineer với 2,5 năm phát triển web app production bằng TypeScript, Next.js và Nest.js, đồng thời là DevOps engineer chính trên dự án khách hàng (Terraform, Docker, GitHub Actions, AWS). Đã giao tính năng end-to-end trên ba sản phẩm khách hàng song song — chatbot AI/RAG, streaming realtime tính phí theo phút, và đặt lịch phòng khám — trong đội 5–15 engineer, làm việc trực tiếp với product owner và designer nước ngoài bằng tiếng Anh.",
       "cta": "Xem dự án tiêu biểu",
       "skillsTitle": "Công nghệ mình dùng",
       "groups": {
