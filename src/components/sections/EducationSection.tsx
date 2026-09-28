@@ -1,12 +1,10 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { MotionReveal } from "@/components/ui/MotionReveal";
 import { SECTION_IDS } from "@/config/site";
 
-export default function EducationSection() {
-  const t = useTranslations("HomePage.EducationSection");
+export default async function EducationSection() {
+  const t = await getTranslations("HomePage.EducationSection");
 
   return (
     <Section id={SECTION_IDS.education}>

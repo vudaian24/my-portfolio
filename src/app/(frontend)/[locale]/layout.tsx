@@ -4,7 +4,7 @@ import { Outfit, Source_Sans_3 } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -22,6 +22,10 @@ const sourceSans = Source_Sans_3({
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",
 });
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 interface MetadataParams {
   params: Promise<{
@@ -55,6 +59,9 @@ export default async function LocaleLayout({ params, children }: LayoutProps) {
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  // Enable static rendering for this locale segment and everything below it
+  setRequestLocale(locale);
 
   return (
     <html lang={locale} suppressHydrationWarning>

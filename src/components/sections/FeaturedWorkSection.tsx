@@ -1,92 +1,29 @@
-"use client";
+import { getTranslations } from "next-intl/server";
+import FeaturedWorkSectionClient, {
+  type FeaturedWorkContent,
+} from "./FeaturedWorkSectionClient";
+import { FEATURED_PROJECT_ID, PROJECTS } from "@/config/site";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { useTranslations } from "next-intl";
-import { Section, SectionHeader } from "@/components/ui/Section";
-import { FEATURED_PROJECT_ID, PROJECTS, SECTION_IDS, projectAnchorId } from "@/config/site";
-import { staggerContainer, staggerItem } from "@/lib/animation";
-
-export default function FeaturedWorkSection() {
-  const t = useTranslations("HomePage.FeaturedWork");
-  const tp = useTranslations("HomePage.Projects");
+export default async function FeaturedWorkSection() {
+  const t = await getTranslations("HomePage.FeaturedWork");
+  const tp = await getTranslations("HomePage.Projects");
   const project = PROJECTS.find((p) => p.id === FEATURED_PROJECT_ID)!;
-  const reduceMotion = useReducedMotion();
 
-  return (
-    <Section id="featured">
-      <SectionHeader eyebrow={t("eyebrow")} title={t("title")} />
-      <motion.div
-        className="mt-10 border-t border-border pt-10"
-        initial={reduceMotion ? false : "hidden"}
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={
-          reduceMotion
-            ? undefined
-            : {
-                ...staggerContainer,
-                visible: {
-                  transition: { staggerChildren: 0.1, delayChildren: 0.05 },
-                },
-              }
-        }
-      >
-        <motion.p
-          variants={reduceMotion ? undefined : staggerItem}
-          className="font-display text-2xl font-semibold md:text-3xl"
-        >
-          {tp(`items.${project.id}.title`)}
-        </motion.p>
-        <motion.p
-          variants={reduceMotion ? undefined : staggerItem}
-          className="mt-2 text-sm text-muted-foreground"
-        >
-          {tp(`items.${project.id}.role`)} · {tp(`items.${project.id}.period`)}
-        </motion.p>
-        <motion.p
-          variants={reduceMotion ? undefined : staggerItem}
-          className="mt-4 max-w-3xl text-base text-muted-foreground md:text-lg"
-        >
-          {tp(`items.${project.id}.summary`)}
-        </motion.p>
-        <motion.div
-          variants={reduceMotion ? undefined : staggerItem}
-          className="mt-8 flex flex-wrap gap-3"
-        >
-          <motion.div
-            whileHover={reduceMotion ? undefined : { scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <a
-              href={`#${projectAnchorId(project.id)}`}
-              className="font-display inline-flex h-11 items-center rounded-lg bg-brand px-6 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
-            >
-              {t("cta")}
-            </a>
-          </motion.div>
-          {project.href ? (
-            <motion.div
-              whileHover={reduceMotion ? undefined : { scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 items-center rounded-lg border border-border px-6 text-sm font-semibold text-foreground transition-colors hover:border-brand/40 hover:bg-brand-muted/25"
-              >
-                {t("live")}
-              </a>
-            </motion.div>
-          ) : null}
-          <a
-            href={`#${SECTION_IDS.projects}`}
-            className="inline-flex h-11 items-center px-2 text-sm font-medium text-brand underline-offset-4 hover:underline"
-          >
-            {tp("title")} →
-          </a>
-        </motion.div>
-      </motion.div>
-    </Section>
-  );
+  const content: FeaturedWorkContent = {
+    eyebrow: t("eyebrow"),
+    title: t("title"),
+    cta: t("cta"),
+    live: t("live"),
+    projectsLabel: tp("title"),
+    project: {
+      id: project.id,
+      href: project.href,
+      title: tp(`items.${project.id}.title`),
+      role: tp(`items.${project.id}.role`),
+      period: tp(`items.${project.id}.period`),
+      summary: tp(`items.${project.id}.summary`),
+    },
+  };
+
+  return <FeaturedWorkSectionClient content={content} />;
 }
