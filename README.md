@@ -29,3 +29,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## AI usage policy (ISMS-AI-01)
+
+This repo follows TTLab's internal **Quy định sử dụng công cụ AI và Chatbot an toàn** (ISMS-AI-01, v1.0) when using AI tools / coding assistants:
+
+- Never input passwords, API keys, tokens, credentials, personal data, or trade secrets into an AI tool without written approval.
+- Don't grant AI tools full repo/credential access by default — scope to what's needed.
+- AI must not autonomously send external communications, modify production data, or merge/deploy code without human approval.
+- Report any accidental data exposure or unexpected AI/agent action to TTLab's information security team immediately.

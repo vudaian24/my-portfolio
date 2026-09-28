@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { Outfit, Source_Sans_3 } from "next/font/google";
 
 import { routing } from "@/i18n/routing";
@@ -86,6 +87,7 @@ export default async function LocaleLayout({ params, children }: LayoutProps) {
             </div>
           </NextIntlClientProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
