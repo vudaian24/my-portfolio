@@ -10,8 +10,8 @@
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings=0",
     "type-check": "tsc --noEmit --pretty",
-    "postinstall": "sharp install; husky install || true",
-    "husky:install": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && husky install || true"
+    "postinstall": "husky",
+    "husky:install": "husky"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
