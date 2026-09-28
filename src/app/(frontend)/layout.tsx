@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import { SITE_URL } from "@/config/site";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+};
 
 type Props = {
   children: ReactNode;

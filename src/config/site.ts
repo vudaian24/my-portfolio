@@ -12,6 +12,8 @@ import {
   User,
 } from "lucide-react";
 
+export const SITE_URL = "https://portfolio.anvd.io.vn";
+
 export const SECTION_IDS = {
   home: "home",
   about: "about",
